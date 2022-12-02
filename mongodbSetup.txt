@@ -7,11 +7,16 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoDBExample {
     public static void main(String[] args) {
+    
+	// Create a MongoClientURI object
+	MongoClientURI uri = new MongoClientURI(
+	"mongodb+srv://Fourchet:Fourchet@cluster0.3mq6o5k.mongodb.net/?retryWrites=true&w=majority");
+	
         // Create a connection to the MongoDB server
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = new MongoClient(uri);
         
         // Get a reference to the database
-        MongoDatabase db = mongoClient.getDatabase("myDatabase");
+        MongoDatabase db = mongoClient.getDatabase("fourchet");
         
         // Perform operations on the database
         // ...
@@ -20,3 +25,29 @@ public class MongoDBExample {
         mongoClient.close();
     }
 }
+
+
+------- HOW TO ADD MONGODB TO INTELLIJIDEA ------------
+how to add latest version of mongodb plugin to pom.xml file in java projet in Intellij IDEA ?
+
+1. Open your project in IntelliJ IDEA.
+2. Go to File > Project Structure.
+3. Select the Modules tab.
+4. Select the Dependencies tab.
+5. Click the + icon and select "Library..."
+6. Select "From Maven..."
+7. Type "mongodb-driver" in the search bar and select the latest version. (i choosed 3.9.0)
+8. Click OK.
+9. Click Apply and then OK.
+10. Open the pom.xml file and add the following dependency:
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+    </dependencies>
+
+11. Save the pom.xml file.
+12. You have now successfully added the MongoDB plugin to your project.
