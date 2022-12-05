@@ -1,21 +1,14 @@
 package com.example.jfxtest;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.control.Alert;
+import javafx.stage.Window;
 
 public class Popup {
-
-
-
-    public static void display() throws IOException {
-        Stage popupWindow = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Popup.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        popupWindow.setScene(scene);
-        popupWindow.show();
+    static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
     }
-
 }
