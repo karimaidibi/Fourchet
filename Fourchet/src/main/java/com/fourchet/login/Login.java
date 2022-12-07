@@ -1,5 +1,7 @@
 package com.fourchet.login;
 
+import com.fourchet.account.User;
+import com.fourchet.account.UserFacade;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -9,6 +11,9 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Login {
     @FXML
     private BorderPane GeneralPane;
@@ -19,16 +24,17 @@ public class Login {
     @FXML
     private HBox errorFiled;
     @FXML
-    protected void Login() throws IOException {
+    protected void Login() throws Exception {
+        String userEmail = email.getText();
+        String userPwd = password.getText();
 
-
-        if (email.getText().equals("") || password.getText().equals("")) {
-            if (email.getText().equals("")) {
+        if (userEmail.equals("") || userPwd.equals("")) {
+            if (userEmail.equals("")) {
                 email.setPromptText("email missing !");
                 email.setStyle("-fx-prompt-text-fill: red;");
                 //new animatefx.animation.Shake(email).play();
             }
-            if (password.getText().equals("")) {
+            if (userPwd.equals("")) {
                 password.setPromptText("password missing !");
                 password.setStyle("-fx-prompt-text-fill: red;");
                 //new animatefx.animation.Shake(password).play();
@@ -36,8 +42,19 @@ public class Login {
         }
 
         else {
-            errorFiled.setVisible(true);
-            showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Connection Failed", "email or password is incorrect");
+            // DEBUT DES MODIFS
+            Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
+            mongoLogger.setLevel(Level.OFF);
+            UserFacade userFacade = new UserFacade();
+            try {
+                User user = userFacade.login(userEmail, userPwd);
+            }
+
+
+            catch (Exception e) {
+                errorFiled.setVisible(true);
+                showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Connection Failed", "email or password is incorrect");
+            }
         }
     }
 

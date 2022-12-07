@@ -1,5 +1,8 @@
 package com.fourchet;
 
+import com.fourchet.account.UserDaoMongoDB;
+import com.fourchet.account.UserFacade;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
