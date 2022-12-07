@@ -1,8 +1,10 @@
 package org.fourchet.account;
 
-public class User {
+import org.bson.Document;
 
+public class User {
     private String username;
+
     private String email;
 
     private String password;
@@ -14,6 +16,13 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User(Document document) {
+        this.username = (String) document.get("username");
+        this.email = (String) document.get("email");
+        this.password = (String) document.get("password");
+        this.role = (String) document.get("role");
     }
 
     public String getEmail() {
@@ -42,5 +51,9 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

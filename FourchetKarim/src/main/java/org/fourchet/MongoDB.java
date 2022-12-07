@@ -1,13 +1,10 @@
 package org.fourchet;
 
 import com.mongodb.MongoClient;
-
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
-// this class below is a singleton
-public class Database {
-    private static Database instance = null;
+public class MongoDB {
 
     //Create a MongoClientURI object
     private MongoClientURI uri;
@@ -19,17 +16,15 @@ public class Database {
 
     //get mongo client
     public MongoClient getMongoClient() {
-        return mongoClient;
+        return this.mongoClient;
     }
 
     // get the database
-    public MongoDatabase getDB() {
-        return database;
+    public MongoDatabase getDBConnection() {
+        return this.database;
     }
 
-
-    private Database() {
-        // private constructor
+    public MongoDB() {
         // Create a MongoClientURI object
         this.uri = new MongoClientURI(
                 "mongodb+srv://Fourchet:Fourchet@cluster0.3mq6o5k.mongodb.net/?retryWrites=true&w=majority");
@@ -41,10 +36,8 @@ public class Database {
         System.out.println("Connected to the database successfully");
     }
 
-    public static Database getInstance() {
-        if (instance == null) {
-            instance = new Database();
-        }
-        return instance;
+    public void closeConnection() {
+        this.mongoClient.close();
     }
+
 }

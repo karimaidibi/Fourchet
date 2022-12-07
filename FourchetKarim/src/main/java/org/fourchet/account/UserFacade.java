@@ -2,16 +2,27 @@ package org.fourchet.account;
 
 public class UserFacade {
 
-    // The user facade knows the UserDao
-    private UserDao userDao;
+    // The UserDaoFactory
+    private UserDaoFactory userDaoFactory;
+    // The UserDao
+    private UserDaoMongoDB userDaoMongoDB;
 
-    public UserFacade(UserDao userDAO) {
-        this.userDao = userDAO;
+    private User currentUser;
+
+    public UserFacade() {
+        this.userDaoMongoDB = userDaoFactory.getUserDao();
     }
 
     // delegate the user dao to save the user
-    public void saveUser(User user) {
-        userDao.save(user);
+    public void saveUser(User user)
+    {
+        try {
+            userDaoMongoDB.save(user);
+            this.currentUser = user;
+        }catch (Exception e){
+            // TODO : replace this by sending the message to the UI
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -23,13 +34,14 @@ public class UserFacade {
      * @throws Exception if the email or password are incorrect
      */
     public User login(String email, String password) throws Exception {
-        User user = userDao.findByEmail(email);
+        User user = userDaoMongoDB.findByEmail(email);
         if (user == null) {
             throw new Exception("Email not found");
         }
         if (!user.getPassword().equals(password)) {
             throw new Exception("Password incorrect");
         }
+        this.currentUser = user;
         return user;
 
     }

@@ -12,21 +12,16 @@ public class UserController {
      * @param email
      * @param password
      * */
-    public void login(String email, String password) throws Exception {
+    public User login(String email, String password) throws Exception {
         try{
-            userFacade.login(email, password);
+            User user = userFacade.login(email, password);
+            return user;
         }
         catch (Exception e){
             // TODO : replace this by sending the message to the UI
             throw new Exception(e.getMessage());
         }
-
-
     }
-
-    /**
-     * Send message to user intefrace to display the message
-     * */
 
 
 
