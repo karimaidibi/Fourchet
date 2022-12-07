@@ -28,6 +28,7 @@ public class UserDaoMongoDB extends UserDao {
     public UserDaoMongoDB() {
         this.usersCollection = mongoDatabase.getCollection("users");
         System.out.println("Collection users selected successfully");
+
     }
 
     // retourne les users qui sont provider dans la base
@@ -105,10 +106,12 @@ public class UserDaoMongoDB extends UserDao {
     public User findByEmail(String email) {
         Document query = new Document("email", email);
         FindIterable<Document> docs = usersCollection.find(query);
-        if (docs == null) {
+        if (docs.first() == null) {
             return null;
         }
-        return new User(docs.first());
+        else {
+            return new User(docs.first());
+        }
     }
 
     //close the database connection
