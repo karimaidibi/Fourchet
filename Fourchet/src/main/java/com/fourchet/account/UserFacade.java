@@ -1,5 +1,7 @@
 package com.fourchet.account;
 
+import java.util.List;
+
 public class UserFacade {
 
     // The UserDaoFactory
@@ -10,6 +12,7 @@ public class UserFacade {
     private User currentUser;
 
     public UserFacade() {
+        this.userDaoFactory = UserDaoFactory.getInstance();
         this.userDaoMongoDB = userDaoFactory.getUserDao();
     }
 
@@ -39,10 +42,14 @@ public class UserFacade {
             throw new Exception("Email not found");
         }
         if (!user.getPassword().equals(password)) {
-            throw new Exception("Password incorrect");
+            throw new Exception("Incorrect password");
         }
         this.currentUser = user;
         return user;
 
+    }
+
+    public List<User> getAll() {
+        return userDaoMongoDB.getAll();
     }
 }

@@ -47,9 +47,9 @@ public class Login {
             mongoLogger.setLevel(Level.OFF);
             UserFacade userFacade = new UserFacade();
             try {
-                User user = userFacade.login(userEmail, userPwd);
+                User user = userFacade.login("client@gmail.com", "client");
+                System.out.println("welcome user!");
             }
-
 
             catch (Exception e) {
                 errorFiled.setVisible(true);
