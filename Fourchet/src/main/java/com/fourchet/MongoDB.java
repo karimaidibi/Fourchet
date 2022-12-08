@@ -27,7 +27,7 @@ public class MongoDB {
     public MongoDB() {
         // Create a MongoClientURI object
         this.uri = new MongoClientURI(
-                "mongodb://Fourchet:Fourchet@cluster0.3mq6o5k.mongodb.net/?retryWrites=true&w=majority");
+                "mongodb+srv://Fourchet:Fourchet@cluster0.3mq6o5k.mongodb.net/?retryWrites=true&w=majority");
         // Create a connection to the MongoDB server
         this.mongoClient = new MongoClient(uri);
         System.out.println("Connected to the database successfully");
