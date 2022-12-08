@@ -20,31 +20,33 @@ public class UserDaoMongoDB extends UserDao {
     // MongoDB factory
     private MongoDBFactory mongoDBFactory = MongoDBFactory.getInstance();
 
-    // instanciate the database class
+    // instance of the database class
     MongoDB mongoDB = mongoDBFactory.getMongoDB();
-    // get the db object
+
+    // get the connection to the database
     MongoDatabase mongoDatabase = mongoDB.getDBConnection();
 
-    // get the collection of users
+    // the collection of users
     MongoCollection usersCollection;
 
     public UserDaoMongoDB() {
+        // get the collection of users
         this.usersCollection = mongoDatabase.getCollection("users");
         System.out.println("Collection users selected successfully");
     }
 
-    // retourne les users qui sont provider dans la base
+    // return providers users in database
     public List<User> getProviders() {
         return null;
     }
 
-    // retourne les users qui sont client dans la base
+    // return clients users in database
     public List<User> getClients() {
         return null;
     }
 
 
-    // retourne l'user dont l'id est donné en paramètre
+    // return a user by id
     @Override
     public Optional<User> get(long id) {
         //return Optional.ofNullable(users.get((int) id));
@@ -106,7 +108,7 @@ public class UserDaoMongoDB extends UserDao {
         usersCollection.deleteOne(userToDelete);
     }
 
-    // retourne l'user dont l'email est donné en paramètre
+    // return a user given his email
     public User findByEmail(String email) {
         Document query = new Document("email", email);
         FindIterable<Document> docs = usersCollection.find(query);

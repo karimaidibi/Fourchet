@@ -13,7 +13,9 @@ public class UserController {
      * Handles the login request from the user.
      * @param email
      * @param password
-     * */
+     * @return the user if the email and password are correct
+     * @throws Exception if the email or password are incorrect
+     */
     public User login(String email, String password) throws Exception {
         try{
             User user = userFacade.login(email, password);

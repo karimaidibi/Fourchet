@@ -8,13 +8,17 @@ public class UserFacade {
 
     // The UserDaoFactory
     private UserDaoFactory userDaoFactory;
+
     // The UserDao
     private UserDaoMongoDB userDaoMongoDB;
 
+    // The current user
     private User currentUser;
 
     public UserFacade() {
+        // Get the instance of the UserDaoFactory
         this.userDaoFactory = UserDaoFactory.getInstance();
+        // Get the instance of the UserDao
         this.userDaoMongoDB = userDaoFactory.getUserDao();
     }
 

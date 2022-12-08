@@ -1,0 +1,7 @@
+module:com.fourchet
+com.fourchet
+com.fourchet.account
+com.fourchet.account.bl
+com.fourchet.account.loginUI
+com.fourchet.account.persist
+com.fourchet.account.users
