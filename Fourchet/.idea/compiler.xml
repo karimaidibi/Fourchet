@@ -9,8 +9,5 @@
         <module name="Fourchet" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Fourchet" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
