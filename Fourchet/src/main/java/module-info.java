@@ -8,12 +8,12 @@ module com.fourchet {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
     requires org.mongodb.driver.core;
     requires java.logging;
+    requires org.junit.jupiter.api;
 
     opens com.fourchet.UI to javafx.fxml;
     exports com.fourchet.UI;

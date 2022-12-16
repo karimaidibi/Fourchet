@@ -13,9 +13,6 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class UserDaoMongoDB extends UserDao {
-
-
-
     // Factory that create self
     DaoFactory factory;
 

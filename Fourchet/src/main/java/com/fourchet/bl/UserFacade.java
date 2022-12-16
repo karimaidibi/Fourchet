@@ -19,15 +19,23 @@ public class UserFacade {
     }
 
     // delegate the user dao to save the user
-    public void saveUser(User user)
+    public User register(User user)
     {
         try {
-            userDao.save(user);
-            this.currentUser = user;
-        }catch (Exception e){
+            User existingUser = userDao.findByEmail(user.getEmail());
+            if (existingUser != null) {
+                userDao.save(user);
+                this.currentUser = user;
+            }
+            else {
+                System.out.println("Email already registered !");
+                return null;
+            }
+        } catch (Exception e){
             // TODO : replace this by sending the message to the UI
             System.out.println(e.getMessage());
         }
+        return user;
     }
 
     /**

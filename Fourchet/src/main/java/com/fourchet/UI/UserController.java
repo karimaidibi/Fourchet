@@ -26,6 +26,15 @@ public class UserController {
         }
     }
 
-
+    public User register(String username, String email, String password, String role) throws Exception {
+        try{
+            User user = userFacade.register(new User(username, email, password, role));
+            return user;
+        }
+        catch (Exception e){
+            // TODO : replace this by sending the message to the UI
+            throw new Exception(e.getMessage());
+        }
+    }
 
 }

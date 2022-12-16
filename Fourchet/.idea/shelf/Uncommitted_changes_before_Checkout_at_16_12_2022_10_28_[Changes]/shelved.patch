@@ -1,0 +1,542 @@
+Index: src/main/java/com/fourchet/bl/UserFacade.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.fourchet.bl;\r\n\r\nimport com.fourchet.persist.AbstractFactory;\r\nimport com.fourchet.persist.UserDao;\r\nimport com.fourchet.users.User;\r\n\r\npublic class UserFacade {\r\n\r\n    // The UserDaoFactory\r\n    private AbstractFactory abstractFactory;\r\n    // The UserDao\r\n    private UserDao userDao;\r\n\r\n    private User currentUser;\r\n\r\n    public UserFacade() {\r\n        this.abstractFactory = AbstractFactory.getInstance();\r\n        this.userDao = abstractFactory.getUserDao();\r\n    }\r\n\r\n    // delegate the user dao to save the user\r\n    public void saveUser(User user)\r\n    {\r\n        try {\r\n            userDao.save(user);\r\n            this.currentUser = user;\r\n        }catch (Exception e){\r\n            // TODO : replace this by sending the message to the UI\r\n            System.out.println(e.getMessage());\r\n        }\r\n    }\r\n\r\n    /**\r\n     * This method is used to handle the login of the user\r\n     *\r\n     * @param email\r\n     * @param password\r\n     * @return the user if the email and password are correct\r\n     * @throws Exception if the email or password are incorrect\r\n     */\r\n    public User login(String email, String password) throws Exception {\r\n        User user = userDao.findByEmail(email);\r\n        if (user == null) {\r\n            throw new Exception(\"Email not found\");\r\n        }\r\n        if (!user.getPassword().equals(password)) {\r\n            throw new Exception(\"Password incorrect\");\r\n        }\r\n        this.currentUser = user;\r\n        return user;\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/fourchet/bl/UserFacade.java b/src/main/java/com/fourchet/bl/UserFacade.java
+--- a/src/main/java/com/fourchet/bl/UserFacade.java	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/src/main/java/com/fourchet/bl/UserFacade.java	(date 1671033556744)
+@@ -19,15 +19,23 @@
+     }
+ 
+     // delegate the user dao to save the user
+-    public void saveUser(User user)
++    public User register(User user)
+     {
+         try {
+-            userDao.save(user);
+-            this.currentUser = user;
+-        }catch (Exception e){
++            User existingUser = userDao.findByEmail(user.getEmail());
++            if (existingUser != null) {
++                userDao.save(user);
++                this.currentUser = user;
++            }
++            else {
++                System.out.println("Email already registered !");
++                return null;
++            }
++        } catch (Exception e){
+             // TODO : replace this by sending the message to the UI
+             System.out.println(e.getMessage());
+         }
++        return user;
+     }
+ 
+     /**
+Index: src/main/java/com/fourchet/UI/Login.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/fourchet/UI/Login.java b/src/main/java/com/fourchet/UI/LoginFrame.java
+rename from src/main/java/com/fourchet/UI/Login.java
+rename to src/main/java/com/fourchet/UI/LoginFrame.java
+--- a/src/main/java/com/fourchet/UI/Login.java	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/src/main/java/com/fourchet/UI/LoginFrame.java	(date 1671031741573)
+@@ -10,7 +10,7 @@
+ import javafx.scene.layout.HBox;
+ import javafx.stage.Window;
+ 
+-public class Login {
++public class LoginFrame {
+     @FXML
+     private BorderPane GeneralPane;
+     @FXML
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module com.fourchet {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n    requires javafx.web;\r\n\r\n    requires org.controlsfx.controls;\r\n    requires com.dlsc.formsfx;\r\n    requires net.synedra.validatorfx;\r\n    requires org.kordamp.ikonli.javafx;\r\n    requires org.kordamp.bootstrapfx.core;\r\n    //requires eu.hansolo.tilesfx;\r\n    requires com.almasb.fxgl.all;\r\n    requires org.mongodb.driver.sync.client;\r\n    requires org.mongodb.bson;\r\n    requires org.mongodb.driver.core;\r\n    requires java.logging;\r\n\r\n    opens com.fourchet.UI to javafx.fxml;\r\n    exports com.fourchet.UI;\r\n\r\n    exports com.fourchet.persist;\r\n    opens com.fourchet.persist to javafx.fxml;\r\n\r\n    exports com.fourchet.bl;\r\n    opens com.fourchet.bl to javafx.fxml;\r\n\r\n    exports com.fourchet.users;\r\n    opens com.fourchet.users to javafx.fxml;\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/src/main/java/module-info.java	(date 1671182700442)
+@@ -8,12 +8,12 @@
+     requires net.synedra.validatorfx;
+     requires org.kordamp.ikonli.javafx;
+     requires org.kordamp.bootstrapfx.core;
+-    //requires eu.hansolo.tilesfx;
+     requires com.almasb.fxgl.all;
+     requires org.mongodb.driver.sync.client;
+     requires org.mongodb.bson;
+     requires org.mongodb.driver.core;
+     requires java.logging;
++    requires org.junit.jupiter.api;
+ 
+     opens com.fourchet.UI to javafx.fxml;
+     exports com.fourchet.UI;
+Index: src/main/java/com/fourchet/UI/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.fourchet.UI;\r\n\r\nimport com.fourchet.bl.UserFacade;\r\nimport com.fourchet.users.User;\r\n\r\npublic class UserController {\r\n    private UserFacade userFacade;\r\n\r\n    public UserController() {\r\n        this.userFacade = new UserFacade();\r\n    }\r\n\r\n    /**\r\n     * Handles the login request from the user.\r\n     * @param email\r\n     * @param password\r\n     * */\r\n    public User login(String email, String password) throws Exception {\r\n        try{\r\n            User user = userFacade.login(email, password);\r\n            return user;\r\n        }\r\n        catch (Exception e){\r\n            // TODO : replace this by sending the message to the UI\r\n            throw new Exception(e.getMessage());\r\n        }\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/fourchet/UI/UserController.java b/src/main/java/com/fourchet/UI/UserController.java
+--- a/src/main/java/com/fourchet/UI/UserController.java	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/src/main/java/com/fourchet/UI/UserController.java	(date 1671033513277)
+@@ -26,6 +26,15 @@
+         }
+     }
+ 
+-
++    public User register(String username, String email, String password, String role) throws Exception {
++        try{
++            User user = userFacade.register(new User(username, email, password, role));
++            return user;
++        }
++        catch (Exception e){
++            // TODO : replace this by sending the message to the UI
++            throw new Exception(e.getMessage());
++        }
++    }
+ 
+ }
+Index: src/main/java/com/fourchet/UI/RegisterFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/fourchet/UI/RegisterFrame.java b/src/main/java/com/fourchet/UI/RegisterFrame.java
+new file mode 100644
+--- /dev/null	(date 1671034166765)
++++ b/src/main/java/com/fourchet/UI/RegisterFrame.java	(date 1671034166765)
+@@ -0,0 +1,72 @@
++package com.fourchet.UI;
++
++import com.fourchet.users.User;
++
++import javafx.fxml.FXML;
++import javafx.scene.control.Alert;
++import javafx.scene.control.PasswordField;
++import javafx.scene.control.RadioButton;
++import javafx.scene.control.TextField;
++import javafx.scene.layout.BorderPane;
++import javafx.scene.layout.HBox;
++import javafx.stage.Window;
++
++public class RegisterFrame {
++    @FXML
++    private BorderPane GeneralPane;
++    @FXML
++    private TextField username;
++    @FXML
++    private TextField email;
++    @FXML
++    private PasswordField password;
++
++    @FXML
++    private RadioButton role;
++
++    @FXML
++    private HBox errorFiled;
++
++    private UserController userController = new UserController();
++    @FXML
++    protected void RegisterFrame() throws Exception {
++
++
++        if (username.getText().equals("") || email.getText().equals("") || password.getText().equals("")) {
++            if (email.getText().equals("")) {
++                email.setPromptText("email missing !");
++                email.setStyle("-fx-prompt-text-fill: red;");
++            }
++            if (password.getText().equals("")) {
++                password.setPromptText("password missing !");
++                password.setStyle("-fx-prompt-text-fill: red;");
++            }
++        }
++
++        else {
++
++            //errorFiled.setVisible(true);
++            //showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Connection Failed", "email or password is incorrect");
++
++            // if success
++            try{
++                // send the log in to the data
++                User user = userController.register(username.getText(), email.getText(), password.getText(), role.getText());
++                showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Registration Success", "Welcome " + user.getUsername());
++            }catch (Exception e){
++                showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Registration Failed", e.getMessage());
++            }
++
++        }
++    }
++
++    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
++        Alert alert = new Alert(alertType);
++        alert.setTitle(title);
++        alert.setHeaderText(null);
++        alert.setContentText(message);
++        alert.initOwner(owner);
++        alert.show();
++    }
++
++}
+\ No newline at end of file
+Index: src/main/resources/com/fourchet/UI/Login.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.GridPane?>\r\n<?import javafx.scene.layout.ColumnConstraints?>\r\n<?import javafx.scene.layout.RowConstraints?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.PasswordField?>\r\n<BorderPane fx:id=\"GeneralPane\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"400.0\" prefWidth=\"600.0\" style=\"-fx-background-color: white;\" xmlns=\"http://javafx.com/javafx/16\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.fourchet.UI.Login\">\r\n   <bottom>\r\n      <AnchorPane prefHeight=\"100.0\" prefWidth=\"100.0\" style=\"-fx-background-color: black;\" BorderPane.alignment=\"CENTER\" />\r\n   </bottom>\r\n   <top>\r\n      <GridPane prefHeight=\"100.0\" BorderPane.alignment=\"CENTER\">\r\n        <columnConstraints>\r\n          <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n          <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n            <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n        </columnConstraints>\r\n        <rowConstraints>\r\n          <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n        </rowConstraints>\r\n         <children>\r\n            <HBox prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: grey;\" />\r\n            <HBox prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: grey;\" GridPane.columnIndex=\"1\" />\r\n            <HBox prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: grey;\" GridPane.columnIndex=\"2\" />\r\n         </children>\r\n      </GridPane>\r\n   </top>\r\n   <center>\r\n       <GridPane alignment=\"CENTER\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"400.0\" minWidth=\"600.0\" GridPane.rowIndex=\"1\">\r\n           <columnConstraints>\r\n               <ColumnConstraints />\r\n               <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"195.0\" minWidth=\"10.0\" prefWidth=\"68.99999237060547\" />\r\n               <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"401.1999694824218\" minWidth=\"10.0\" prefWidth=\"401.1999694824218\" />\r\n               <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"145.0\" minWidth=\"10.0\" prefWidth=\"80.00003051757812\" />\r\n           </columnConstraints>\r\n           <rowConstraints>\r\n               <RowConstraints maxHeight=\"128.4\" minHeight=\"10.0\" prefHeight=\"15.399994277954107\" vgrow=\"SOMETIMES\" />\r\n               <RowConstraints maxHeight=\"309.0\" minHeight=\"10.0\" prefHeight=\"309.0\" vgrow=\"SOMETIMES\" />\r\n               <RowConstraints maxHeight=\"76.39999999999998\" minHeight=\"10.0\" prefHeight=\"24.399999999999977\" vgrow=\"SOMETIMES\" />\r\n           </rowConstraints>\r\n           <children>\r\n               <GridPane alignment=\"CENTER\" style=\"-fx-background-radius: 10; -fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);\" GridPane.columnIndex=\"2\" GridPane.rowIndex=\"1\">\r\n                   <columnConstraints>\r\n                       <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                   </columnConstraints>\r\n                   <rowConstraints>\r\n                       <RowConstraints maxHeight=\"184.4\" minHeight=\"10.0\" prefHeight=\"128.20000762939452\" vgrow=\"SOMETIMES\" />\r\n                       <RowConstraints maxHeight=\"260.00000762939453\" minHeight=\"10.0\" prefHeight=\"163.0\" vgrow=\"SOMETIMES\" />\r\n                       <RowConstraints maxHeight=\"130.60000000000002\" minHeight=\"10.0\" prefHeight=\"108.60000000000002\" vgrow=\"SOMETIMES\" />\r\n                   </rowConstraints>\r\n                   <children>\r\n                       <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.rowIndex=\"2\">\r\n                           <children>\r\n                               <Button mnemonicParsing=\"false\" onAction=\"#Login\" text=\"Login\">\r\n                           <font>\r\n                              <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                           </font></Button>\r\n                           </children>\r\n                       </VBox>\r\n                       <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\">\r\n                           <children>\r\n                               <Label text=\"Login\">\r\n                           <font>\r\n                              <Font name=\"Dubai Regular\" size=\"18.0\" />\r\n                           </font></Label>\r\n                           </children>\r\n                       </VBox>\r\n                       <GridPane GridPane.rowIndex=\"1\">\r\n                           <columnConstraints>\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                           </columnConstraints>\r\n                           <rowConstraints>\r\n                               <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n                               <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n                        <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n                           </rowConstraints>\r\n                           <children>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"2\">\r\n                                   <children>\r\n                                       <TextField fx:id=\"email\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></TextField>\r\n                                   </children></VBox>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"1\">\r\n                                   <children>\r\n                                       <Label text=\"email\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></Label>\r\n                                   </children>\r\n                               </VBox>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"1\">\r\n                                   <children>\r\n                                       <Label text=\"password\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></Label>\r\n                                   </children>\r\n                               </VBox>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"2\" GridPane.rowIndex=\"1\">\r\n                                   <children>\r\n                                       <PasswordField fx:id=\"password\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></PasswordField>\r\n                                   </children>\r\n                               </VBox>\r\n                        <HBox fx:id=\"errorFiled\" visible=\"false\" alignment=\"CENTER\" prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: white; -fx-border-color: red; -fx-border-radius: 4;\" GridPane.columnIndex=\"1\" GridPane.columnSpan=\"2\" GridPane.rowIndex=\"2\">\r\n                           <children>\r\n                              <Label text=\"Error\" textAlignment=\"CENTER\" textFill=\"RED\" />\r\n                           </children>\r\n                           <GridPane.margin>\r\n                              <Insets bottom=\"5.0\" top=\"5.0\" />\r\n                           </GridPane.margin>\r\n                        </HBox>\r\n                           </children>\r\n                       </GridPane>\r\n                   </children>\r\n               </GridPane>\r\n           </children>\r\n           <VBox.margin>\r\n               <Insets />\r\n           </VBox.margin>\r\n       </GridPane>\r\n   </center>\r\n</BorderPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/fourchet/UI/Login.fxml b/src/main/resources/com/fourchet/UI/Login.fxml
+--- a/src/main/resources/com/fourchet/UI/Login.fxml	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/src/main/resources/com/fourchet/UI/Login.fxml	(date 1671031741565)
+@@ -13,7 +13,7 @@
+ <?import javafx.scene.control.Label?>
+ <?import javafx.geometry.Insets?>
+ <?import javafx.scene.control.PasswordField?>
+-<BorderPane fx:id="GeneralPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.UI.Login">
++<BorderPane fx:id="GeneralPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.UI.LoginFrame">
+    <bottom>
+       <AnchorPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+    </bottom>
+Index: target/classes/com/fourchet/UI/Login.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.GridPane?>\r\n<?import javafx.scene.layout.ColumnConstraints?>\r\n<?import javafx.scene.layout.RowConstraints?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.PasswordField?>\r\n<BorderPane fx:id=\"GeneralPane\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"400.0\" prefWidth=\"600.0\" style=\"-fx-background-color: white;\" xmlns=\"http://javafx.com/javafx/16\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.fourchet.UI.Login\">\r\n   <bottom>\r\n      <AnchorPane prefHeight=\"100.0\" prefWidth=\"100.0\" style=\"-fx-background-color: black;\" BorderPane.alignment=\"CENTER\" />\r\n   </bottom>\r\n   <top>\r\n      <GridPane prefHeight=\"100.0\" BorderPane.alignment=\"CENTER\">\r\n        <columnConstraints>\r\n          <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n          <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n            <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n        </columnConstraints>\r\n        <rowConstraints>\r\n          <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n        </rowConstraints>\r\n         <children>\r\n            <HBox prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: grey;\" />\r\n            <HBox prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: grey;\" GridPane.columnIndex=\"1\" />\r\n            <HBox prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: grey;\" GridPane.columnIndex=\"2\" />\r\n         </children>\r\n      </GridPane>\r\n   </top>\r\n   <center>\r\n       <GridPane alignment=\"CENTER\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"400.0\" minWidth=\"600.0\" GridPane.rowIndex=\"1\">\r\n           <columnConstraints>\r\n               <ColumnConstraints />\r\n               <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"195.0\" minWidth=\"10.0\" prefWidth=\"68.99999237060547\" />\r\n               <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"401.1999694824218\" minWidth=\"10.0\" prefWidth=\"401.1999694824218\" />\r\n               <ColumnConstraints hgrow=\"SOMETIMES\" maxWidth=\"145.0\" minWidth=\"10.0\" prefWidth=\"80.00003051757812\" />\r\n           </columnConstraints>\r\n           <rowConstraints>\r\n               <RowConstraints maxHeight=\"128.4\" minHeight=\"10.0\" prefHeight=\"15.399994277954107\" vgrow=\"SOMETIMES\" />\r\n               <RowConstraints maxHeight=\"309.0\" minHeight=\"10.0\" prefHeight=\"309.0\" vgrow=\"SOMETIMES\" />\r\n               <RowConstraints maxHeight=\"76.39999999999998\" minHeight=\"10.0\" prefHeight=\"24.399999999999977\" vgrow=\"SOMETIMES\" />\r\n           </rowConstraints>\r\n           <children>\r\n               <GridPane alignment=\"CENTER\" style=\"-fx-background-radius: 10; -fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);\" GridPane.columnIndex=\"2\" GridPane.rowIndex=\"1\">\r\n                   <columnConstraints>\r\n                       <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                   </columnConstraints>\r\n                   <rowConstraints>\r\n                       <RowConstraints maxHeight=\"184.4\" minHeight=\"10.0\" prefHeight=\"128.20000762939452\" vgrow=\"SOMETIMES\" />\r\n                       <RowConstraints maxHeight=\"260.00000762939453\" minHeight=\"10.0\" prefHeight=\"163.0\" vgrow=\"SOMETIMES\" />\r\n                       <RowConstraints maxHeight=\"130.60000000000002\" minHeight=\"10.0\" prefHeight=\"108.60000000000002\" vgrow=\"SOMETIMES\" />\r\n                   </rowConstraints>\r\n                   <children>\r\n                       <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.rowIndex=\"2\">\r\n                           <children>\r\n                               <Button mnemonicParsing=\"false\" onAction=\"#Login\" text=\"Login\">\r\n                           <font>\r\n                              <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                           </font></Button>\r\n                           </children>\r\n                       </VBox>\r\n                       <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\">\r\n                           <children>\r\n                               <Label text=\"Login\">\r\n                           <font>\r\n                              <Font name=\"Dubai Regular\" size=\"18.0\" />\r\n                           </font></Label>\r\n                           </children>\r\n                       </VBox>\r\n                       <GridPane GridPane.rowIndex=\"1\">\r\n                           <columnConstraints>\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                               <ColumnConstraints hgrow=\"SOMETIMES\" minWidth=\"10.0\" prefWidth=\"100.0\" />\r\n                           </columnConstraints>\r\n                           <rowConstraints>\r\n                               <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n                               <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n                        <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" vgrow=\"SOMETIMES\" />\r\n                           </rowConstraints>\r\n                           <children>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"2\">\r\n                                   <children>\r\n                                       <TextField fx:id=\"email\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></TextField>\r\n                                   </children></VBox>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"1\">\r\n                                   <children>\r\n                                       <Label text=\"email\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></Label>\r\n                                   </children>\r\n                               </VBox>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"1\" GridPane.rowIndex=\"1\">\r\n                                   <children>\r\n                                       <Label text=\"password\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></Label>\r\n                                   </children>\r\n                               </VBox>\r\n                               <VBox alignment=\"CENTER\" prefHeight=\"200.0\" prefWidth=\"100.0\" GridPane.columnIndex=\"2\" GridPane.rowIndex=\"1\">\r\n                                   <children>\r\n                                       <PasswordField fx:id=\"password\">\r\n                                 <font>\r\n                                    <Font name=\"Dubai Regular\" size=\"12.0\" />\r\n                                 </font></PasswordField>\r\n                                   </children>\r\n                               </VBox>\r\n                        <HBox fx:id=\"errorFiled\" visible=\"false\" alignment=\"CENTER\" prefHeight=\"100.0\" prefWidth=\"200.0\" style=\"-fx-background-color: white; -fx-border-color: red; -fx-border-radius: 4;\" GridPane.columnIndex=\"1\" GridPane.columnSpan=\"2\" GridPane.rowIndex=\"2\">\r\n                           <children>\r\n                              <Label text=\"Error\" textAlignment=\"CENTER\" textFill=\"RED\" />\r\n                           </children>\r\n                           <GridPane.margin>\r\n                              <Insets bottom=\"5.0\" top=\"5.0\" />\r\n                           </GridPane.margin>\r\n                        </HBox>\r\n                           </children>\r\n                       </GridPane>\r\n                   </children>\r\n               </GridPane>\r\n           </children>\r\n           <VBox.margin>\r\n               <Insets />\r\n           </VBox.margin>\r\n       </GridPane>\r\n   </center>\r\n</BorderPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/com/fourchet/UI/Login.fxml b/target/classes/com/fourchet/UI/Login.fxml
+--- a/target/classes/com/fourchet/UI/Login.fxml	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/target/classes/com/fourchet/UI/Login.fxml	(date 1671031741565)
+@@ -13,7 +13,7 @@
+ <?import javafx.scene.control.Label?>
+ <?import javafx.geometry.Insets?>
+ <?import javafx.scene.control.PasswordField?>
+-<BorderPane fx:id="GeneralPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.UI.Login">
++<BorderPane fx:id="GeneralPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.UI.LoginFrame">
+    <bottom>
+       <AnchorPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+    </bottom>
+Index: src/test/java/com/fourchet/bl/UserFacadeTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/fourchet/bl/UserFacadeTest.java b/src/test/java/com/fourchet/bl/UserFacadeTest.java
+new file mode 100644
+--- /dev/null	(date 1671182700426)
++++ b/src/test/java/com/fourchet/bl/UserFacadeTest.java	(date 1671182700426)
+@@ -0,0 +1,31 @@
++package com.fourchet.bl;
++
++import com.fourchet.users.User;
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertEquals;
++
++class UserFacadeTest {
++
++    @BeforeEach
++    void setUp() {
++    }
++
++    @Test
++    void register() {
++    }
++
++    @Test
++    void login() {
++        User clientUser = new User("client", "client@gmail.com", "client", "client");
++        try {
++            UserFacade facade = new UserFacade();
++            User u = facade.login("client@gmail.com", "client");
++            assertEquals(clientUser, u);
++        }
++        catch (Exception e) {
++            System.out.println(e.getMessage());
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/java/com/fourchet/persist/UserDaoMongoDB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.fourchet.persist;\r\n\r\nimport com.fourchet.users.User;\r\nimport com.mongodb.client.FindIterable;\r\nimport com.mongodb.client.MongoCollection;\r\nimport com.mongodb.client.MongoDatabase;\r\nimport org.bson.Document;\r\n\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Objects;\r\nimport java.util.Optional;\r\n\r\npublic class UserDaoMongoDB extends UserDao {\r\n\r\n\r\n\r\n    // Factory that create self\r\n    DaoFactory factory;\r\n\r\n    // get the collection of users\r\n    MongoCollection usersCollection;\r\n\r\n    MongoDatabase mongoDatabase;\r\n\r\n    public UserDaoMongoDB(DaoFactory factory) {\r\n        this.factory = factory;\r\n        this.mongoDatabase = factory.getMongoDatabase();\r\n        this.usersCollection = mongoDatabase.getCollection(\"users\");\r\n        System.out.println(\"Collection users selected successfully\");\r\n    }\r\n\r\n    // retourne les users qui sont provider dans la base\r\n    public List<User> getProviders() {\r\n        return null;\r\n    }\r\n\r\n    // retourne les users qui sont client dans la base\r\n    public List<User> getClients() {\r\n        return null;\r\n    }\r\n\r\n\r\n    // retourne l'user dont l'id est donné en paramètre\r\n    @Override\r\n    public Optional<User> get(long id) {\r\n        //return Optional.ofNullable(users.get((int) id));\r\n        return null;\r\n    }\r\n\r\n    /**\r\n     * return all the users in the database as a list of users objects\r\n     * it should replace the FindIterable<Document> by List<User> or add the founded users to the list of users\r\n     */\r\n    @Override\r\n    public List<User> getAll() {\r\n        List users = new ArrayList<User>();\r\n        // A request to Find all documents in the collection of users\r\n        FindIterable<Document> documents = usersCollection.find();\r\n        System.out.println(\"Documents found successfully\");\r\n        System.out.println(documents.first());\r\n        // Iterate through the documents\r\n        for (Document doc : documents) {\r\n            System.out.println(doc);\r\n            users.add(new User(doc));\r\n        }\r\n        return users;\r\n    }\r\n\r\n    @Override\r\n    public void save(User user){\r\n        // create a new user\r\n        // Create the document\r\n        Document userDocument = new Document(\"username\", user.getUsername())\r\n                .append(\"email\", user.getEmail())\r\n                .append(\"role\", user.getRole())\r\n                .append(\"password\", user.getPassword());\r\n\r\n        // insert a user into the collection of users\r\n        usersCollection.insertOne(userDocument);\r\n    }\r\n\r\n    //\r\n    @Override\r\n    public void update(User user, String[] params) {\r\n        user.setEmail(Objects.requireNonNull(\r\n                params[0], \"Email cannot be null\"));\r\n        user.setPassword(Objects.requireNonNull(\r\n                params[1], \"Password cannot be null\"));\r\n        user.setRole(Objects.requireNonNull(\r\n                params[2], \"Role cannot be null\"));\r\n    }\r\n\r\n    @Override\r\n    public void delete(User user) {\r\n        //delete the user\r\n        //document to delete\r\n        Document userToDelete = new Document(\"username\", user.getUsername())\r\n                .append(\"email\", user.getEmail())\r\n                .append(\"role\", user.getRole())\r\n                .append(\"password\", user.getPassword());\r\n\r\n        usersCollection.deleteOne(userToDelete);\r\n    }\r\n\r\n    // retourne l'user dont l'email est donné en paramètre\r\n    public User findByEmail(String email) {\r\n        Document query = new Document(\"email\", email);\r\n        FindIterable<Document> docs = usersCollection.find(query);\r\n        if (docs.first() == null) {\r\n            return null;\r\n        }\r\n        return new User(docs.first());\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/fourchet/persist/UserDaoMongoDB.java b/src/main/java/com/fourchet/persist/UserDaoMongoDB.java
+--- a/src/main/java/com/fourchet/persist/UserDaoMongoDB.java	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/src/main/java/com/fourchet/persist/UserDaoMongoDB.java	(date 1671031589746)
+@@ -13,9 +13,6 @@
+ import java.util.Optional;
+ 
+ public class UserDaoMongoDB extends UserDao {
+-
+-
+-
+     // Factory that create self
+     DaoFactory factory;
+ 
+Index: src/main/resources/com/fourchet/UI/RegisterFrame.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/com/fourchet/UI/RegisterFrame.fxml b/src/main/resources/com/fourchet/UI/RegisterFrame.fxml
+new file mode 100644
+--- /dev/null	(date 1671034391921)
++++ b/src/main/resources/com/fourchet/UI/RegisterFrame.fxml	(date 1671034391921)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.layout.*?>
++
++
++<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" />
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>com</groupId>\r\n    <artifactId>Fourchet</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n    <name>Fourchet</name>\r\n\r\n    <properties>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n        <junit.version>5.9.1</junit.version>\r\n    </properties>\r\n\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-controls</artifactId>\r\n            <version>17.0.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-fxml</artifactId>\r\n            <version>17.0.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-web</artifactId>\r\n            <version>17.0.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.openjfx</groupId>\r\n            <artifactId>javafx-media</artifactId>\r\n            <version>17.0.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.controlsfx</groupId>\r\n            <artifactId>controlsfx</artifactId>\r\n            <version>11.1.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.dlsc.formsfx</groupId>\r\n            <artifactId>formsfx-core</artifactId>\r\n            <version>11.5.0</version>\r\n            <exclusions>\r\n                <exclusion>\r\n                    <groupId>org.openjfx</groupId>\r\n                    <artifactId>*</artifactId>\r\n                </exclusion>\r\n            </exclusions>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>net.synedra</groupId>\r\n            <artifactId>validatorfx</artifactId>\r\n            <version>0.3.1</version>\r\n            <exclusions>\r\n                <exclusion>\r\n                    <groupId>org.openjfx</groupId>\r\n                    <artifactId>*</artifactId>\r\n                </exclusion>\r\n            </exclusions>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.kordamp.ikonli</groupId>\r\n            <artifactId>ikonli-javafx</artifactId>\r\n            <version>12.3.1</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.kordamp.bootstrapfx</groupId>\r\n            <artifactId>bootstrapfx-core</artifactId>\r\n            <version>0.4.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>eu.hansolo</groupId>\r\n            <artifactId>tilesfx</artifactId>\r\n            <version>17.1.9</version>\r\n            <exclusions>\r\n                <exclusion>\r\n                    <groupId>org.openjfx</groupId>\r\n                    <artifactId>*</artifactId>\r\n                </exclusion>\r\n            </exclusions>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>com.github.almasb</groupId>\r\n            <artifactId>fxgl</artifactId>\r\n            <version>11.17</version>\r\n            <exclusions>\r\n                <exclusion>\r\n                    <groupId>org.openjfx</groupId>\r\n                    <artifactId>*</artifactId>\r\n                </exclusion>\r\n            </exclusions>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>${junit.version}</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-engine</artifactId>\r\n            <version>${junit.version}</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.mongodb</groupId>\r\n            <artifactId>mongodb-driver-sync</artifactId>\r\n            <version>4.3.4</version>\r\n        </dependency>\r\n    </dependencies>\r\n\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-compiler-plugin</artifactId>\r\n                <version>3.10.1</version>\r\n                <configuration>\r\n                    <source>11</source>\r\n                    <target>11</target>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>org.openjfx</groupId>\r\n                <artifactId>javafx-maven-plugin</artifactId>\r\n                <version>0.0.8</version>\r\n                <executions>\r\n                    <execution>\r\n                        <!-- Default configuration for running with: mvn clean javafx:run -->\r\n                        <id>default-cli</id>\r\n                        <configuration>\r\n                            <mainClass>com.fourchet/com.fourchet.HelloApplication</mainClass>\r\n                            <launcher>app</launcher>\r\n                            <jlinkZipName>app</jlinkZipName>\r\n                            <jlinkImageName>app</jlinkImageName>\r\n                            <noManPages>true</noManPages>\r\n                            <stripDebug>true</stripDebug>\r\n                            <noHeaderFiles>true</noHeaderFiles>\r\n                        </configuration>\r\n                    </execution>\r\n                </executions>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/pom.xml	(date 1671181569966)
+@@ -95,21 +95,26 @@
+             </exclusions>
+         </dependency>
+         <dependency>
+-            <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-api</artifactId>
+-            <version>${junit.version}</version>
++            <groupId>junit</groupId>
++            <artifactId>junit</artifactId>
++            <version>4.13.2</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-engine</artifactId>
+-            <version>${junit.version}</version>
++            <artifactId>junit-jupiter</artifactId>
++            <version>5.9.0</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.mongodb</groupId>
+             <artifactId>mongodb-driver-sync</artifactId>
+             <version>4.3.4</version>
++        </dependency>
++        <dependency>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-api</artifactId>
++            <version>5.9.0</version>
+         </dependency>
+     </dependencies>
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"381ae847-101c-4474-855f-ee6eb552fe47\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/Dao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/persist/Dao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/MongoDB.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/persist/MongoDB.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/MongoDBFactory.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/UserDao.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/persist/UserDao.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/UserDaoFactory.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/bl/UserController.java\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/bl/UserFacade.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/bl/UserFacade.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Application.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/UI/Application.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Login.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/UI/Login.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Popup.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/UI/Popup.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/persist/UserDaoMongoDB.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/persist/UserDaoMongoDB.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/users/Client.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/users/Client.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/users/Provider.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/users/Provider.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/fourchet/account/users/User.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/fourchet/account/loginUI/Login.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/com/fourchet/UI/Login.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/Dao.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/MongoDB.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/MongoDBFactory.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/UserDao.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/UserDaoFactory.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/bl/UserController.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/bl/UserFacade.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Application.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login$Shake.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login.fxml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Popup.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/persist/UserDaoMongoDB.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/users/Client.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/users/Provider.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/fourchet/account/users/User.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/module-info.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/module-info.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeInsightWorkspaceSettings\">\r\n    <option name=\"optimizeImportsOnTheFly\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$/..\" value=\"fourchetLogin\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Idmr23Yj5R9IvTiZFyued8R6EH\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"autoscrollFromSource\" value=\"true\" />\r\n    <option name=\"autoscrollToSource\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.33109468&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"com.fourchet.account.persist\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$/src/main/resources/com/fourchet/login\" />\r\n      <recent name=\"$PROJECT_DIR$/src/main/java/com/fourchet\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$/src/main/resources/com/fourchet/login\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.fourchet.UI\" />\r\n      <recent name=\"com.fourchet\" />\r\n      <recent name=\"com.fourchet.account\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.com.fourchet.UI.Application\">\r\n    <configuration name=\"HelloApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.fourchet.HelloApplication\" />\r\n      <module name=\"Fourchet\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.fourchet.persist.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.fourchet.Main\" />\r\n      <module name=\"Fourchet\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.fourchet.persist.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"com.fourchet.UI.Application\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.fourchet.UI.Application\" />\r\n      <module name=\"Fourchet\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.fourchet.UI.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.com.fourchet.UI.Application\" />\r\n        <item itemvalue=\"Application.com.fourchet.Main\" />\r\n        <item itemvalue=\"Application.com.fourchet.HelloApplication\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"381ae847-101c-4474-855f-ee6eb552fe47\" name=\"Changes\" comment=\"\" />\r\n      <created>1670520030951</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670520030951</updated>\r\n      <workItem from=\"1670520032370\" duration=\"4813000\" />\r\n      <workItem from=\"1670524999518\" duration=\"3077000\" />\r\n      <workItem from=\"1670532606126\" duration=\"2033000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision be31dffc42a3dfadad82a5ca6870d44b25ce6384)
++++ b/.idea/workspace.xml	(date 1671182872065)
+@@ -5,40 +5,23 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="381ae847-101c-4474-855f-ee6eb552fe47" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/RegisterFrame.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/UI/RegisterFrame.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/UserFacadeTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/Dao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/MongoDB.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/MongoDBFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/UserDao.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/UserDaoFactory.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/bl/UserController.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/bl/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/UserFacade.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/Application.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/Login.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/Popup.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/persist/UserDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/UserDaoMongoDB.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/users/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/Client.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/users/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/Provider.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/LoginFrame.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/UI/UserController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/UserFacade.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/UserDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/UserDaoMongoDB.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/account/loginUI/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/UI/Login.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/Dao.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/MongoDB.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/MongoDBFactory.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/UserDao.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/UserDaoFactory.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/bl/UserController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/bl/UserFacade.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Application.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login$Shake.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login.fxml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Popup.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/persist/UserDaoMongoDB.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/users/Client.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/users/Provider.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/users/User.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/UI/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/UI/Login.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/UI/Login$Shake.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/UI/Login.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/UI/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/UI/Login.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/UI/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/UI/UserController.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/UserFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/UserFacade.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/UserDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/UserDaoMongoDB.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -53,6 +36,8 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Class" />
++        <option value="FxmlFile" />
++        <option value="JUnit5 Test Class" />
+       </list>
+     </option>
+   </component>
+@@ -74,22 +59,26 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.33109468&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
++    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
++    "create.test.in.the.same.root": "true",
++    "last_opened_file_path": "/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "SDKs",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.33109468",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="com.fourchet.account.persist" />
+@@ -100,14 +89,33 @@
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/login" />
++    </key>
++    <key name="CreateTestDialog.Recents.Supers">
++      <recent name="" />
+     </key>
+     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+       <recent name="com.fourchet.UI" />
+       <recent name="com.fourchet" />
+       <recent name="com.fourchet.account" />
++    </key>
++    <key name="CreateTestDialog.RecentsKey">
++      <recent name="com.fourchet.bl" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.com.fourchet.UI.Application">
++  <component name="RunManager" selected="JUnit.UserFacadeTest.login">
++    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.fourchet.UI.Application" />
++      <module name="Fourchet" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.fourchet.UI.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="com.fourchet.HelloApplication" />
+       <module name="Fourchet" />
+@@ -134,24 +142,25 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="com.fourchet.UI.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.fourchet.UI.Application" />
++    <configuration name="UserFacadeTest.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="Fourchet" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.fourchet.UI.*" />
++          <option name="PATTERN" value="com.fourchet.bl.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="com.fourchet.bl" />
++      <option name="MAIN_CLASS_NAME" value="com.fourchet.bl.UserFacadeTest" />
++      <option name="METHOD_NAME" value="login" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.com.fourchet.UI.Application" />
+-        <item itemvalue="Application.com.fourchet.Main" />
+-        <item itemvalue="Application.com.fourchet.HelloApplication" />
++        <item itemvalue="JUnit.UserFacadeTest.login" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -166,6 +175,8 @@
+       <workItem from="1670520032370" duration="4813000" />
+       <workItem from="1670524999518" duration="3077000" />
+       <workItem from="1670532606126" duration="2033000" />
++      <workItem from="1671031443535" duration="2926000" />
++      <workItem from="1671181165661" duration="1696000" />
+     </task>
+     <servers />
+   </component>
