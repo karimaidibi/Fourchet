@@ -9,28 +9,29 @@ module com.fourchet {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     //requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
+    //requires eu.hansolo.fx.heatmap;
+    //requires eu.hansolo.fx.countries;
+    //requires com.almasb.fxgl.all;
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.bson;
     requires org.mongodb.driver.core;
     requires java.logging;
 
-    opens com.fourchet to javafx.fxml;
-    exports com.fourchet;
 
-    opens com.fourchet.account.loginUI to javafx.fxml;
-    exports com.fourchet.account.loginUI;
 
-    exports com.fourchet.account.persist;
-    opens com.fourchet.account.persist to javafx.fxml;
+    exports com.fourchet.persist;
+    opens com.fourchet.persist to javafx.fxml;
+    exports com.fourchet.persist.account;
+    opens com.fourchet.persist.account to javafx.fxml;
 
-    exports com.fourchet.account;
-    opens com.fourchet.account to javafx.fxml;
+    exports com.fourchet.users;
+    opens com.fourchet.users to javafx.fxml;
 
-    exports com.fourchet.account.bl;
-    opens com.fourchet.account.bl to javafx.fxml;
+    exports com.fourchet.ui.account;
+    opens com.fourchet.ui.account to javafx.fxml;
 
-    exports com.fourchet.account.users;
-    opens com.fourchet.account.users to javafx.fxml;
+    exports com.fourchet.bl.account;
+    opens com.fourchet.bl.account to javafx.fxml;
+
 
 }
