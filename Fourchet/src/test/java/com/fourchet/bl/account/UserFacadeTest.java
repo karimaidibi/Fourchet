@@ -3,7 +3,7 @@ package com.fourchet.bl.account;
 import com.fourchet.users.User;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class UserFacadeTest {
 
@@ -13,13 +13,10 @@ class UserFacadeTest {
      */
     @Test
     void login() {
-        User clientUser = new User("client", "client@gmail.com", "client", "client");
         try {
             UserFacade facade = UserFacade.getInstance();
-            User u = facade.login("client@gmail.com", "client");
-            assertEquals(clientUser, u);
-            // TODO : replace the code above by this one may be a solution
-            //assertTrue(u.getUsername().equals("client") && u.getEmail().equals("client@gmail.com"));
+            User u = facade.login("admin@gmail.com", "admin");
+            assertTrue(u.getUsername().equals("admin") && u.getEmail().equals("admin@gmail.com"));
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
