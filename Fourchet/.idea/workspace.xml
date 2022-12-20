@@ -5,50 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="381ae847-101c-4474-855f-ee6eb552fe47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/account/UserFacadeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/MongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/MongoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/MongoDBFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/UserDaoFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/bl/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/bl/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/UserFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/loginUI/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Popup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/persist/UserDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/users/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/users/Provider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/Provider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/account/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/account/loginUI/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/Dao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/MongoDB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/MongoDBFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/UserDaoFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/bl/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/bl/UserFacade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login$Shake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/loginUI/Popup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/persist/UserDaoMongoDB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/users/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/users/Provider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/account/users/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/account/UserFacadeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/account/UserFacadeTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,26 +44,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5313808&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5313808",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.fourchet.account.persist" />
@@ -114,8 +74,9 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/fourchet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/login" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -129,7 +90,7 @@
       <recent name="com.fourchet.bl.account" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserFacadeTest">
+  <component name="RunManager" selected="Application.com.fourchet.ui.account.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fourchet.loginUI.Application" />
       <module name="Fourchet" />
@@ -199,8 +160,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.com.fourchet.ui.account.Application" />
+        <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.HelloApplication" />
@@ -227,10 +188,18 @@
       <workItem from="1671366846945" duration="284000" />
       <workItem from="1671367136187" duration="356000" />
       <workItem from="1671367500461" duration="1563000" />
+      <workItem from="1671372623714" duration="1786000" />
+      <workItem from="1671445079554" duration="1139000" />
+      <workItem from="1671446228288" duration="1696000" />
+      <workItem from="1671525957260" duration="8685000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

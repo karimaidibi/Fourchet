@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.ingredients.IngredientsController">
+    <children>
+        <HBox>
+            <children>
+                <Label text="Ingredients Management" />
+                <Button text="Back to main menu" />
+            </children>
+        </HBox>
+        <HBox spacing="10.0">
+            <children>
+                <VBox spacing="10.0">
+                    <children>
+                        <ListView fx:id="ingredientList" prefHeight="200.0" prefWidth="200.0" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button text="Modify" />
+                                <Button text="Delete" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox spacing="10.0">
+                    <children>
+                        <Label text="Add new ingredient" />
+                        <TextField fx:id="ingredientNameInput" />
+                        <Label text="Category" />
+                        <TextField fx:id="ingredientCategoryInput" />
+                        <HBox spacing="10.0">
+                            <children>
+                                <Button text="Validate" />
+                                <Button text="Cancel" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</VBox>
