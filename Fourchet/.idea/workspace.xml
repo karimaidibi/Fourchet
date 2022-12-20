@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/libraries/mongodb_driver.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FourchetKarim/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Dao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Facade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/Provider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/UserFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Popup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Popup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Signin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Signin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/Provider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/production/Fourchet/org/fourchet/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/production/Fourchet/org/fourchet/Main.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
