@@ -8,12 +8,13 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoDB {
 
-    //Create a MongoClientURI object
+    //the link to connect to the database
     private String uri;
 
-    // Create a connection to the MongoDB server
+    // The connection to mongodb
     private MongoClient mongoClient;
-    //database object
+
+    // The connection to the database
     private MongoDatabase database;
 
     //get mongo client
@@ -37,13 +38,16 @@ public class MongoDB {
         try {
             this.mongoClient = MongoClients.create(uri);
             System.out.println("Connected to the database successfully");
+
+            // Get the database
+            this.database = this.mongoClient.getDatabase("fourchet");
+            System.out.println("Connected to the database successfully");
+
         } catch (Exception e) {
             System.out.println("Error while connecting to the database");
             System.out.println(e);
         }
-        // Get the database
-        this.database = this.mongoClient.getDatabase("fourchet");
-        System.out.println("Connected to the database successfully");
+
     }
 
     public void closeConnection() {
