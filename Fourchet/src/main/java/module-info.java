@@ -26,14 +26,17 @@ module com.fourchet {
 
     exports com.fourchet.users;
     opens com.fourchet.users to javafx.fxml;
+    exports com.fourchet.ingredients;
+    opens com.fourchet.ingredients to javafx.fxml;
 
     exports com.fourchet.ui.account;
     opens com.fourchet.ui.account to javafx.fxml;
+    exports com.fourchet.ui.ingredients;
+    opens com.fourchet.ui.ingredients to javafx.fxml;
 
     exports com.fourchet.bl.account;
     opens com.fourchet.bl.account to javafx.fxml;
-    exports com.fourchet.ui.ingredients;
-    opens com.fourchet.ui.ingredients to javafx.fxml;
+
 
 
 }

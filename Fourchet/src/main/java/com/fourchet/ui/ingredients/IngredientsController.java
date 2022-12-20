@@ -1,11 +1,13 @@
 package com.fourchet.ui.ingredients;
 
+import com.fourchet.ingredients.Ingredient;
+import com.fourchet.ingredients.IngredientCategory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class IngredientsController {
 
@@ -19,6 +21,9 @@ public class IngredientsController {
     @FXML private Button cancelButton;
     @FXML private Label actionTypeOnIngredient; // adding new ingredient or modifying ingredient
 
+    // Declare ObservableList to store ingredients
+    private ObservableList<HBox> ingredientsBoxes = FXCollections.observableArrayList();
+
     /**
      * Method that is called when this controller is loaded
      * It will update the list of ingredients and the list of categories in the choice box
@@ -26,7 +31,16 @@ public class IngredientsController {
     @FXML
     private void initialize() {
         // TODO: implement action to initialize the controller
+        // Set the items of the ListView to the ObservableList
+        this.listOfIngredients.setItems(ingredientsBoxes);
+        // this.loadIngredientsFromDatabase();
     }
+
+    public void loadIngredientsFromDatabase() {
+        // TODO: load ingredients from database and add them to the ObservableList
+        // ingredients.addAll(...);
+    }
+
     // Method to go back to the main menu
     @FXML
     private void backToMenu() {
@@ -48,6 +62,11 @@ public class IngredientsController {
     @FXML
     private void validate() {
         // TODO: implement action to validate new ingredient
+        // this is a test to check if the validate button works, replace it with data from input fields and implement the method
+        IngredientCategory category = new IngredientCategory("test");
+        Ingredient ingredient = new Ingredient("test", category);
+        HBox hBox = this.createIngredientCard(ingredient);
+        this.ingredientsBoxes.add(hBox);
 
     }
 
@@ -88,6 +107,34 @@ public class IngredientsController {
     @FXML
     private void deleteIngredient() {
         // TODO: implement action to delete an ingredient
+    }
+
+    /**
+     * This method will be called on each ingredient in the database (and when the user adds a new ingredient)
+     * It will return a HBox with the ingredient name and the ingredient category
+     * @param ingredient the name of the ingredient
+     * */
+    public HBox createIngredientCard(Ingredient ingredient) {
+        // Create the left VBox to hold the ingredient name and category
+        VBox leftVBox = new VBox();
+        Label nameLabel = new Label( "Ingredient : " + ingredient.getName());
+        Label categoryLabel = new Label("Category : " + ingredient.getCategory().getName());
+        leftVBox.getChildren().addAll(nameLabel, categoryLabel);
+
+        // Create the modify and delete buttons
+        Button modifyButton = new Button("Modify");
+        Button deleteButton = new Button("Delete");
+
+        // Create the HBox to hold the left and right VBoxes
+        HBox ingredientCard = new HBox();
+        ingredientCard.getChildren().addAll(leftVBox, modifyButton, deleteButton);
+
+        Double prefWidthOfListView = this.listOfIngredients.getPrefWidth();
+        ingredientCard.setPrefWidth(prefWidthOfListView);
+        ingredientCard.alignmentProperty().setValue(javafx.geometry.Pos.CENTER_LEFT);
+        ingredientCard.setSpacing(40);
+
+        return ingredientCard;
     }
 
 
