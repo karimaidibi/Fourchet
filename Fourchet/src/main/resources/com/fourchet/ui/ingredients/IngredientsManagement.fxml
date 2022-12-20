@@ -1,66 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.ingredients.IngredientsController">
-   <children>
-      <Label fx:id="nameOfUser" contentDisplay="CENTER" layoutX="411.0" layoutY="14.0" prefHeight="16.0" prefWidth="227.0" text="Hello Provider !" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Separator layoutX="-2.0" layoutY="53.0" prefHeight="1.0" prefWidth="1011.0" />
-      <Pane layoutX="6.0" layoutY="55.0" prefHeight="54.0" prefWidth="853.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.ingredients.IngredientsController">
+   <center>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="backToMenuButton" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="40.0" prefWidth="195.0" text="Back to main menu" />
-            <Label contentDisplay="CENTER" layoutX="365.0" layoutY="15.0" text="Ingredients Management" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Separator layoutY="101.0" prefHeight="17.0" prefWidth="480.0" />
-      <HBox layoutX="14.0" layoutY="118.0" prefHeight="669.0" prefWidth="988.0">
-         <children>
-            <VBox prefHeight="669.0" prefWidth="580.0">
+            <VBox alignment="CENTER" prefHeight="65.0" prefWidth="613.0">
                <children>
-                  <ListView fx:id="listOfIngredients" prefHeight="669.0" prefWidth="547.0" />
+                  <Label fx:id="nameOfUser" alignment="CENTER" contentDisplay="BOTTOM" maxHeight="-Infinity" maxWidth="-Infinity" text="Hello Provider !" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefHeight="0.0" prefWidth="606.0" />
                </children>
             </VBox>
-            <Pane prefHeight="669.0" prefWidth="410.0">
+            <VBox alignment="CENTER" prefHeight="56.0" prefWidth="784.0">
                <children>
-                  <VBox layoutX="43.0" layoutY="95.0" prefHeight="319.0" prefWidth="315.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="646.0">
                      <children>
-                        <Label text="Ingredient name" />
-                        <TextField fx:id="ingredientNameInput" />
-                        <Label text="Ingredient category" />
-                        <ChoiceBox fx:id="selectCategory" prefHeight="24.0" prefWidth="321.0" />
-                        <Pane prefHeight="90.0" prefWidth="296.0">
+                        <Button fx:id="backToMenuButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#backToMenu" text="Back to main menu">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="456.0" text="Ingredients Management" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="8.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Separator prefHeight="14.0" prefWidth="300.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox prefHeight="494.0" prefWidth="782.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="494.0" prefWidth="437.0">
+                     <children>
+                        <Label prefHeight="16.0" prefWidth="418.0" text="List of all ingredients">
+                           <VBox.margin>
+                              <Insets bottom="8.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ListView fx:id="listOfIngredients" prefHeight="456.0" prefWidth="379.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </ListView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="466.0" prefWidth="327.0" spacing="10.0">
+                     <children>
+                        <Label fx:id="actionTypeOnIngredient" alignment="CENTER" prefHeight="21.0" prefWidth="334.0" text="Adding new ingredient" textAlignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient name" />
+                        <TextField fx:id="ingredientNameInput" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="307.0" />
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient category" />
+                        <ChoiceBox fx:id="selectCategory" prefHeight="24.0" prefWidth="338.0" />
+                        <Pane prefHeight="44.0" prefWidth="333.0">
                            <children>
                               <Button fx:id="validateButton" layoutX="14.0" layoutY="12.0" onAction="#validate" text="Validate" />
-                              <Button fx:id="cancelButton" contentDisplay="RIGHT" layoutX="198.0" layoutY="12.0" onAction="#cancel" prefHeight="24.0" prefWidth="103.0" text="Cancel" />
+                              <Button fx:id="cancelButton" contentDisplay="RIGHT" layoutX="198.0" layoutY="12.0" onAction="#cancel" text="Cancel" />
                            </children>
                         </Pane>
                      </children>
+                     <HBox.margin>
+                        <Insets right="20.0" top="50.0" />
+                     </HBox.margin>
                   </VBox>
-                  <Label alignment="TOP_CENTER" layoutX="104.0" layoutY="53.0" text="Adding new ingredient" textAlignment="CENTER">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
                </children>
-            </Pane>
+            </HBox>
          </children>
-      </HBox>
-   </children>
-</Pane>
+      </VBox>
+   </center>
+</BorderPane>
