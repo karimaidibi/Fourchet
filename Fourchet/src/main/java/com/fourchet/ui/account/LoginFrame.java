@@ -18,7 +18,7 @@ public class LoginFrame {
     @FXML
     private PasswordField password;
     @FXML
-    private HBox errorFiled;
+    private HBox errorField;
 
     private LoginController loginController = new LoginController();
     @FXML
