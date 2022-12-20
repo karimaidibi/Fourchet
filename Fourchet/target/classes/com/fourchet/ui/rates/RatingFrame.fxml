@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.rates.RatingController">
+<VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.rates.RatingController">
     <children>
         <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0">
           <columnConstraints>
@@ -19,14 +19,14 @@
               <RowConstraints maxHeight="177.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES" />
           </rowConstraints>
            <children>
-              <Slider blockIncrement="0.5" majorTickUnit="1.0" max="5.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.rowIndex="1" />
+              <Slider fx:id="rate" blockIncrement="0.5" majorTickUnit="1.0" max="5.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.rowIndex="1" />
             <Label alignment="CENTER" text="Please rate this product" GridPane.halignment="CENTER" />
               <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                  <GridPane.margin>
                     <Insets right="85.0" />
                  </GridPane.margin></Button>
               <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#publish" style="-fx-background-color: #A0A0A0;" text="Publish" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-              <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Leave a comment..." GridPane.rowIndex="2" />
+              <TextArea fx:id="comment" prefHeight="200.0" prefWidth="200.0" promptText="Leave a comment..." GridPane.rowIndex="2" />
            </children>
         </GridPane>
     </children>
