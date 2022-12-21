@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.*?>
 
 <VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.rates.RatingController">
     <children>
@@ -14,12 +15,12 @@
           </columnConstraints>
           <rowConstraints>
             <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="275.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="275.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="281.0" minHeight="0.0" prefHeight="150.0" vgrow="SOMETIMES" />
               <RowConstraints maxHeight="177.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES" />
           </rowConstraints>
            <children>
-              <Slider fx:id="rate" blockIncrement="0.5" majorTickUnit="1.0" max="5.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.rowIndex="1" />
+            <Rating fx:id="rate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="180.0" rating="0.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Label alignment="CENTER" text="Please rate this product" GridPane.halignment="CENTER" />
               <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                  <GridPane.margin>

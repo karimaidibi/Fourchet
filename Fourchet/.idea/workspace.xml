@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="381ae847-101c-4474-855f-ee6eb552fe47" name="Changes" comment="ajouter reviews">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Popup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/rates/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/rates/RatingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/rates/RatingFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/rates/RatingFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/rates/RatingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/rates/RatingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/rates/RatingFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/rates/RatingFrame.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Nui Teena/Desktop/IG4/SE/Fourchet/Fourchet",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5313808",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nui Teena/Desktop/IG4/SE/Fourchet/Fourchet&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5313808&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.fourchet.account.persist" />
@@ -201,7 +195,9 @@
       <workItem from="1671367136187" duration="356000" />
       <workItem from="1671367500461" duration="1563000" />
       <workItem from="1671533080745" duration="326000" />
-      <workItem from="1671535581158" duration="7389000" />
+      <workItem from="1671535581158" duration="7578000" />
+      <workItem from="1671639498195" duration="1058000" />
+      <workItem from="1671642429220" duration="1192000" />
     </task>
     <task id="LOCAL-00001" summary="ajouter reviews">
       <created>1671542334424</created>
