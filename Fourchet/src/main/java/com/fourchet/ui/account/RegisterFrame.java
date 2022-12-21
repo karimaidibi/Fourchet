@@ -3,11 +3,14 @@ package com.fourchet.ui.account;
 import com.fourchet.users.User;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Window;
 
@@ -53,6 +56,17 @@ public class RegisterFrame {
                 // send the log in to the data
                 User user = registerController.register(username.getText(), email.getText(), password.getText(), role.getText());
                 showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Registration Success", "Welcome " + user.getUsername());
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileFrame.fxml"));
+                Parent profilePage;
+                profilePage = loader.load();
+
+                ProfileFrame profileController = loader.getController();
+                GridPane gridpaneProfile = profileController.getGridpaneProfile();
+
+                BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
+                root.setCenter(gridpaneProfile);
+
             }catch (Exception e){
                 showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Registration Failed", e.getMessage());
             }
