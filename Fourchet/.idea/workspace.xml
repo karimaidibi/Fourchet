@@ -4,161 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/UserFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/MongoDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/Provider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/account/UserFacadeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/MongoDB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/Provider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/account/UserFacadeTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/allclasses.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/Dao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/MongoDB.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/MongoDBFactory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/UserDao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/UserDaoFactory.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/bl/UserController.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/bl/UserFacade.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/bl/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/bl/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/loginUI/Application.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/loginUI/Login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/loginUI/Popup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/loginUI/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/loginUI/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/persist/UserDaoMongoDB.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/persist/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/persist/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/users/Client.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/users/Provider.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/users/User.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/users/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/account/users/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/com/fourchet/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/com.fourchet/module-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/constant-values.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/deprecated-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index-files/index-9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery-ui.overrides.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/external/jquery/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jquery-3.6.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jszip-utils/dist/jszip-utils-ie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jszip-utils/dist/jszip-utils-ie.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jszip-utils/dist/jszip-utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jszip-utils/dist/jszip-utils.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jszip/dist/jszip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/jquery/jszip/dist/jszip.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/member-search-index.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/module-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/module-search-index.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/package-search-index.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/type-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../FourchetJavaDoc/type-search-index.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/Fourchet.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_mongodb_bson_3_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_mongodb_mongodb_driver_3_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/libraries/mongodb_driver.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/libraries/mongodb_driver.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Database.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Facade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/Provider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/account/UserFacade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Popup.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Popup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Signin.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/Signin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/src/main/java/org/fourchet/controller/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/Dao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/Provider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/account/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/production/Fourchet/org/fourchet/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FourchetKarim/target/classes/org/fourchet/production/Fourchet/org/fourchet/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+    <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="add profile">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/ProfileFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,8 +22,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -201,7 +54,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Achille/Montpellier/4A/Java/Fourchet/fourchet&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -223,6 +76,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/fourchet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Achille\Montpellier\4A\Java\Fourchet\fourchet\src\main\resources\com\fourchet\ui\account" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/login" />
@@ -238,7 +92,7 @@
       <recent name="com.fourchet.bl.account" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UserFacadeTest">
+  <component name="RunManager" selected="Application.com.fourchet.ui.account.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fourchet.loginUI.Application" />
       <module name="Fourchet" />
@@ -280,7 +134,7 @@
     </configuration>
     <configuration name="com.fourchet.ui.account.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.account.Application" />
-      <module name="Fourchet" />
+      <module name="fourchet" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.fourchet.ui.account.*" />
@@ -308,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.com.fourchet.ui.account.Application" />
+        <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.HelloApplication" />
@@ -319,7 +173,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="381ae847-101c-4474-855f-ee6eb552fe47" name="Changes" comment="" />
+      <changelist id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="init branch" />
       <created>1670520030951</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -336,10 +190,43 @@
       <workItem from="1671366846945" duration="284000" />
       <workItem from="1671367136187" duration="356000" />
       <workItem from="1671367500461" duration="1563000" />
+      <workItem from="1671550386686" duration="808000" />
+      <workItem from="1671615446135" duration="14951000" />
     </task>
+    <task id="LOCAL-00001" summary="init branch">
+      <created>1671549500521</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671549500521</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add profile">
+      <created>1671551320663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671551320663</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init branch" />
+    <MESSAGE value="add profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="add profile" />
   </component>
 </project>
