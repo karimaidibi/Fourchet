@@ -50,14 +50,9 @@ public class IngredientsController {
     /**
      * Method to validate the new ingredient
      * This method will be called when the user clicks on the validate button
-     * It will check if the ingredient name is not empty
-     * If it is not empty, it will add the ingredient to the database
-     * If it is empty, it will display an error message
-     * It will also check if the ingredient already exists in the database
-     * If it does, it will display an error message
-     * If it does not, it will add the ingredient to the database
-     * It will also update the list of ingredients in the list view
-     * Finally, if the ingredient is added to the db, it will clear the text field and the choice box then display a success message
+     * This method will call either the addIngredient() or the modifyIngredient() method
+     * depending on the action type label
+     * It will also update the list of ingredients in the list view using the loadIngredientsFromDatabase() method
      */
     @FXML
     private void validate() {
@@ -84,16 +79,26 @@ public class IngredientsController {
     }
 
     /**
-     * Method to select an ingredient from the list view
-     * This method will be called when the user clicks on an ingredient in the list view
-     * It will display the ingredient name in the text field
-     * It will display the ingredient category in the choice box
-     * It will change the action type label to "modifying ingredient"
-     * It will change the validate button text to "modify" instead of "validate"
+     * This method should be called by the validate button when the action is "adding new ingredient"
+     * It will check if the ingredient name is not empty
+     * If it is empty, it will display an error message
+     * It will also check if the ingredient already exists in the database
+     * If it does, it will display an error message
+     * If it is not empty, and the ingredient is not in the database
+     * it will add the ingredient to the database
+     * Finally, if the ingredient is added to the db, it will clear the text field and the choice box then display a success message
      */
     @FXML
-    private void selectIngredient() {
-        // TODO: implement action to select an ingredient
+    private void addIngredient() {
+        // TODO: implement action to add an ingredient
+    }
+
+    /**
+     * This method should be called by the validate button when the action type is "modifying ingredient"
+     */
+    @FXML
+    private void updateIngredient() {
+        // TODO: implement action to update an ingredient
     }
 
     /**
@@ -107,6 +112,23 @@ public class IngredientsController {
     @FXML
     private void deleteIngredient() {
         // TODO: implement action to delete an ingredient
+        // il faut lier le bouton delete à cette méthode
+    }
+
+    /**
+     * Method to select an ingredient from the list view
+     * This method will be called when the user clicks on an ingredient in the list view
+     * It will display the ingredient name in the text field
+     * It will display the ingredient category in the choice box
+     * It will change the action type label to "modifying ingredient"
+     * It will change the validate button text to "modify" instead of "validate"
+     */
+    @FXML
+    private void selectIngredient() {
+        // TODO: implement action to select an ingredient
+        // il faut lier le click sur un élément de la liste à cette méthode (ou bien le bouton modifier a coté de chaque élément)
+        // de cette manière on peut modifier un ingredient sur le coté droit de l'interface
+
     }
 
     /**

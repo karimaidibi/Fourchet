@@ -33,20 +33,39 @@ public class IngredientsCategoriesController {
     /**
      * Method to validate the new ingredient Category
      * This method will be called when the user clicks on the validate button
-     * It will check if the ingredient category name is not empty
-     * If it is not empty, it will add the ingredient Category to the database
-     * If it is empty, it will display an error message
-     * It will also check if the ingredient Category already exists in the database
-     * If it does, it will display an error message
-     * If it does not, it will add the ingredient Category to the database
-     * It will also update the list of ingredients Categories in the list view
-     * Finally, if the ingredient Category is added to the db, it will clear the text field and the choice box then display a success message
+     * This method will call either the addIngredientCategory() or the modifyIngredientCategory() method depending on the action type label
      */
     @FXML
     private void validate() {
         // TODO : implement action to validate new ingredient
 
     }
+
+    /**
+     * Method to add a new ingredient category
+     * This method will be called when the user clicks on the validate button and the action type label is "Add"
+     * It will check if the ingredient category name is not empty
+     * If it is empty, it will display an error message
+     * It will also check if the ingredient Category already exists in the database
+     * If it does, it will display an error message
+     * If it is not empty, and the category is not in the database
+     * it will add the ingredient Category to the database
+     * It will also update the list of ingredients categories in the list view using the loadIngredientsCategoriesFromDatabase() method
+     * Finally, if the ingredient Category is added to the db, it will clear the text field and the choice box then display a success message
+     */
+    private void addIngredientCategory() {
+        // TODO : implement action to add new ingredient category
+    }
+
+    /**
+     * Method to modify an ingredient category
+     * This method will be called when the user clicks on the validate button and the action type label is "Modify"
+     * It will modify the ingredient category in the database
+     */
+    private void modifyIngredientCategory() {
+        // TODO : implement action to modify ingredient category
+    }
+
 
     /**
      * Method to cancel the new ingredient Category creation
@@ -63,14 +82,14 @@ public class IngredientsCategoriesController {
 
     /**
      * Method to select an ingredient category from the list view
-     * This method will be called when the user clicks on an ingredient category in the list view
+     * This method will be called when the user clicks on an ingredient category in the list view (on the left, on the modify button)
      * It will display the ingredient category name in the text field
      * It will change the action type label to "modifying ingredient category"
      * It will change the validate button text to "modify" instead of "validate"
      */
     @FXML
-    private void selectIngredientCategory() {
-        // TODO : implement action to select an ingredient
+    private void selectCategory() {
+        // TODO : implement action to select an ingredient to modify it on the right side of the screen
     }
 
     /**
@@ -82,8 +101,8 @@ public class IngredientsCategoriesController {
      * It will display a success message
      */
     @FXML
-    private void deleteIngredient() {
-        // TODO : implement action to delete an ingredient
+    private void deleteCategory() {
+        // TODO : implement action to delete an ingredient category
     }
 
 }
