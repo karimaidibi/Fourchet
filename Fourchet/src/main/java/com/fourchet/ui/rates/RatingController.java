@@ -17,9 +17,11 @@ public class RatingController {
     @FXML
     private TextArea comment;
 
+    // close the RatingFrame
     public void cancel() {
     }
 
+    // submit rating of user on product
     public void publish() {
         showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Rating Submitted !","Thank You for your rating !");
     }

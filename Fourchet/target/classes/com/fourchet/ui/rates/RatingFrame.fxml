@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.*?>
 
+
 <VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.rates.RatingController">
     <children>
         <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0">
@@ -25,7 +26,8 @@
               <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                  <GridPane.margin>
                     <Insets right="85.0" />
-                 </GridPane.margin></Button>
+                 </GridPane.margin>
+            </Button>
               <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#publish" style="-fx-background-color: #A0A0A0;" text="Publish" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
               <TextArea fx:id="comment" prefHeight="200.0" prefWidth="200.0" promptText="Leave a comment..." GridPane.rowIndex="2" />
            </children>
