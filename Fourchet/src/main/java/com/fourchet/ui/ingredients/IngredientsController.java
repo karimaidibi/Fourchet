@@ -33,7 +33,7 @@ public class IngredientsController {
         // TODO: implement action to initialize the controller
         // Set the items of the ListView to the ObservableList
         this.listOfIngredients.setItems(ingredientsBoxes);
-        // this.loadIngredientsFromDatabase();
+        //this.loadIngredientsFromDatabase();
     }
 
     public void loadIngredientsFromDatabase() {
