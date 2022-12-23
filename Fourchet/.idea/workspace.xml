@@ -4,32 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="381ae847-101c-4474-855f-ee6eb552fe47" name="Changes" comment="">
+    <list default="true" id="381ae847-101c-4474-855f-ee6eb552fe47" name="Changes" comment="ajouter reviews">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/ingredients/IngredientsFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/ingredients/IngredientsDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/ingredients/IngredientsDaoMongoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ingredients/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ingredients/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ingredients/Ingredient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ingredients/Ingredient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ingredients/IngredientCategory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ingredients/IngredientCategory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/Dao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/MongoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsCategoriesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsCategoriesController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/Provider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/Provider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/account/UserFacadeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/account/UserFacadeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MongoDB/playground.mongodb" beforeDir="false" afterPath="$PROJECT_DIR$/../MongoDB/playground.mongodb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +42,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="nui" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -192,7 +190,6 @@
         <item itemvalue="Application.com.fourchet.ui.ingredients.Application" />
         <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

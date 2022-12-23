@@ -2,11 +2,14 @@ package com.fourchet.persist;
 
 import com.fourchet.persist.account.UserDao;
 import com.fourchet.persist.account.UserDaoMongoDB;
+import com.fourchet.persist.ingredients.IngredientsDao;
+import com.fourchet.persist.ingredients.IngredientsDaoMongoDB;
 import com.mongodb.client.MongoDatabase;
 
 public class DaoFactory extends AbstractFactory {
 
     private UserDao userDao = null;
+    private IngredientsDao ingredientsDao = null;
 
     // instanciate the database class
     private MongoDB mongoDB = new MongoDB();
@@ -19,11 +22,19 @@ public class DaoFactory extends AbstractFactory {
         return this.mongoDB.getDBConnection();
     }
 
+    @Override
     public UserDao getUserDao() {
         if (userDao==null) {
             this.userDao = new UserDaoMongoDB(this);
         }
         return userDao;
+    }
+    @Override
+    public IngredientsDao getIngredientsDao() {
+        if (ingredientsDao==null) {
+            this.ingredientsDao = new IngredientsDaoMongoDB(this);
+        }
+        return ingredientsDao;
     }
 
     //close the database connection
