@@ -1,8 +1,7 @@
 use('fourchet')
 
-db.ingredients.insert([
+db.ingredientCategories.insert([
     {
-        "name" : "poire",
-        "category" : "fruit"
+        "name" : "legume"
     }
 ])

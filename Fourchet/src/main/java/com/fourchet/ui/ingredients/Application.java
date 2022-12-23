@@ -4,6 +4,7 @@ import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.DaoFactory;
 import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
+import com.fourchet.persist.ingredientCategories.IngredientCategoriesDaoMongoDB;
 import com.fourchet.persist.ingredients.IngredientsDaoMongoDB;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,9 +24,6 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
-        // DaoFactory factory = new DaoFactory();
-        // IngredientsDaoMongoDB dao = new IngredientsDaoMongoDB(factory);
-        // dao.delete(new Ingredient("poire", new IngredientCategory("fruit")));
         launch();
     }
 }

@@ -3,6 +3,7 @@ package com.fourchet.persist.ingredients;
 import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.DaoFactory;
+import com.mongodb.MongoException;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -68,10 +69,15 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
         // create a new ingredient
         // Create the document
         Document ingredientDocument = new Document("name", ingredient.getName())
-                .append("category", ingredient.getCategory());
+                .append("category", ingredient.getCategory().getName());
 
-        // insert a user into the collection of users
-        ingredientsCollection.insertOne(ingredientDocument);
+        // insert a ingredient into the collection of ingredients
+        try {
+            ingredientsCollection.insertOne(ingredientDocument);
+        }
+        catch (MongoException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     //
