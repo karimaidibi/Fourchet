@@ -8,13 +8,14 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 public class IngredientsDaoMongoDB extends IngredientsDao {
 
-    // the user dao knows the factory that created it
+    // the ingredient dao knows the factory that created it
     DaoFactory factory;
 
     // get the collection of users
@@ -31,7 +32,7 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
     }
 
 
-    // retourne l'user dont l'id est donné en paramètre
+    // retourne l'ingredient dont l'id est donné en paramètre
     @Override
     public Optional<Ingredient> get(long id) {
         //return Optional.ofNullable(users.get((int) id));
@@ -39,12 +40,17 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
     }
 
     /**
-     * return all the users in the database as a list of users objects
-     * it should replace the FindIterable<Document> by List<User> or add the founded users to the list of users
+     * return all the ingredients in the database as a list of ingredients objects
+     * it should replace the FindIterable<Document> by List<Ingredient> or add the founded ingredients to the list of ingredients
      */
     @Override
     public List<Ingredient> getAll() {
-        return null;
+        List<Ingredient> res = new ArrayList<>();
+        FindIterable<Document> docs = ingredientsCollection.find();
+        for (Document d : docs) {
+            res.add(new Ingredient(d));
+        }
+        return res;
     }
 
     @Override
@@ -72,7 +78,7 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
     @Override
     public void update(Ingredient ingredient, String[] params) {
         ingredient.setName(Objects.requireNonNull(
-                params[0], "Email cannot be null"));
+                params[0], "Name cannot be null"));
         IngredientCategory category = new IngredientCategory(params[1]);
         ingredient.setCategory(category);
     }

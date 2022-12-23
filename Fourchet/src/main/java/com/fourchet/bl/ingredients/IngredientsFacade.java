@@ -4,6 +4,9 @@ import com.fourchet.ingredients.Ingredient;
 import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.ingredients.IngredientsDao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // This class below is a singleton class (we create the facade only once)
 public class IngredientsFacade {
     private static IngredientsFacade instance = null;
@@ -45,4 +48,16 @@ public class IngredientsFacade {
         return ingredient;
     }
 
+    public List<Ingredient> getAllIngredients() {
+        try {
+            return ingredientsDao.getAll();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public void deleteIngredient(Ingredient ingredient) {
+        ingredientsDao.delete(ingredient);
+    }
 }

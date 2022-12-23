@@ -1,13 +1,21 @@
 package com.fourchet.ui.ingredients;
 
+import com.fourchet.bl.account.UserFacade;
+import com.fourchet.bl.ingredientCategories.IngredientCategoriesFacade;
+import com.fourchet.bl.ingredients.IngredientsFacade;
 import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class IngredientsController {
 
@@ -21,6 +29,11 @@ public class IngredientsController {
     @FXML private Button cancelButton;
     @FXML private Label actionTypeOnIngredient; // adding new ingredient or modifying ingredient
 
+    private IngredientsFacade ingredientsFacade;
+    public IngredientsController() {
+        this.ingredientsFacade = IngredientsFacade.getInstance();
+    }
+
     // Declare ObservableList to store ingredients
     private ObservableList<HBox> ingredientsBoxes = FXCollections.observableArrayList();
 
@@ -32,13 +45,22 @@ public class IngredientsController {
     private void initialize() {
         // TODO: implement action to initialize the controller
         // Set the items of the ListView to the ObservableList
+        this.loadIngredientsFromDatabase();
         this.listOfIngredients.setItems(ingredientsBoxes);
-        //this.loadIngredientsFromDatabase();
     }
 
     public void loadIngredientsFromDatabase() {
-        // TODO: load ingredients from database and add them to the ObservableList
-        // ingredients.addAll(...);
+        // load ingredients from database and add them to the ObservableList
+        ObservableList<String> existingCategories = FXCollections.observableArrayList();
+        IngredientCategoriesFacade facade = IngredientCategoriesFacade.getInstance();
+        for (IngredientCategory category : facade.getAllCategories()) {
+            existingCategories.add(category.getName());
+        }
+        this.selectCategory.setItems(existingCategories);
+        for (Ingredient ingredient : this.ingredientsFacade.getAllIngredients()) {
+            HBox hBox = this.createIngredientCard(ingredient);
+            this.ingredientsBoxes.add(hBox);
+        }
     }
 
     // Method to go back to the main menu
@@ -56,13 +78,11 @@ public class IngredientsController {
      */
     @FXML
     private void validate() {
-        // TODO: implement action to validate new ingredient
-        // this is a test to check if the validate button works, replace it with data from input fields and implement the method
-        IngredientCategory category = new IngredientCategory("test");
-        Ingredient ingredient = new Ingredient("test", category);
+        // validate new ingredient
+        IngredientCategory category = new IngredientCategory((String) selectCategory.getSelectionModel().getSelectedItem());
+        Ingredient ingredient = new Ingredient(ingredientNameInput.getText(), category);
         HBox hBox = this.createIngredientCard(ingredient);
         this.ingredientsBoxes.add(hBox);
-
     }
 
     /**
@@ -110,9 +130,10 @@ public class IngredientsController {
      * It will display a success message
      */
     @FXML
-    private void deleteIngredient() {
+    private void deleteIngredient(Ingredient ingredient) {
         // TODO: implement action to delete an ingredient
         // il faut lier le bouton delete à cette méthode
+        this.ingredientsFacade.deleteIngredient(ingredient);
     }
 
     /**
@@ -146,6 +167,13 @@ public class IngredientsController {
         // Create the modify and delete buttons
         Button modifyButton = new Button("Modify");
         Button deleteButton = new Button("Delete");
+        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                deleteIngredient(ingredient);
+                System.out.println("Delete button clicked!");
+            }
+        });
 
         // Create the HBox to hold the left and right VBoxes
         HBox ingredientCard = new HBox();

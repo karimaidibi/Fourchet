@@ -1,16 +1,8 @@
 use('fourchet')
 
-db.users.insert([
+db.ingredients.insert([
     {
-        "username" : "admin",
-        "email" : "admin@gmail.com",
-        "role" : "admin",
-        "password" : "admin"
-    },
-    {
-        "username" : "client",
-        "email" : "client@gmail.com",
-        "role" : "client",
-        "password" : "client"
+        "name" : "poire",
+        "category" : "fruit"
     }
 ])
