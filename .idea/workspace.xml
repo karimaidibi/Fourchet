@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1197f9ea-e131-403b-abe7-6d54236e9231" name="Changes" comment="udpate branch">
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/.idea/Fourchet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FourchetKarim/.idea/Fourchet.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/account/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/account/Provider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/account/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/account/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/production/Fourchet/org/fourchet/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FourchetKarim/FourchetKarim/target/classes/org/fourchet/production/Fourchet/org/fourchet/Main.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="karim" />
+        <entry key="$PROJECT_DIR$/FourchetKarim" value="karim" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FourchetKarim" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0b73c2e2-e606-43e1-b38d-d82238c6786a" />
+        <option name="url" value="https://github.com/karimaidibi/Fourchet.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2J82GSp2V3qjRR7vjlM9jdSQ0QR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Achille/Montpellier/4A/Java/Fourchet/Fourchet&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Fourchet" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Fourchet" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1197f9ea-e131-403b-abe7-6d54236e9231" name="Changes" comment="" />
+      <created>1671445293367</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671445293367</updated>
+      <workItem from="1671445295801" duration="849000" />
+      <workItem from="1671546331733" duration="2516000" />
+      <workItem from="1671548877878" duration="660000" />
+      <workItem from="1671549616552" duration="617000" />
+    </task>
+    <task id="LOCAL-00001" summary="udpate branch">
+      <created>1671547591935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671547591935</updated>
+    </task>
+    <task id="LOCAL-00002" summary="udpate branch">
+      <created>1671548066856</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671548066856</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="udpate branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="udpate branch" />
+  </component>
+</project>

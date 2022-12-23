@@ -34,6 +34,7 @@ public class LoginFrame {
 
 
     protected void Login() throws Exception {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileFrame.fxml"));
         Parent profilePage;
         profilePage = loader.load();

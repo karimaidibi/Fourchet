@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="add profile">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/ProfileFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +187,8 @@
       <workItem from="1671367136187" duration="356000" />
       <workItem from="1671367500461" duration="1563000" />
       <workItem from="1671550386686" duration="808000" />
-      <workItem from="1671615446135" duration="14951000" />
+      <workItem from="1671615446135" duration="15709000" />
+      <workItem from="1671705411026" duration="2694000" />
     </task>
     <task id="LOCAL-00001" summary="init branch">
       <created>1671549500521</created>
@@ -207,7 +204,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671551320663</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add profile">
+      <created>1671661138346</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671661138346</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add profile">
+      <created>1671662124291</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671662124292</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
