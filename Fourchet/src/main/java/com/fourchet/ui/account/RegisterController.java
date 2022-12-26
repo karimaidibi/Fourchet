@@ -2,6 +2,7 @@ package com.fourchet.ui.account;
 
 import com.fourchet.bl.account.UserFacade;
 import com.fourchet.users.User;
+import org.bson.types.Binary;
 
 public class RegisterController {
 

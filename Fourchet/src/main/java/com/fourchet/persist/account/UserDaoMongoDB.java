@@ -6,11 +6,14 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
 
 public class UserDaoMongoDB extends UserDao {
 
@@ -74,7 +77,8 @@ public class UserDaoMongoDB extends UserDao {
         Document userDocument = new Document("username", user.getUsername())
                 .append("email", user.getEmail())
                 .append("role", user.getRole())
-                .append("password", user.getPassword());
+                .append("password", user.getPassword())
+                .append("picture", user.getPicture());
 
         // insert a user into the collection of users
         usersCollection.insertOne(userDocument);
@@ -83,13 +87,26 @@ public class UserDaoMongoDB extends UserDao {
     //
     @Override
     public void update(User user, String[] params) {
-        user.setEmail(Objects.requireNonNull(
-                params[0], "Email cannot be null"));
-        user.setPassword(Objects.requireNonNull(
-                params[1], "Password cannot be null"));
-        user.setRole(Objects.requireNonNull(
-                params[2], "Role cannot be null"));
     }
+
+    public User update(User user, String[] params, Object picture) {
+        usersCollection.updateOne(
+                Filters.eq("email", user.getEmail()),
+                Updates.combine(
+                        Updates.set("username", params[0]),
+                        Updates.set("email", params[1]),
+                        Updates.set("password", params[2]),
+                        Updates.set("role", params[3]),
+                        Updates.set("picture", picture)
+                ));
+
+        // Retrieve the updated user document from the database
+        Document updatedUserDoc = (Document) usersCollection.find(Filters.eq("email", params[1])).first();
+        // Create a new User object from the updated user document
+        User updatedUser = new User(updatedUserDoc);
+        return updatedUser;
+    }
+
 
     @Override
     public void delete(User user) {

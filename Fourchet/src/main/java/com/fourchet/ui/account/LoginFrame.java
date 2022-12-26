@@ -4,6 +4,7 @@ import com.fourchet.users.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -11,6 +12,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Window;
+
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.event.ActionEvent;
+
+import java.io.IOException;
 
 public class LoginFrame {
     @FXML
@@ -33,19 +40,9 @@ public class LoginFrame {
     @FXML
 
 
-    protected void Login() throws Exception {
+    protected void Login(ActionEvent event) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileFrame.fxml"));
-        Parent profilePage;
-        profilePage = loader.load();
-
-        ProfileFrame profileController = loader.getController();
-        GridPane gridpaneProfile = profileController.getGridpaneProfile();
-
-        BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
-        root.setCenter(gridpaneProfile);
-
-
+        // check if the email and password are correct
         if (email.getText().equals("") || password.getText().equals("")) {
             if (email.getText().equals("")) {
                 email.setPromptText("email missing !");
@@ -58,32 +55,24 @@ public class LoginFrame {
                 //new animatefx.animation.Shake(password).play();
             }
         }
-
+        // if success
         else {
-
-            //errorFiled.setVisible(true);
-            //showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Connection Failed", "email or password is incorrect");
-
-            // if success
             try{
                 // send the log in to the data
                 User user = loginController.login(email.getText(), password.getText());
                 showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Connection Success", "Welcome " + user.getUsername());
 
-                // Chargement page Profile
-                /*
+                // load the profile frame
+                Application.goToNextScene(event,"/com/fourchet/ui/account/ProfileFrame.fxml");
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileFrame.fxml"));
-                Parent profilePage;
-                profilePage = loader.load();
+                //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFrameName));
+                //Parent fxmlRoot = loader.load();
+                //ProfileFrame profileController = loader.getController();
 
-                ProfileFrame profileController = loader.getController();
-                GridPane gridpaneProfile = profileController.getGridpaneProfile();
+                //GridPane gridPaneProfile = profileController.getGridpaneProfile();
+                //BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
+                //root.setCenter(gridPaneProfile);
 
-                BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
-                root.setCenter(gridpaneProfile);
-
-                 */
 
             }catch (Exception e){
                 showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Connection Failed", e.getMessage());
@@ -105,4 +94,8 @@ public class LoginFrame {
         public Shake(TextField email) {
         }
     }
+
+
+
+
 }

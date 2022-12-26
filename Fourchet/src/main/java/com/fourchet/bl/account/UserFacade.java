@@ -4,6 +4,8 @@ import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.account.UserDao;
 import com.fourchet.users.User;
 
+import java.util.Objects;
+
 // This class below is a singleton class (we create the facade only once)
 public class UserFacade {
     private static UserFacade instance = null;
@@ -27,19 +29,30 @@ public class UserFacade {
         return instance;
     }
 
+    public User getUser(){
+        return currentUser;
+    }
+
     // delegate the user dao to save the user
     public User register(User user) throws Exception
     {
-        try {
             User existingUser = userDao.findByEmail(user.getEmail());
             if (existingUser == null) {
                 userDao.save(user);
                 this.currentUser = user;
             }
             else {
-                System.out.println("Email already registered !");
-                return null;
+                throw new Exception("Email already exists");
             }
+
+        return user;
+    }
+
+    // delegate the user dao to update the user
+    public User update(User user, String[] params, Object picture) throws Exception {
+        try {
+            userDao.update(user, params, picture);
+            this.currentUser = user;
         } catch (Exception e){
             System.out.println(e.getMessage());
             throw new Exception("Error during the connection to the database");
@@ -47,12 +60,6 @@ public class UserFacade {
         return user;
     }
 
-    public User Modify(User user)
-    {
-        String[] params = {user.getUsername(),user.getPassword()};
-        userDao.update(user,params);
-        return user;
-    }
 
     /**
      * This method is used to handle the login of the user
@@ -74,4 +81,5 @@ public class UserFacade {
         return user;
 
     }
+
 }

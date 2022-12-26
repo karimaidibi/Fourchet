@@ -5,31 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5284ecc2-36fc-40ef-9c8f-aa7e6b007cdd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Circle-icons-profile.svg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/ProfileFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Circle-icons-profile.svg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/UserFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/ingredients/IngredientsCategoryManagement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/ingredients/IngredientsCategoryManagement.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/ingredients/IngredientsManagement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/ingredients/IngredientsManagement.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MongoDB/playground.mongodb" beforeDir="false" afterPath="$PROJECT_DIR$/../MongoDB/playground.mongodb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,19 +51,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/ubuntu/Bureau/Documents/FourchetProjetTemp/Fourchet/Fourchet",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/JAVA/IG4/SE/Employee&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.fourchet.ui.account" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.account.Application" />
+      <module name="Fourchet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fourchet.ui.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,11 +99,27 @@
       <updated>1672069324648</updated>
       <workItem from="1672069326804" duration="40000" />
       <workItem from="1672069375020" duration="292000" />
-      <workItem from="1672069675924" duration="352000" />
+      <workItem from="1672069675924" duration="25615000" />
+      <workItem from="1672098510597" duration="558000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileFrame.java</url>
+          <line>194</line>
+          <properties class="com.fourchet.ui.account.ProfileFrame" method="ChangePicture">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
