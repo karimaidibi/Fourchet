@@ -17,6 +17,9 @@ import javafx.stage.Window;
 public class RegisterFrame {
     @FXML
     private BorderPane GeneralPane;
+
+    @FXML
+    private GridPane GridpaneRegister;
     @FXML
     private TextField username;
     @FXML
@@ -32,7 +35,7 @@ public class RegisterFrame {
 
     private RegisterController registerController = new RegisterController();
     @FXML
-    protected void RegisterFrame() throws Exception {
+    protected void Register() throws Exception {
 
 
         if (username.getText().equals("") || email.getText().equals("") || password.getText().equals("")) {

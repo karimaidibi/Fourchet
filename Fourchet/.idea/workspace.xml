@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="add profile">
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/Dao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/MongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/MongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/Provider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/Provider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +46,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,6 +62,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2Idmr23Yj5R9IvTiZFyued8R6EH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -50,7 +84,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Achille/Montpellier/4A/Java/Fourchet/fourchet&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Achille/4A/ProjetSE/Code/FourchetCodeFX/Fourchet/Fourchet/src/main/java/com/fourchet/ui&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,9 +101,11 @@
       <recent name="com.fourchet.account.persist" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\java\com\fourchet\ui" />
+      <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\java\com\fourchet\ui\rates" />
+      <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\java\com\fourchet\reviews" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/login" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/fourchet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Achille\Montpellier\4A\Java\Fourchet\fourchet\src\main\resources\com\fourchet\ui\account" />
@@ -130,7 +166,7 @@
     </configuration>
     <configuration name="com.fourchet.ui.account.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.account.Application" />
-      <module name="fourchet" />
+      <module name="Fourchet" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.fourchet.ui.account.*" />
@@ -189,6 +225,10 @@
       <workItem from="1671550386686" duration="808000" />
       <workItem from="1671615446135" duration="15709000" />
       <workItem from="1671705411026" duration="2694000" />
+      <workItem from="1672077323172" duration="175000" />
+      <workItem from="1672077549594" duration="319000" />
+      <workItem from="1672077883500" duration="2057000" />
+      <workItem from="1672079975713" duration="140000" />
     </task>
     <task id="LOCAL-00001" summary="init branch">
       <created>1671549500521</created>
