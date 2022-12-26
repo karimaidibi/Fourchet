@@ -28,11 +28,11 @@ public class UserFacade {
     }
 
     // delegate the user dao to save the user
-    public User register(User user)
+    public User register(User user) throws Exception
     {
         try {
             User existingUser = userDao.findByEmail(user.getEmail());
-            if (existingUser != null) {
+            if (existingUser == null) {
                 userDao.save(user);
                 this.currentUser = user;
             }
@@ -41,9 +41,16 @@ public class UserFacade {
                 return null;
             }
         } catch (Exception e){
-            // TODO : replace this by sending the message to the UI
             System.out.println(e.getMessage());
+            throw new Exception("Error during the connection to the database");
         }
+        return user;
+    }
+
+    public User Modify(User user)
+    {
+        String[] params = {user.getUsername(),user.getPassword()};
+        userDao.update(user,params);
         return user;
     }
 

@@ -24,10 +24,8 @@ public abstract class UserDao implements Dao<User> {
     public void save(User user) {
 
     }
-
     @Override
     public void update(User user, String[] params) {
-
     }
 
     @Override

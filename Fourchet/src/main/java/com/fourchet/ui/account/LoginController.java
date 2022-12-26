@@ -27,7 +27,4 @@ public class LoginController {
             throw new Exception(e.getMessage());
         }
     }
-
-
-
 }
