@@ -1,46 +1,57 @@
 package com.fourchet.review;
 
-import com.fourchet.users.User;
+import org.bson.Document;
 
 public class Review {
-    private double rate;
+    private int note;
 
-    private User reviewer;
+    private String IDReviewer;
 
-    //private Recipe recipe;
-    //private Dishe dish;
+    private String IDReviewed;
+
+    private String IDReview;
+
     private String comment;
 
-    public Review(double rate, String comment, User reviewer) {
-        this.rate = rate;
-        this.comment = comment;
-        this.reviewer = reviewer;
-        //this.recipe = recipe;
-        //this.dish = null;
+    public int getNote() {
+        return note;
     }
 
-    /*
-    public Review(double rate, String comment, User reviewer) {
-        this.rate = rate;
-        this.comment = comment;
-        this.reviewer = reviewer;
-        this.recipe = null;
-        this.dish = dish;
+    public String getIDReviewer() {
+        return IDReviewer;
     }
 
-     */
-
-
-    public double getRate() {
-        return rate;
+    public String getIDReviewed() {
+        return IDReviewed;
     }
 
-    public void setRate(double rate) {
-        this.rate = rate;
+    public String getIDReview() {
+        return IDReview;
     }
 
     public String getComment() {
         return comment;
+    }
+
+    public Review(Document document) {
+        this.comment = (String) document.get("comment");
+        this.note = (int) document.get("note");
+        this.IDReviewer = (String) document.get("IDReviewer");
+        this.IDReviewed = (String) document.get("IDReviewed");
+    }
+
+    public Review(int note, String comment, String reviewer, String reviewed) {
+        this.note = note;
+        this.comment = comment;
+        this.IDReviewer = reviewer;
+        this.IDReviewed = reviewed;
+    }
+
+
+
+
+    public void setRate(int rate) {
+        this.note = rate;
     }
 
     public void setComment(String comment) {

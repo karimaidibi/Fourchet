@@ -1,4 +1,4 @@
-package com.fourchet.ui.rates;
+package com.fourchet.ui.review;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -8,7 +8,7 @@ import org.controlsfx.control.Rating;
 
 import static com.fourchet.ui.Popup.showAlert;
 
-public class RatingController {
+public class ReviewController {
     @FXML
     private VBox GeneralPane;
     @FXML
