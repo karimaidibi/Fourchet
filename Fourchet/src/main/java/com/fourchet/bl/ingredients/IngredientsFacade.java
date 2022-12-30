@@ -34,7 +34,7 @@ public class IngredientsFacade {
     {
         try {
             Ingredient existingIngredient = ingredientsDao.findByName(ingredient.getName());
-            if (existingIngredient != null) {
+            if (existingIngredient == null) {
                 ingredientsDao.save(ingredient);
             }
             else {
@@ -59,5 +59,9 @@ public class IngredientsFacade {
 
     public void deleteIngredient(Ingredient ingredient) {
         ingredientsDao.delete(ingredient);
+    }
+
+    public void updateIngredient(Ingredient ingredient, String[] params) {
+        ingredientsDao.update(ingredient, params);
     }
 }

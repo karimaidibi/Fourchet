@@ -8,6 +8,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,10 +84,16 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
     //
     @Override
     public void update(Ingredient ingredient, String[] params) {
+        Document oldIngredientDocument = new Document("name", ingredient.getName())
+                .append("category", ingredient.getCategory().getName());
+
         ingredient.setName(Objects.requireNonNull(
                 params[0], "Name cannot be null"));
         IngredientCategory category = new IngredientCategory(params[1]);
         ingredient.setCategory(category);
+        Document newIngredientDocument =  new Document("$set", new Document("name", ingredient.getName())
+                .append("category", ingredient.getCategory().getName()));
+        ingredientsCollection.updateMany(oldIngredientDocument, newIngredientDocument);
     }
 
     @Override
@@ -94,9 +101,9 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
         //delete the ingredient
         //document to delete
         Document ingredientDocument = new Document("name", ingredient.getName())
-                .append("category", ingredient.getCategory());
+                .append("category", ingredient.getCategory().getName());
 
-        ingredientsCollection.deleteOne(ingredientDocument);
+        ingredientsCollection.deleteMany(ingredientDocument);
     }
 
 

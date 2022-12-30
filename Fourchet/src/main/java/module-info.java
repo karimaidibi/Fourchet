@@ -21,16 +21,19 @@ module com.fourchet {
 
     exports com.fourchet.persist;
     opens com.fourchet.persist to javafx.fxml;
+
     exports com.fourchet.persist.account;
     opens com.fourchet.persist.account to javafx.fxml;
 
     exports com.fourchet.users;
     opens com.fourchet.users to javafx.fxml;
+
     exports com.fourchet.ingredients;
     opens com.fourchet.ingredients to javafx.fxml;
 
     exports com.fourchet.ui.account;
     opens com.fourchet.ui.account to javafx.fxml;
+
     exports com.fourchet.ui.ingredients;
     opens com.fourchet.ui.ingredients to javafx.fxml;
 

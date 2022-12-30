@@ -32,11 +32,11 @@ public class IngredientCategoriesFacade {
     }
 
     // delegate the Ingredient dao to save the user
-    public IngredientCategory saveIngredient(IngredientCategory category)
+    public IngredientCategory saveIngredientCategory(IngredientCategory category)
     {
         try {
             IngredientCategory existingIngredientCategory = ingredientCategoriesDao.findByName(category.getName());
-            if (existingIngredientCategory != null) {
+            if (existingIngredientCategory == null) {
                 ingredientCategoriesDao.save(category);
             }
             else {
@@ -48,6 +48,14 @@ public class IngredientCategoriesFacade {
             System.out.println(e.getMessage());
         }
         return category;
+    }
+
+    public void deleteIngredientCategory(IngredientCategory category) {
+        ingredientCategoriesDao.delete(category);
+    }
+
+    public void updateIngredientCategory(IngredientCategory category, String[] params) {
+        ingredientCategoriesDao.update(category, params);
     }
 
     public List<IngredientCategory> getAllCategories() {

@@ -67,17 +67,21 @@ public class IngredientCategoriesDaoMongoDB extends IngredientCategoriesDao {
     public void save(IngredientCategory category){
         // create a new ingredient category
         // Create the document
-        Document ingredientDocument = new Document("name", category.getName());
+        Document ingredientCategoryDocument = new Document("name", category.getName());
 
         // insert a user into the collection of users
-        ingredientCategoriesCollection.insertOne(ingredientDocument);
+        ingredientCategoriesCollection.insertOne(ingredientCategoryDocument);
     }
 
     //
     @Override
     public void update(IngredientCategory category, String[] params) {
+        Document oldIngredientCategoryDocument = new Document("name", category.getName());
+
         category.setName(Objects.requireNonNull(
                 params[0], "Name cannot be null"));
+        Document newIngredientCategoryDocument =  new Document("$set", new Document("name", category.getName()));
+        ingredientCategoriesCollection.updateMany(oldIngredientCategoryDocument, newIngredientCategoryDocument);
     }
 
     @Override

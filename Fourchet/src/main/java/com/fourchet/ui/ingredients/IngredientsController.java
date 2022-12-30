@@ -1,6 +1,5 @@
 package com.fourchet.ui.ingredients;
 
-import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.ingredientCategories.IngredientCategoriesFacade;
 import com.fourchet.bl.ingredients.IngredientsFacade;
 import com.fourchet.ingredients.Ingredient;
@@ -11,15 +10,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
-import java.util.List;
+import static com.fourchet.ui.Popup.showAlert;
 
 public class IngredientsController {
 
     // Declare FXML elements
+    @FXML private VBox GeneralPane;
     @FXML private Button backToMenuButton;
     @FXML private Label nameOfUser;
     @FXML private ListView listOfIngredients;
@@ -30,6 +30,12 @@ public class IngredientsController {
     @FXML private Label actionTypeOnIngredient; // adding new ingredient or modifying ingredient
 
     private IngredientsFacade ingredientsFacade;
+
+    private Ingredient editedIngredient;
+
+    private HBox editedIngredientHBox;
+
+    private boolean isAdding = true;
     public IngredientsController() {
         this.ingredientsFacade = IngredientsFacade.getInstance();
     }
@@ -51,12 +57,13 @@ public class IngredientsController {
 
     public void loadIngredientsFromDatabase() {
         // load ingredients from database and add them to the ObservableList
-        ObservableList<String> existingCategories = FXCollections.observableArrayList();
         IngredientCategoriesFacade facade = IngredientCategoriesFacade.getInstance();
+        ObservableList<String> existingCategories = FXCollections.observableArrayList();
         for (IngredientCategory category : facade.getAllCategories()) {
             existingCategories.add(category.getName());
         }
         this.selectCategory.setItems(existingCategories);
+        this.selectCategory.setValue(selectCategory.getItems().get(0));
         for (Ingredient ingredient : this.ingredientsFacade.getAllIngredients()) {
             HBox hBox = this.createIngredientCard(ingredient);
             this.ingredientsBoxes.add(hBox);
@@ -79,10 +86,39 @@ public class IngredientsController {
     @FXML
     private void validate() {
         // validate new ingredient
-        IngredientCategory category = new IngredientCategory((String) selectCategory.getSelectionModel().getSelectedItem());
-        Ingredient ingredient = new Ingredient(ingredientNameInput.getText(), category);
-        HBox hBox = this.createIngredientCard(ingredient);
-        this.ingredientsBoxes.add(hBox);
+        if (!((ingredientNameInput.getText().startsWith(" ")) || (ingredientNameInput.getText().equals("")))) {
+            if (isAdding) {
+                IngredientCategory category = new IngredientCategory((String) selectCategory.getSelectionModel().getSelectedItem());
+                Ingredient ingredient = new Ingredient(ingredientNameInput.getText(), category);
+                try {
+                    Ingredient newIngredient = ingredientsFacade.saveIngredient(ingredient);
+                    if (newIngredient != null) {
+                        HBox hBox = this.createIngredientCard(ingredient);
+                        this.ingredientsBoxes.add(hBox);
+                    } else {
+                        showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Attention !", "Ingredients already registered !");
+                    }
+                } catch (Exception e) {
+                    e.getMessage();
+                }
+            } else {
+                try {
+                    String[] params = new String[]{ingredientNameInput.getText(), (String) selectCategory.getSelectionModel().getSelectedItem()};
+                    this.ingredientsFacade.updateIngredient(editedIngredient, params);
+                    VBox leftVBox = new VBox();
+                    Label nameLabel = new Label("Ingredient : " + params[0]);
+                    Label categoryLabel = new Label("Category : " + params[1]);
+                    leftVBox.getChildren().addAll(nameLabel, categoryLabel);
+                    this.editedIngredientHBox.getChildren().set(0, leftVBox);
+                } catch (Exception exception) {
+                    exception.getMessage();
+                }
+            }
+        }
+        else {
+            showAlert(Alert.AlertType.ERROR, GeneralPane.getScene().getWindow(), "Attention !", "Invalid name");
+        }
+        cancel();
     }
 
     /**
@@ -95,7 +131,11 @@ public class IngredientsController {
     @FXML
     private void cancel() {
         // TODO: implement action to cancel new ingredient creation
-
+        this.ingredientNameInput.setText("");
+        this.actionTypeOnIngredient.setText("Add new ingredient");
+        this.isAdding = true;
+        this.editedIngredient = null;
+        this.editedIngredientHBox = null;
     }
 
     /**
@@ -109,16 +149,23 @@ public class IngredientsController {
      * Finally, if the ingredient is added to the db, it will clear the text field and the choice box then display a success message
      */
     @FXML
-    private void addIngredient() {
+    private void addIngredient(Ingredient ingredient) {
         // TODO: implement action to add an ingredient
+        ingredientsFacade.saveIngredient(ingredient);
     }
 
     /**
      * This method should be called by the validate button when the action type is "modifying ingredient"
      */
     @FXML
-    private void updateIngredient() {
+    private void updateIngredient(Ingredient ingredient, HBox ingredientCard) {
         // TODO: implement action to update an ingredient
+        this.actionTypeOnIngredient.setText("Modify this ingredient");
+        this.selectCategory.setValue(ingredient.getCategory().getName());
+        this.ingredientNameInput.setText(ingredient.getName());
+        this.isAdding = false;
+        this.editedIngredient = ingredient;
+        this.editedIngredientHBox = ingredientCard;
     }
 
     /**
@@ -130,10 +177,11 @@ public class IngredientsController {
      * It will display a success message
      */
     @FXML
-    private void deleteIngredient(Ingredient ingredient) {
+    private void deleteIngredient(Ingredient ingredient, HBox ingredientCard) {
         // TODO: implement action to delete an ingredient
         // il faut lier le bouton delete à cette méthode
         this.ingredientsFacade.deleteIngredient(ingredient);
+        this.listOfIngredients.getItems().remove(ingredientCard);
     }
 
     /**
@@ -145,11 +193,13 @@ public class IngredientsController {
      * It will change the validate button text to "modify" instead of "validate"
      */
     @FXML
-    private void selectIngredient() {
+    private void selectIngredient(Ingredient ingredient) {
         // TODO: implement action to select an ingredient
         // il faut lier le click sur un élément de la liste à cette méthode (ou bien le bouton modifier a coté de chaque élément)
         // de cette manière on peut modifier un ingredient sur le coté droit de l'interface
-
+        this.ingredientNameInput.setText(ingredient.getName());
+        this.selectCategory.setValue(ingredient.getCategory().getName());
+        this.actionTypeOnIngredient.setText("Modify this ingredient");
     }
 
     /**
@@ -164,19 +214,26 @@ public class IngredientsController {
         Label categoryLabel = new Label("Category : " + ingredient.getCategory().getName());
         leftVBox.getChildren().addAll(nameLabel, categoryLabel);
 
+
+        // Create the HBox to hold the left and right VBoxes
+        HBox ingredientCard = new HBox();
         // Create the modify and delete buttons
         Button modifyButton = new Button("Modify");
+        modifyButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                updateIngredient(ingredient, ingredientCard);
+                System.out.println("Update button clicked!");
+            }
+        });
         Button deleteButton = new Button("Delete");
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                deleteIngredient(ingredient);
+                deleteIngredient(ingredient, ingredientCard);
                 System.out.println("Delete button clicked!");
             }
         });
-
-        // Create the HBox to hold the left and right VBoxes
-        HBox ingredientCard = new HBox();
         ingredientCard.getChildren().addAll(leftVBox, modifyButton, deleteButton);
 
         Double prefWidthOfListView = this.listOfIngredients.getPrefWidth();
