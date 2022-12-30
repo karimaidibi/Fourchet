@@ -58,6 +58,10 @@ public class IngredientCategoriesFacade {
         ingredientCategoriesDao.update(category, params);
     }
 
+    public IngredientCategory findByName(String name) {
+        return ingredientCategoriesDao.findByName(name);
+    }
+
     public List<IngredientCategory> getAllCategories() {
         return ingredientCategoriesDao.getAll();
     }

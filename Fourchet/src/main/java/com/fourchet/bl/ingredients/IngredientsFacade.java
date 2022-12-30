@@ -57,6 +57,10 @@ public class IngredientsFacade {
         return null;
     }
 
+    public Ingredient findByName(String name) {
+        return ingredientsDao.findByName(name);
+    }
+
     public void deleteIngredient(Ingredient ingredient) {
         ingredientsDao.delete(ingredient);
     }
