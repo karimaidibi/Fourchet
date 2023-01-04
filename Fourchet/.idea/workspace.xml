@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="fix files + add register">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com.fourchet.ui.review/ReviewFrame.fxml" afterDir="false" />
+    <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="finish ReviewDAOMongoDB">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/recipe/RecipeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com.fourchet.ui.recipe/Circle-icons-profile.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com.fourchet.ui.recipe/RecipeFrame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDaoMongoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/review/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/review/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/rates/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/review/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDaoMongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/recipe/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/Popup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Popup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +34,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -60,11 +67,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "D:/Achille/4A/ProjetSE/Code/FourchetCodeFX/Fourchet/Fourchet/src/main/java/com/fourchet/ui",
+    "last_opened_file_path": "D:/Achille/4A/ProjetSE/Code/FourchetCodeFX/Fourchet/Fourchet/src/main/resources/com.fourchet.ui.recipe",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,11 +92,11 @@
       <recent name="com.fourchet.account.persist" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\resources\com.fourchet.ui.recipe" />
       <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\java\com\fourchet\ui" />
       <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\java\com\fourchet\ui\rates" />
       <recent name="D:\Achille\4A\ProjetSE\Code\FourchetCodeFX\Fourchet\Fourchet\src\main\java\com\fourchet\reviews" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Achille\Montpellier\4A\Java\Fourchet\fourchet\src\main\resources\com\fourchet\ui\account" />
@@ -102,6 +108,7 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.fourchet.ui.recipe" />
       <recent name="com.fourchet" />
       <recent name="com.fourchet.account" />
     </key>
@@ -109,7 +116,7 @@
       <recent name="com.fourchet.bl.account" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ReviewDaoMongoDB">
+  <component name="RunManager" selected="Application.com.fourchet.ui.recipe.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fourchet.loginUI.Application" />
       <module name="Fourchet" />
@@ -149,12 +156,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.fourchet.ui.account.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.account.Application" />
+    <configuration name="com.fourchet.ui.recipe.Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.recipe.Application" />
       <module name="Fourchet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fourchet.ui.account.*" />
+          <option name="PATTERN" value="com.fourchet.ui.recipe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -179,8 +186,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.fourchet.ui.recipe.Application" />
         <item itemvalue="Application.ReviewDaoMongoDB" />
-        <item itemvalue="Application.com.fourchet.ui.account.Application" />
         <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.Main" />
@@ -213,7 +220,11 @@
       <workItem from="1672077323172" duration="175000" />
       <workItem from="1672077549594" duration="319000" />
       <workItem from="1672077883500" duration="2057000" />
-      <workItem from="1672079975713" duration="8752000" />
+      <workItem from="1672079975713" duration="12879000" />
+      <workItem from="1672821900337" duration="1744000" />
+      <workItem from="1672823663298" duration="924000" />
+      <workItem from="1672824602391" duration="1200000" />
+      <workItem from="1672825820480" duration="11375000" />
     </task>
     <task id="LOCAL-00001" summary="init branch">
       <created>1671549500521</created>
@@ -250,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672080662905</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finish ReviewDAOMongoDB">
+      <created>1672240430264</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240430264</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +289,17 @@
     <MESSAGE value="init branch" />
     <MESSAGE value="add profile" />
     <MESSAGE value="fix files + add register" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix files + add register" />
+    <MESSAGE value="finish ReviewDAOMongoDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish ReviewDAOMongoDB" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

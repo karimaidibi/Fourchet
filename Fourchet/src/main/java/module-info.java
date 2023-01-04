@@ -30,6 +30,9 @@ module com.fourchet {
     exports com.fourchet.ui.account;
     opens com.fourchet.ui.account to javafx.fxml;
 
+    exports com.fourchet.ui.recipe;
+    opens com.fourchet.ui.recipe to javafx.fxml;
+
     exports com.fourchet.bl.account;
     opens com.fourchet.bl.account to javafx.fxml;
 

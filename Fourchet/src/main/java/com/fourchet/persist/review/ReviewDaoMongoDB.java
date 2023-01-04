@@ -52,12 +52,20 @@ public class ReviewDaoMongoDB {
     }
 
 
-    public void save(Review review) {
-        Document reviewDocument = new Document("note", review.getNote())
-                .append("IDReviewed",review.getIDReviewed())
-                .append("IDReviewer",review.getIDReviewer())
-                .append("comment", review.getComment());
-        reviewsCollection.insertOne(reviewDocument);
+    public void save(Review review) throws Exception {
+        Review R = findOneReview(review.getIDReviewed(),review.getIDReviewer());
+        if (R == null) {
+            Document reviewDocument = new Document("note", review.getNote())
+                    .append("IDReviewed",review.getIDReviewed())
+                    .append("IDReviewer",review.getIDReviewer())
+                    .append("comment", review.getComment());
+            reviewsCollection.insertOne(reviewDocument);
+            System.out.println("Review succesfully added");
+        }
+        else {
+            System.out.println("Reviewer already make review about this");
+            throw new Exception("Review already exists");
+        }
     }
 
 

@@ -46,6 +46,8 @@ public class LoginFrame {
         root.setCenter(gridpaneProfile);
 
 
+
+
         if (email.getText().equals("") || password.getText().equals("")) {
             if (email.getText().equals("")) {
                 email.setPromptText("email missing !");

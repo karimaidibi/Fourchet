@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@cluster0.3mq6o5k.mongodb.net">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.40">
+    <root id="1">
+      <ServerVersion>5.0.14</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="fourchet"/>
+    <schema id="3" parent="1" name="admin"/>
+    <schema id="4" parent="1" name="local"/>
+    <schema id="5" parent="1" name="test">
+      <Current>1</Current>
+    </schema>
+    <table id="6" parent="2" name="ingredientCategories"/>
+    <table id="7" parent="2" name="ingredients"/>
+    <table id="8" parent="2" name="reviews"/>
+    <table id="9" parent="2" name="users"/>
+    <column id="10" parent="6" name="_id">
+      <DataType>ObjectId|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="11" parent="6" name="name">
+      <DataType>String|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="12" parent="8" name="_id">
+      <DataType>ObjectId|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="13" parent="8" name="note">
+      <DataType>Int32|4s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="14" parent="8" name="IDReviewed">
+      <DataType>String|12s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="15" parent="8" name="IDReviewer">
+      <DataType>String|12s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="16" parent="8" name="comment">
+      <DataType>String|12s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="17" parent="9" name="_id">
+      <DataType>ObjectId|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="18" parent="9" name="email">
+      <DataType>String|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="19" parent="9" name="password">
+      <DataType>String|12s</DataType>
+      <Position>1</Position>
+    </column>
+    <column id="20" parent="9" name="picture">
+      <DataType>BinData|12s</DataType>
+      <Position>2</Position>
+    </column>
+    <column id="21" parent="9" name="role">
+      <DataType>String|12s</DataType>
+      <Position>3</Position>
+    </column>
+    <column id="22" parent="9" name="username">
+      <DataType>String|12s</DataType>
+      <Position>4</Position>
+    </column>
+  </database-model>
+</dataSource>
