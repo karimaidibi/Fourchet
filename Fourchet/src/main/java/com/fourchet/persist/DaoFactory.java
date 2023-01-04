@@ -6,6 +6,8 @@ import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
 import com.fourchet.persist.ingredientCategories.IngredientCategoriesDaoMongoDB;
 import com.fourchet.persist.ingredients.IngredientsDao;
 import com.fourchet.persist.ingredients.IngredientsDaoMongoDB;
+import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDao;
+import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDaoMongoDB;
 import com.mongodb.client.MongoDatabase;
 
 public class DaoFactory extends AbstractFactory {
@@ -14,6 +16,8 @@ public class DaoFactory extends AbstractFactory {
     private IngredientsDao ingredientsDao = null;
 
     private IngredientCategoriesDao ingredientCategoriesDao = null;
+
+    private TypeOfCuisineDao typeOfCuisineDao = null;
 
     // instanciate the database class
     private MongoDB mongoDB = new MongoDB();
@@ -47,6 +51,14 @@ public class DaoFactory extends AbstractFactory {
             this.ingredientCategoriesDao = new IngredientCategoriesDaoMongoDB(this);
         }
         return ingredientCategoriesDao;
+    }
+
+    @Override
+    public TypeOfCuisineDao getTypeOfCuisineDao() {
+        if (typeOfCuisineDao==null) {
+            this.typeOfCuisineDao = new TypeOfCuisineDaoMongoDB(this);
+        }
+        return typeOfCuisineDao;
     }
 
     //close the database connection
