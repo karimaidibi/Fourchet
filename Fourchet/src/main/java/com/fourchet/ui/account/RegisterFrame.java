@@ -1,5 +1,6 @@
 package com.fourchet.ui.account;
 
+import com.fourchet.ui.Application;
 import com.fourchet.users.User;
 
 import javafx.fxml.FXML;

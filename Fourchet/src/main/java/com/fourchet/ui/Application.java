@@ -1,4 +1,4 @@
-package com.fourchet.ui.account;
+package com.fourchet.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +11,11 @@ import java.io.IOException;
 
 
 public class Application extends javafx.application.Application {
+
+    private static String root = "/com/fourchet/ui/";
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(Application.root + "ingredients/IngredientsManagement.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login or Sign-Up Form!");
         stage.setScene(scene);

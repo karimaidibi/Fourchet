@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.ingredients.IngredientCategoriesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.orders.CartController">
    <center>
       <VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +31,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="515.0" text="Ingredients Category Management" textAlignment="CENTER">
+                        <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="456.0" text="Ingredients Management" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
@@ -54,12 +54,12 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="494.0" prefWidth="437.0">
                      <children>
-                        <Label prefHeight="16.0" prefWidth="416.0" text="List of all ingredient's categories">
+                        <Label prefHeight="16.0" prefWidth="418.0" text="List of all ingredients">
                            <VBox.margin>
-                              <Insets bottom="10.0" />
+                              <Insets bottom="8.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="listOfIngredientsCategories" prefHeight="456.0" prefWidth="379.0">
+                        <ListView fx:id="listOfIngredients" prefHeight="456.0" prefWidth="379.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -71,13 +71,15 @@
                   </VBox>
                   <VBox prefHeight="466.0" prefWidth="327.0" spacing="10.0">
                      <children>
-                        <Label fx:id="actionTypeOnIngredientCategory" alignment="CENTER" prefHeight="21.0" prefWidth="334.0" text="Add new Category" textAlignment="CENTER">
+                        <Label fx:id="actionTypeOnIngredient" alignment="CENTER" prefHeight="21.0" prefWidth="334.0" text="Adding new ingredient" textAlignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient Category name" />
-                        <TextField fx:id="ingredientCategoryNameInput" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="307.0" />
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient name" />
+                        <TextField fx:id="ingredientNameInput" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="307.0" />
+                        <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient category" />
+                        <ChoiceBox fx:id="selectCategory" prefHeight="24.0" prefWidth="338.0" />
                         <Pane prefHeight="44.0" prefWidth="333.0">
                            <children>
                               <Button fx:id="validateButton" layoutX="14.0" layoutY="12.0" onAction="#validate" text="Validate" />
