@@ -16,10 +16,6 @@ public abstract class UserDao implements Dao<User> {
         return Optional.empty();
     }
 
-    @Override
-    public List<User> getAll() {
-        return null;
-    }
 
     @Override
     public void save(User user) {

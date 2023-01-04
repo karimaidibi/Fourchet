@@ -118,7 +118,7 @@
                                  </font></PasswordField>
                                    </children>
                                </VBox>
-                        <HBox fx:id="errorFiled" visible="false" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: red; -fx-border-radius: 4;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                        <HBox fx:id="errorField" visible="false" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: red; -fx-border-radius: 4;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                            <children>
                               <Label text="Error" textAlignment="CENTER" textFill="RED" />
                            </children>

@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("RegisterFrame.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login or Sign-Up Form!");
         stage.setScene(scene);

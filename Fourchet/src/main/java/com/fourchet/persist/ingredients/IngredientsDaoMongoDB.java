@@ -3,18 +3,21 @@ package com.fourchet.persist.ingredients;
 import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.DaoFactory;
+import com.mongodb.MongoException;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 public class IngredientsDaoMongoDB extends IngredientsDao {
 
-    // the user dao knows the factory that created it
+    // the ingredient dao knows the factory that created it
     DaoFactory factory;
 
     // get the collection of users
@@ -31,7 +34,7 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
     }
 
 
-    // retourne l'user dont l'id est donné en paramètre
+    // retourne l'ingredient dont l'id est donné en paramètre
     @Override
     public Optional<Ingredient> get(long id) {
         //return Optional.ofNullable(users.get((int) id));
@@ -39,12 +42,17 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
     }
 
     /**
-     * return all the users in the database as a list of users objects
-     * it should replace the FindIterable<Document> by List<User> or add the founded users to the list of users
+     * return all the ingredients in the database as a list of ingredients objects
+     * it should replace the FindIterable<Document> by List<Ingredient> or add the founded ingredients to the list of ingredients
      */
     @Override
     public List<Ingredient> getAll() {
-        return null;
+        List<Ingredient> res = new ArrayList<>();
+        FindIterable<Document> docs = ingredientsCollection.find();
+        for (Document d : docs) {
+            res.add(new Ingredient(d));
+        }
+        return res;
     }
 
     @Override
@@ -62,19 +70,30 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
         // create a new ingredient
         // Create the document
         Document ingredientDocument = new Document("name", ingredient.getName())
-                .append("category", ingredient.getCategory());
+                .append("category", ingredient.getCategory().getName());
 
-        // insert a user into the collection of users
-        ingredientsCollection.insertOne(ingredientDocument);
+        // insert a ingredient into the collection of ingredients
+        try {
+            ingredientsCollection.insertOne(ingredientDocument);
+        }
+        catch (MongoException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     //
     @Override
     public void update(Ingredient ingredient, String[] params) {
+        Document oldIngredientDocument = new Document("name", ingredient.getName())
+                .append("category", ingredient.getCategory().getName());
+
         ingredient.setName(Objects.requireNonNull(
-                params[0], "Email cannot be null"));
+                params[0], "Name cannot be null"));
         IngredientCategory category = new IngredientCategory(params[1]);
         ingredient.setCategory(category);
+        Document newIngredientDocument =  new Document("$set", new Document("name", ingredient.getName())
+                .append("category", ingredient.getCategory().getName()));
+        ingredientsCollection.updateMany(oldIngredientDocument, newIngredientDocument);
     }
 
     @Override
@@ -82,9 +101,9 @@ public class IngredientsDaoMongoDB extends IngredientsDao {
         //delete the ingredient
         //document to delete
         Document ingredientDocument = new Document("name", ingredient.getName())
-                .append("category", ingredient.getCategory());
+                .append("category", ingredient.getCategory().getName());
 
-        ingredientsCollection.deleteOne(ingredientDocument);
+        ingredientsCollection.deleteMany(ingredientDocument);
     }
 
 
