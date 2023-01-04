@@ -1,6 +1,5 @@
 package com.fourchet.persist.ingredientCategories;
 
-import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.DaoFactory;
 import com.mongodb.client.FindIterable;

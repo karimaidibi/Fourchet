@@ -1,12 +1,9 @@
 package com.fourchet.bl.ingredientCategories;
 
-import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
-import com.fourchet.persist.ingredients.IngredientsDao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 // This class below is a singleton class (we create the facade only once)

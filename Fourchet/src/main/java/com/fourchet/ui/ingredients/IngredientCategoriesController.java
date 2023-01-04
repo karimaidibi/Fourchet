@@ -1,8 +1,6 @@
 package com.fourchet.ui.ingredients;
 
 import com.fourchet.bl.ingredientCategories.IngredientCategoriesFacade;
-import com.fourchet.bl.ingredients.IngredientsFacade;
-import com.fourchet.ingredients.Ingredient;
 import com.fourchet.ingredients.IngredientCategory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
