@@ -1,7 +1,4 @@
 use('fourchet')
 
-db.ingredientCategories.insert([
-    {
-        "name" : "legume"
-    }
-])
+
+db.users.find({})

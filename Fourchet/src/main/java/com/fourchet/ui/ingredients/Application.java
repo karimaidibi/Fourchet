@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("IngredientsManagement.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("IngredientsCategoryManagement.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login or Sign-Up Form!");
         stage.setScene(scene);
