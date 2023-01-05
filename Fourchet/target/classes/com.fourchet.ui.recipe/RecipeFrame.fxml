@@ -29,7 +29,7 @@
     </top>
     <center>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/16">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/16">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -76,7 +76,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <TextField />
+                        <TextField fx:id="titleRecipe"/>
                      </children>
                   </VBox>
                </children>
@@ -100,13 +100,13 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <TextArea prefHeight="200.0" prefWidth="200.0" />
+                        <TextField  prefHeight="200.0" prefWidth="200.0" fx:id="descriptionRecipe" />
                      </children>
                   </VBox>
                </children>
             </GridPane>
          </children></VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="100.0">
          <children>
                   <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
                     <columnConstraints>
@@ -119,6 +119,7 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
+                              <Label text="Ingrédient" />
                         <ListView fx:id="ingredientList" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
                             <items>
                                 <!-- Ingrédients disponibles -->
@@ -154,6 +155,7 @@
               <children>
                   <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
                      <children>
+                        <Label text="Etapes" />
                         <TextField fx:id="stepField" prefWidth="200.0">
                            <VBox.margin>
                               <Insets bottom="20.0" />

@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -47,6 +48,12 @@ public class RecipeController {
     private VBox stepBox;
 
     @FXML
+    private TextField descriptionRecipe;
+
+    @FXML
+    private TextField titleRecipe;
+
+    @FXML
     private TextField stepField;
 
     @FXML
@@ -85,7 +92,48 @@ public class RecipeController {
     }
 
     public void Publier() {
-        showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Ingredient ",selectedIngredientList.getItems().toString());
+        //showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Ingredient ",selectedIngredientList.getItems().toString());
+        if (selectedIngredientList.getItems().isEmpty()) {
+            selectedIngredientList.setStyle("-fx-border-color: red ;");
+        }
+        else {
+            selectedIngredientList.setStyle("-fx-border-color:transparent ;");
+        }
+
+        if (selectedStepList.getItems().isEmpty()) {
+            selectedStepList.setStyle("-fx-border-color: red ;");
+        }
+        else {
+            selectedStepList.setStyle("-fx-border-color:transparent ;");
+        }
+        if (titleRecipe.getText().isEmpty()) {
+            titleRecipe.setStyle("-fx-border-color: red ;");
+        }
+        else {
+            titleRecipe.setStyle("-fx-border-color:transparent ;");
+        }
+        if (descriptionRecipe.getText().isEmpty()) {
+            descriptionRecipe.setStyle("-fx-border-color: red ;");
+        }
+        else {
+            descriptionRecipe.setStyle("-fx-border-color:transparent ;");
+        }
+
+        ObservableList<HBox> selectedSteps = selectedStepList.getItems();
+        String selectedStepsString = "";
+        String selectedIngredientString = "";
+
+        for (HBox step : selectedSteps) {
+            Label label = (Label) step.getChildren().get(0);
+            selectedStepsString += label.getText();
+        }
+
+        ObservableList<Label> selectedIngredients = selectedIngredientList.getItems();
+        for (Label ingredient : selectedIngredients) {
+            selectedIngredientString += ingredient.getText();
+        }
+
+        showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Steps ",selectedIngredientString);
     }
     @FXML
     private void addStep(ActionEvent event) {
@@ -93,9 +141,11 @@ public class RecipeController {
         if (!stepField.getText().trim().isEmpty()) {
             // Création de l'étape avec le bouton de suppression
             String step = stepField.getText();
-            Button deleteButton = new Button("\u274C");
-
-            HBox stepHBox = new HBox(new Label(step), deleteButton);
+            Button deleteButton = new Button("X");;
+            Label stepLabel = new Label(step);
+            stepLabel.setStyle("-fx-padding: 0 0 0 4;");
+            HBox stepHBox = new HBox(deleteButton, stepLabel);
+            stepHBox.setAlignment(Pos.CENTER_LEFT);
             // Ajout de l'étape à la ObservableList
             steps.add(stepHBox);
 

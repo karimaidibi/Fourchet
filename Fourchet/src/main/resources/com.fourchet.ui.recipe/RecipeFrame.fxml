@@ -29,7 +29,7 @@
     </top>
     <center>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/16">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/16">
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -76,7 +76,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <TextField />
+                        <TextField fx:id="titleRecipe"/>
                      </children>
                   </VBox>
                </children>
@@ -100,13 +100,13 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                      <children>
-                        <TextArea prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="descriptionRecipe" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                </children>
             </GridPane>
          </children></VBox>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      <VBox alignment="CENTER" prefHeight="300.0" prefWidth="100.0">
          <children>
                   <GridPane alignment="CENTER" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
                     <columnConstraints>
@@ -114,12 +114,12 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
+                              <Label text="Ingrédient" />
                         <ListView fx:id="ingredientList" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
                             <items>
                                 <!-- Ingrédients disponibles -->
@@ -135,7 +135,7 @@
                          </ListView>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
                            <children>
                          <ListView fx:id="selectedIngredientList" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0">
                              <items>
