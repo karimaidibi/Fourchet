@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="100.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.HeaderController">
+     <columnConstraints>
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="114.0" prefWidth="114.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="157.0" prefWidth="270.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="205.0" prefWidth="216.0" />
+     </columnConstraints>
+     <rowConstraints>
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+     <children>
+         <HBox alignment="CENTER_LEFT" prefHeight="100.0" style="-fx-background-color: grey;">
+         <children>
+            <Button mnemonicParsing="false" text="Back To Menu">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Button>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </HBox>
+         <HBox prefHeight="100.0" style="-fx-background-color: grey;" GridPane.columnIndex="1" />
+         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" spacing="5" style="-fx-background-color: grey;" GridPane.columnIndex="2">
+             <Button onAction="#showFavorites" text="Favorites" />
+             <Button onAction="#showNotifications" text="Notifications" />
+             <MenuBar fx:id="menuBar">
+                 <menus>
+                     <Menu text="Profile">
+                         <items>
+                             <MenuItem onAction="#showProfile" text="Edit profile" />
+                             <SeparatorMenuItem />
+                             <MenuItem onAction="#logout" text="Log out" />
+                         </items>
+                     </Menu>
+                 </menus>
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+             </MenuBar>
+         </HBox>
+     </children>
+ </GridPane>

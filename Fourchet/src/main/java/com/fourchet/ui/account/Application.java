@@ -31,8 +31,11 @@ public class Application extends javafx.application.Application {
 
             // Get the stage from the event source (e.g., a button)
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.hide();
             // Set the scene for the stage
             stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
         }
         catch (IOException e){
             e.printStackTrace();
