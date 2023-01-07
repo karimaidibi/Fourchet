@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application {
     private static String root = "/com/fourchet/ui/";
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(Application.root + "ingredients/IngredientsManagement.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(Application.root + "orders/CartFrame.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login or Sign-Up Form!");
         stage.setScene(scene);

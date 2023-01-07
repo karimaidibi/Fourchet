@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.ingredients.IngredientsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.orders.CartController">
    <center>
       <VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" BorderPane.alignment="CENTER">
          <children>
@@ -66,12 +59,12 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="16.0" prefWidth="418.0" text="you have x item in your cart" textFill="#323232">
+                        <Label fx:id="YouHaveXItems" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="16.0" prefWidth="432.0" text="you have x item in your cart" textFill="#323232">
                            <VBox.margin>
                               <Insets bottom="8.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="listOfIngredients" prefHeight="456.0" prefWidth="379.0">
+                        <ListView fx:id="listOfItems" prefHeight="456.0" prefWidth="379.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -83,26 +76,47 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="444.0" prefWidth="281.0" spacing="10.0">
                      <children>
-                        <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" style="-fx-background-color: AQUAMARINE; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" text="Go to Payment" textAlignment="CENTER" />
+                        <Button fx:id="GoToPaymentButton" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#GoToPayment" text="Go to Payment" textAlignment="CENTER" />
                         <TitledPane animated="false" text="Order Summary">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                    <VBox layoutX="12.0" layoutY="4.0" prefHeight="173.0" prefWidth="260.0">
                                        <children>
-                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient name" />
-                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Ingredient category" />
+                                          <HBox prefHeight="23.0" prefWidth="260.0">
+                                             <children>
+                                                <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="177.0" text="Ingredient name" />
+                                                <Label fx:id="orderPrice" prefHeight="36.0" prefWidth="82.0" text="\$10" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="23.0" prefWidth="260.0">
+                                             <children>
+                                                <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="46.0" prefWidth="178.0" text="Ingredient category" />
+                                                <Label fx:id="deliveryPrice" prefHeight="43.0" prefWidth="80.0" text="\$2" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="20.0" prefWidth="260.0">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="179.0" text="Total" />
+                                                <Label fx:id="totalPrice" prefHeight="32.0" prefWidth="78.0" text="\$12" />
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                           </content>
                         </TitledPane>
-                      <TitledPane animated="false" prefHeight="179.0" prefWidth="307.0" text="Address">
+                      <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" text="Delivery Address">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="305.0">
                                  <children>
-                                    <Label contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" text="adress" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+                                    <VBox alignment="CENTER" layoutX="11.399999618530273" layoutY="11.399999618530273" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                                       <children>
+                                          <TextArea fx:id="addressInputField" maxHeight="-Infinity" maxWidth="-Infinity" />
+                                          <Button fx:id="updateAddressButton" mnemonicParsing="false" onAction="#updateAddress" prefHeight="24.0" prefWidth="290.0" text="Modify Address" />
+                                       </children>
+                                    </VBox>
                                  </children>
                               </AnchorPane>
                         </content>

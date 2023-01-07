@@ -1,5 +1,7 @@
 package com.fourchet.persist.account;
 
+import com.fourchet.orders.Cart;
+import com.fourchet.orders.CartItem;
 import com.fourchet.persist.DaoFactory;
 import com.fourchet.users.User;
 import com.mongodb.client.FindIterable;
@@ -9,10 +11,7 @@ import org.bson.Document;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 
 public class UserDaoMongoDB extends UserDao {
@@ -87,6 +86,38 @@ public class UserDaoMongoDB extends UserDao {
     //
     @Override
     public void update(User user, String[] params) {
+    }
+
+    //update the delivery address of the user
+    public void updateDeliveryAddress(User user, String address) {
+        // update the address of the user
+        usersCollection.updateOne(Filters.eq("email", "client@gmail.com"), Updates.set("address", address));
+        System.out.println("Delivery address updated successfully");
+    }
+
+    public void updateCart(User user, Cart cart) {
+        List<CartItem> cartItems = cart.getItems();
+        List<Document> cartItemsDocument = new ArrayList<Document>();
+        for (CartItem cartItem : cartItems) {
+            cartItemsDocument.add(new Document("product", cartItem.getProduct())
+                    .append("quantity", cartItem.getQuantity()));
+        }
+        // update the cart of the user
+        usersCollection.updateOne(Filters.eq("email", "client@gmail.com"), Updates.set("cart", cartItemsDocument));
+        System.out.println("Cart updated successfully");
+    }
+
+    // method to get the cart of the user
+    public Cart getCart(User user) {
+        // get the cart of the user
+        FindIterable<Document> documents = usersCollection.find(Filters.eq("email", user.getEmail()));
+        Document userDocument = documents.first();
+        String deliveryAddress = userDocument.getString("address");
+        List<Document> items = (List<Document>) userDocument.get("cart");
+        if(items == null) {
+            return null;
+        }
+        return new Cart(items, deliveryAddress);
     }
 
     public User update(User user, String[] params, Object picture) {

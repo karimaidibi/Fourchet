@@ -1,4 +1,4 @@
 use('fourchet')
 
 
-db.users.find({})
+db.users.find({email : "client@gmail.com"})

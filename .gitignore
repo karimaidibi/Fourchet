@@ -13,3 +13,5 @@ out
 # Ignore files that may contain sensitive information
 .properties
 .xml
+
+.class
