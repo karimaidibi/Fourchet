@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29873898-9d96-436d-9f39-9bdb1439f7e0" name="Changes" comment="add recipe frame and controller + update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/recipe/RecipeDaoMongoDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/recipe/Recipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/recipe/RecipeModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com.fourchet.ui.recipe/RecipeModifyFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/66f15518-8e8c-4a7a-91eb-ab72d5fb2a3e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/66f15518-8e8c-4a7a-91eb-ab72d5fb2a3e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/recipe/RecipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/recipe/RecipeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com.fourchet.ui.recipe/RecipeFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.fourchet.ui.recipe/RecipeFrame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com.fourchet.ui.recipe/RecipeFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.fourchet.ui.recipe/RecipeFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/recipe/RecipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/recipe/RecipeController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,12 +126,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fourchet.Main" />
+    <configuration name="RecipeDaoMongoDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fourchet.persist.recipe.RecipeDaoMongoDB" />
       <module name="Fourchet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fourchet.persist.*" />
+          <option name="PATTERN" value="com.fourchet.persist.recipe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -176,10 +183,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.fourchet.ui.recipe.Application" />
+        <item itemvalue="Application.RecipeDaoMongoDB" />
         <item itemvalue="Application.ReviewDaoMongoDB" />
         <item itemvalue="JUnit.UserFacadeTest" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +222,8 @@
       <workItem from="1672824602391" duration="1200000" />
       <workItem from="1672825820480" duration="11943000" />
       <workItem from="1672862779231" duration="707000" />
-      <workItem from="1672863504865" duration="4551000" />
+      <workItem from="1672863504865" duration="24209000" />
+      <workItem from="1673043902175" duration="8147000" />
     </task>
     <task id="LOCAL-00001" summary="init branch">
       <created>1671549500521</created>
@@ -266,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672862728864</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add recipe frame and controller + update">
+      <created>1672953360502</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672953360502</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +312,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
