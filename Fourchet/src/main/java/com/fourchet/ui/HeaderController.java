@@ -3,19 +3,28 @@ package com.fourchet.ui;
 import com.fourchet.bl.account.UserFacade;
 import com.fourchet.ui.account.Application;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HeaderController implements Initializable {
+    @FXML
+    private Button activitiesButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-
+        if (UserFacade.getInstance().getCurrentUser() != null) {
+            if (UserFacade.getInstance().getCurrentUser().getRole().equals("provider")) {
+                activitiesButton.setVisible(true);
+            } else {
+                activitiesButton.setVisible(false);
+            }
+        }
     }
 
     public void showFavorites(ActionEvent actionEvent) {
@@ -51,5 +60,9 @@ public class HeaderController implements Initializable {
             System.out.println(e.getMessage());
         }
         //GeneralController.goToNextScene(actionEvent, "/com/fourchet/ui/account/Login.fxml");
+    }
+
+    public void showActivities(ActionEvent actionEvent) {
+        System.out.println("click on activities");
     }
 }

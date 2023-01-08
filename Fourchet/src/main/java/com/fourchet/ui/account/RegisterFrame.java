@@ -77,7 +77,10 @@ public class RegisterFrame {
                 showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Registration Success", "Welcome " + user.getUsername());
 
                 // load the profile frame
-                Application.goToNextScene(event,"/com/fourchet/ui/account/ProfileFrame.fxml");
+                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
 
                 //FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileFrame.fxml"));
                 //Parent profilePage;

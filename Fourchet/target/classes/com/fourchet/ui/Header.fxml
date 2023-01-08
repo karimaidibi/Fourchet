@@ -15,18 +15,13 @@
      </rowConstraints>
      <children>
          <HBox alignment="CENTER_LEFT" prefHeight="100.0" style="-fx-background-color: grey;">
-         <children>
-            <Button mnemonicParsing="false" text="Back To Menu">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin></Button>
-         </children>
          <GridPane.margin>
             <Insets />
          </GridPane.margin>
       </HBox>
          <HBox prefHeight="100.0" style="-fx-background-color: grey;" GridPane.columnIndex="1" />
          <HBox alignment="CENTER_RIGHT" prefHeight="100.0" spacing="5" style="-fx-background-color: grey;" GridPane.columnIndex="2">
+         <Button fx:id="activitiesButton" mnemonicParsing="false" onAction="#showActivities" text="Activities" />
              <Button onAction="#showFavorites" text="Favorites" />
              <Button onAction="#showNotifications" text="Notifications" />
              <MenuBar fx:id="menuBar">

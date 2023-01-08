@@ -34,6 +34,9 @@ module com.fourchet {
     exports com.fourchet.ui.account;
     opens com.fourchet.ui.account to javafx.fxml;
 
+    exports com.fourchet.ui.account.activities;
+    opens com.fourchet.ui.account.activities to javafx.fxml;
+
     exports com.fourchet.ui.ingredients;
     opens com.fourchet.ui.ingredients to javafx.fxml;
 

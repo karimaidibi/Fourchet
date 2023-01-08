@@ -58,7 +58,10 @@ public class LoginFrame {
                 User user = loginController.login(email.getText(), password.getText());
 
                 // load the profile frame
-                Application.goToNextScene(event,"/com/fourchet/ui/account/ProfileFrame.fxml");
+                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
 
                 //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFrameName));
                 //Parent fxmlRoot = loader.load();
