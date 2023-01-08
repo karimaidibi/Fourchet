@@ -167,8 +167,8 @@ public class RecipeController {
             List<String> StepsList = new ArrayList<>();
 
             for (HBox step : selectedSteps) {
-                if (step.getChildren().get(0) instanceof Label) {
-                    Label stepLabel = (Label) step.getChildren().get(0);
+                if (step.getChildren().get(1) instanceof Label) {
+                    Label stepLabel = (Label) step.getChildren().get(1);
                     StepsList.add(stepLabel.getText());
                 }
             }
@@ -191,7 +191,7 @@ public class RecipeController {
             daoFactory.getRecipeDaoMongoDB().save(addedRecipe);
             System.out.println("Recipe added");
             System.out.println(daoFactory.getRecipeDaoMongoDB().getAllRecipe().toString());
-            showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Steps ",imageDocument.toString());
+            showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Steps ",StepsList.toString());
 
         }
     }

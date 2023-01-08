@@ -35,11 +35,13 @@ public class RecipeDaoMongoDB {
         List recipes = new ArrayList<Recipe>();
         FindIterable<Document> documents = recipesCollection.find();
         System.out.println("Documents found successfully");
-
+        int i = 0;
         for (Document doc : documents) {
             System.out.println(doc);
             recipes.add(new Recipe(doc));
+            i++;
         }
+        System.out.println(i);
         return recipes;
     }
 
@@ -129,6 +131,7 @@ public class RecipeDaoMongoDB {
 
     public static void main(String[] args) throws Exception {
         /*
+
         DaoFactory factory = new DaoFactory();
         RecipeDaoMongoDB recipeDaoMongoDB = new RecipeDaoMongoDB(factory);
         //reviewDaoMongoDB.save(new Review(6, "Super", "zergzergzerg", "izergzerj"));
@@ -169,7 +172,7 @@ public class RecipeDaoMongoDB {
         //recipeDaoMongoDB.getRecipeByFilter(filters);
         //recipeDaoMongoDB.save(R3);
 
-        //recipeDaoMongoDB.getAll();
+        //recipeDaoMongoDB.getAllRecipe();
 
     }
 }
