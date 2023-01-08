@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.orders.CartController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.orders.CartController">
    <center>
       <VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" BorderPane.alignment="CENTER">
          <children>
@@ -24,13 +32,8 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="56.0" prefWidth="784.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="646.0">
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="646.0">
                      <children>
-                        <Button fx:id="backToMenuButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#backToMenu" text="Back to main menu">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
                         <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="456.0" text="Your Shopping Cart" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="19.0" />

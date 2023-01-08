@@ -5,31 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5284ecc2-36fc-40ef-9c8f-aa7e6b007cdd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/orders/CartFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/orders/CartItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/payments/PaymentFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/payments/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/payments/PaymentMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/payments/PaymentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/payments/PaymentDaoMongoDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/payments/PaymentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/payments/PaymentFrame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/orders/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/orders/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/orders/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/orders/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders/cartFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders/CartFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/orders/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/orders/Cart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders/CartFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders/CartFrame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/cartFrame.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MongoDB/insertUsers.mongodb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartFrame.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,22 +52,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/java/com/fourchet/ui/orders&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/resources/com/fourchet/ui/orders&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/java/com/fourchet/ui/orders",
+    "last_opened_file_path": "/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/resources/com/fourchet/ui/payments",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/payments" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -136,6 +128,9 @@
       <workItem from="1673010077638" duration="1416000" />
       <workItem from="1673012550931" duration="9800000" />
       <workItem from="1673027914129" duration="15932000" />
+      <workItem from="1673056252687" duration="103000" />
+      <workItem from="1673122395809" duration="387000" />
+      <workItem from="1673122791120" duration="6010000" />
     </task>
     <servers />
   </component>

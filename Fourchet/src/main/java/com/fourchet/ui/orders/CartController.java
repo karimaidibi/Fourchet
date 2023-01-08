@@ -91,11 +91,6 @@ public class CartController {
         this.totalPrice.setText(String.valueOf(cart.getTotalPrice()));
     }
 
-    //backToMenuButton method
-    @FXML
-    public void backToMenu(ActionEvent actionEvent) {
-    }
-
     //GoToPaymentButton method
     @FXML
     public void GoToPayment(ActionEvent actionEvent) {
