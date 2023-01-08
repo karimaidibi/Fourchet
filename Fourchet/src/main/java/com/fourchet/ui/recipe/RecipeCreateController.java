@@ -2,6 +2,7 @@ package com.fourchet.ui.recipe;
 
 import com.fourchet.persist.DaoFactory;
 import com.fourchet.recipe.Recipe;
+import com.fourchet.recipe.TypeOfRecipe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ import java.util.List;
 
 import static com.fourchet.ui.account.Popup.showAlert;
 
-public class RecipeController {
+public class RecipeCreateController {
     /*
     @FXML
     private ListView<String> ingredientList;
@@ -73,6 +74,8 @@ public class RecipeController {
     BorderPane GeneralPane;
 
     @FXML
+    ChoiceBox<String> FilterTypeRecipe;
+    @FXML
     private Button  publierButton;
 
     @FXML
@@ -102,6 +105,9 @@ public class RecipeController {
         });
 
         selectedStepList.setItems(steps);
+
+        FilterTypeRecipe.getItems().addAll(TypeOfRecipe.getAllType());
+        FilterTypeRecipe.setValue(TypeOfRecipe.BREAKFAST.toString());
     }
 
     public void Publier() throws IOException {
@@ -184,7 +190,8 @@ public class RecipeController {
                     .append("Image", imageDocument.toJson())
                     .append("Ingredients", ingredientsList)
                     .append("Steps", StepsList)
-                    .append("Author", "test@gmail");
+                    .append("Author", "test@gmail")
+                    .append("Type", FilterTypeRecipe.getValue());
 
             Recipe addedRecipe = new Recipe(recipeDocument);
             DaoFactory daoFactory = new DaoFactory();

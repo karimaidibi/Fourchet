@@ -39,10 +39,20 @@ public class RecipeViewController {
     @FXML
     private ListView<Label> selectedIngredientList;
 
+    public BorderPane getGeneralPane(){
+        return GeneralPane;
+    }
+
+
+
 
     private ObservableList<HBox> steps = FXCollections.observableArrayList();
 
     private Recipe recipe;
+
+    public void setRecipe (Recipe recipe){
+        this.recipe = recipe;
+    }
 
     @FXML
     private void initialize() {

@@ -3,17 +3,19 @@ package com.fourchet.ui.recipe;
 import com.fourchet.persist.DaoFactory;
 import com.fourchet.persist.recipe.RecipeDaoMongoDB;
 import com.fourchet.recipe.Recipe;
+import com.fourchet.recipe.TypeOfRecipe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelFormat;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.bson.Document;
@@ -28,7 +30,31 @@ public class RecipeSearchController {
     @FXML
     private ListView<HBox> recipeList;
 
+    @FXML
+    private ChoiceBox<String> FilterTypeRecipe;
+
+    @FXML
+    private BorderPane GeneralPane;
+
+    public BorderPane getGeneralPane(){
+        return GeneralPane;
+    }
+
     private ObservableList<Label> searchResult = FXCollections.observableArrayList();
+
+    @FXML
+    public void goToRecipeView(ActionEvent event) {
+        System.out.println("click on register");
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            RecipeViewController controller = loader.getController();
+            GeneralPane.setCenter(controller.getGeneralPane().getCenter());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     @FXML
     private void initialize() {
@@ -38,9 +64,9 @@ public class RecipeSearchController {
         for (Recipe recipe : recipeDaoMongoDB.getAllRecipe()) {
             recipeList.getItems().add(setRecipeItem(recipe));
         }
-
-
-
+        FilterTypeRecipe.getItems().clear();
+        FilterTypeRecipe.getItems().addAll(TypeOfRecipe.getAllType());
+        FilterTypeRecipe.getItems().add("ALL");
     }
 
     @FXML
@@ -51,9 +77,14 @@ public class RecipeSearchController {
         recipeDaoMongoDB.getAllRecipe();
         for (Recipe recipe : recipeDaoMongoDB.getAllRecipe()) {
             if (recipe.getTitle().contains(searchField.getText())) {
-                recipeList.getItems().add(setRecipeItem(recipe));
+                if(FilterTypeRecipe.getValue()==null || FilterTypeRecipe.getValue().equals("ALL")) {
+                    recipeList.getItems().add(setRecipeItem(recipe));
+                } else if (recipe.getType().equals(TypeOfRecipe.getType(FilterTypeRecipe.getValue()))) {
+                    recipeList.getItems().add(setRecipeItem(recipe));
+                }
             }
         }
+
     }
 
     private HBox setRecipeItem(Recipe recipe) {
@@ -75,12 +106,37 @@ public class RecipeSearchController {
         Label titleLabel = new Label("Titre : "+recipe.getTitle());
         Label descriptionLabel = new Label("Description : "+recipe.getDescription());
 
-        vbox.getChildren().addAll(authorLabel, titleLabel, descriptionLabel);
+        Label type = new Label("Type : "+recipe.getType());
+
+        vbox.getChildren().addAll(authorLabel, titleLabel, descriptionLabel, type);
 
         HBox buttonHBox = new HBox();
         buttonHBox.setAlignment(Pos.CENTER);
 
         Button readButton = new Button("Lire");
+        readButton.setOnAction(event -> {
+            System.out.println("click on Lire");
+            try {
+                System.out.println("try to load RecipeViewFrame");
+                /*
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                RecipeViewController controller = loader.getController();
+                controller.setRecipe(recipe);
+                GeneralPane.setCenter(controller.getGeneralPane().getCenter());*/
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
+                Parent ViewRecipe = loader.load();
+                RecipeViewController ViewController = loader.getController();
+                VBox VBoxView = (VBox)ViewController.getGeneralPane().getCenter();
+
+                BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
+                root.setCenter(VBoxView);
+                System.out.println("load RecipeViewFrame");
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
 
         buttonHBox.getChildren().add(readButton);
 

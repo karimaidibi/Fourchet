@@ -77,7 +77,8 @@ public class RecipeDaoMongoDB {
                 .append("Description", recipe.getDescription())
                 .append("Ingredients", recipe.getIngredients())
                 .append("Steps", recipe.getSteps())
-                .append("Author",recipe.getAuthor());
+                .append("Author",recipe.getAuthor())
+                .append("TypeOfRecipe",recipe.getType());
         this.recipesCollection.insertOne(document);
         System.out.println("Review succesfully added");
     }
@@ -97,7 +98,8 @@ public class RecipeDaoMongoDB {
                 .append("Description", newRecipe.getDescription())
                 .append("Ingredients", newRecipe.getIngredients())
                 .append("Steps", newRecipe.getSteps())
-                .append("Image",newRecipe.getImage());
+                .append("Image",newRecipe.getImage())
+                .append("TypeOfRecipe",newRecipe.getType());
 
 
         Document update = new Document("$set", newRecipeDocument);
@@ -112,7 +114,8 @@ public class RecipeDaoMongoDB {
                 .append("Description", recipe.getDescription())
                 .append("Ingredients", recipe.getIngredients())
                 .append("Steps", recipe.getSteps())
-                .append("Author",recipe.getAuthor());
+                .append("Author",recipe.getAuthor())
+                .append("TypeOfRecipe",recipe.getType());
         recipesCollection.deleteOne(recipeDocument);
     }
 

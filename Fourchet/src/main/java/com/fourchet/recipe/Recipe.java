@@ -18,6 +18,8 @@ public class Recipe {
 
     String Author;
 
+    TypeOfRecipe Type;
+
     public String getTitle() {
         return title;
     }
@@ -42,13 +44,18 @@ public class Recipe {
         return Author;
     }
 
-    public Recipe(String title, String description, String Image, List<String> steps, List<String>ingredients, String Author) {
+    public String getType() {
+        return Type.toString();
+    }
+
+    public Recipe(String title, String description, String Image, List<String> steps, List<String>ingredients, String Author, TypeOfRecipe Type) {
         this.title = title;
         this.description = description;
         this.Image = Image;
         this.steps = steps;
         this.ingredients = ingredients;
         this.Author = Author;
+        this.Type = Type;
     }
 
     public Recipe (Document document) {
@@ -58,5 +65,6 @@ public class Recipe {
         this.steps = (List<String>) document.get("Steps");
         this.ingredients = (List<String>) document.get("Ingredients");
         this.Author = (String) document.get("Author");
+        this.Type = TypeOfRecipe.getType((String)document.get("TypeOfRecipe"));
     }
 }

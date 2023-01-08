@@ -26,7 +26,7 @@ public class Application extends javafx.application.Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 320, 240);
         /*
-        FXMLLoader fxmlLoaderRecipe = new FXMLLoader(Application.class.getResource("RecipeFrame.fxml"));
+        FXMLLoader fxmlLoaderRecipe = new FXMLLoader(Application.class.getResource("RecipeCreateFrame.fxml"));
         Parent root = fxmlLoaderRecipe.load();
         RecipeController RecipeController = fxmlLoaderRecipe.getController();
         Scene scene = new Scene(root, 320, 240);
