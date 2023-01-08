@@ -13,7 +13,7 @@ public class ProfileController {
 
     // get the user from the facade
     public User getUser(){
-        return userFacade.getUser();
+        return userFacade.getCurrentUser();
     }
 
     // delegate the user facade to update the user

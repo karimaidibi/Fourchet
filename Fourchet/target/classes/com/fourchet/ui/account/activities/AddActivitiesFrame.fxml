@@ -8,7 +8,7 @@
 <!-- Create the root node: a VBox layout -->
 
 <?import java.lang.String?>
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.account.activities.AddActivitiesController">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.account.activities.AddActivitiesController" fx:id="addActivitiesFrame">
    <center>
       <VBox alignment="center" spacing="10">
           <!-- Add a label -->

@@ -64,5 +64,14 @@ public class HeaderController implements Initializable {
 
     public void showActivities(ActionEvent actionEvent) {
         System.out.println("click on activities");
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            GeneralController controller = loader.getController();
+            controller.setCenter("/com/fourchet/ui/account/activities/ActivitiesFrame.fxml");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

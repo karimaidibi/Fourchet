@@ -2,6 +2,8 @@ package com.fourchet.ui.account.activities;
 
 import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.account.activities.ActivitiesFacade;
+import com.fourchet.ui.GeneralController;
+import com.fourchet.ui.Popup;
 import com.fourchet.users.User;
 import com.fourchet.users.actitvities.Activity;
 import javafx.event.ActionEvent;
@@ -11,11 +13,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddActivitiesController implements Initializable {
+    @FXML
+    private BorderPane addActivitiesFrame;
     @FXML
     private ChoiceBox typeOfActivity;
     @FXML
@@ -43,13 +48,22 @@ public class AddActivitiesController implements Initializable {
         });
     }
 
+    @FXML
     public void addActivity(ActionEvent actionEvent) {
-        String name = nameOfActivityField.getText();
-        String type = (String) typeOfActivity.getSelectionModel().getSelectedItem();
-        String locationFieldText = locationField.getText();
-        String phoneNumber = phoneNumberField.getText();
+        if (verifyFields()) {
+            String name = nameOfActivityField.getText();
+            String type = (String) typeOfActivity.getSelectionModel().getSelectedItem();
+            String locationFieldText = locationField.getText();
+            String phoneNumber = phoneNumberField.getText();
 
-        Activity activity = activitiesFacade.addActivity(new Activity(UserFacade.getInstance().getCurrentUser().getEmail(), name, type, locationFieldText, phoneNumber));
+            Activity activity = activitiesFacade.addActivity(new Activity(UserFacade.getInstance().getCurrentUser().getEmail(), name, type, locationFieldText, phoneNumber));
+        }
+        else {
+            Popup.showAlert(Alert.AlertType.ERROR, addActivitiesFrame.getScene().getWindow(), "Creation Failed", "All fields must be filled");
+        }
+    }
 
+    public boolean verifyFields() {
+        return !nameOfActivityField.getText().isEmpty() && !locationField.getText().isEmpty() && !phoneNumberField.getText().isEmpty();
     }
 }

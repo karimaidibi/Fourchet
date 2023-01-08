@@ -6,6 +6,7 @@ import com.fourchet.persist.account.activities.ActivitiesDao;
 import com.fourchet.users.User;
 import com.fourchet.users.actitvities.Activity;
 
+import java.util.List;
 import java.util.Objects;
 
 // This class below is a singleton class (we create the facade only once)
@@ -52,6 +53,10 @@ public class ActivitiesFacade {
             throw new Exception("Error during the connection to the database");
         }
         return currentActivity;
+    }
+
+    public List<Activity> getAllByUser(User user) {
+        return activitiesDao.getAllByUser(user);
     }
 
 

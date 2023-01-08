@@ -11,9 +11,9 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("AddActivitiesFrame.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("ActivitiesFrame.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Add");
+        stage.setTitle("Activities Frame");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
