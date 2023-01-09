@@ -25,14 +25,14 @@
             </HBox.margin></Button>
          </HBox>
          <HBox fx:id="buttonsHbox" alignment="CENTER_RIGHT" prefHeight="100.0" spacing="5" style="-fx-background-color: grey;" GridPane.columnIndex="1">
-             <Button fx:id="myRecipeButton" mnemonicParsing="false" onAction="#showMyRecipe" text="My Recipes" />
+             <Button fx:id="myRecipesButton" mnemonicParsing="false" onAction="#showMyRecipes" text="My Recipes" />
              <Button fx:id="cartButton" mnemonicParsing="false" onAction="#showCart" text="Cart" />
              <Button fx:id="ingredientsButton" mnemonicParsing="false" onAction="#showIngredients" text="Ingredients Management" />
              <Button fx:id="ingredientCategoriesButton" mnemonicParsing="false" onAction="#showIngredientCategories" text="Ingredient Categories Management" />
              <Button fx:id="typeOfCuisineButton" mnemonicParsing="false" onAction="#showTOC" text="Type of Cuisine Management" />
              <Button fx:id="activitiesButton" mnemonicParsing="false" onAction="#showActivities" text="Activities" />
              <Button fx:id="favoritesButton" onAction="#showFavorites" text="Favorites" />
-             <Button onAction="#showNotifications" text="Notifications" />
+             <Button fx:id="notificationsButton" onAction="#showNotifications" text="Notifications" />
              <MenuBar fx:id="menuBar">
                  <menus>
                      <Menu text="Profile">
