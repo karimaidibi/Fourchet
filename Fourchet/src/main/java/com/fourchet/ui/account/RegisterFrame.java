@@ -77,7 +77,7 @@ public class RegisterFrame {
                 showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Registration Success", "Welcome " + user.getUsername());
 
                 // load the profile frame
-                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
                 controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
@@ -111,7 +111,7 @@ public class RegisterFrame {
 
     public void goToLogin(MouseEvent mouseEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
             Parent fxmlRoot = loader.load();
             GeneralController controller = loader.getController();
             controller.setCenter("/com/fourchet/ui/account/Login.fxml");

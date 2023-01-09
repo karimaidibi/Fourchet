@@ -58,7 +58,7 @@ public class LoginFrame {
                 User user = loginController.login(email.getText(), password.getText());
 
                 // load the profile frame
-                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
                 controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
@@ -92,7 +92,7 @@ public class LoginFrame {
     public void goToRegister(MouseEvent keyEvent) {
         System.out.println("click on register");
         try {
-            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
             Parent fxmlRoot = loader.load();
             GeneralController controller = loader.getController();
             controller.setCenter("/com/fourchet/ui/account/RegisterFrame.fxml");

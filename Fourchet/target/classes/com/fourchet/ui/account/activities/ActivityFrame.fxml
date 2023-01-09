@@ -34,9 +34,12 @@
    <center>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <content>
-            <StackPane prefWidth="600.0">
-                <VBox fx:id="listOfCategories" prefHeight="200.0" prefWidth="100.0" spacing="10.0" />
-            </StackPane>
+            <VBox fx:id="menuVbox" prefWidth="600.0">
+                <Button onAction="#addProduct" text="Add new Product">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="10.0" top="10.0" />
+                  </VBox.margin></Button>
+            </VBox>
         </content>
       </ScrollPane>
    </center>

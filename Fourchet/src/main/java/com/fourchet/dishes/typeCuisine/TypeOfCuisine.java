@@ -1,4 +1,4 @@
-package com.fourchet.typeCuisine;
+package com.fourchet.dishes.typeCuisine;
 
 import org.bson.Document;
 

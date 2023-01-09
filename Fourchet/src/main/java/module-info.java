@@ -40,8 +40,11 @@ module com.fourchet {
     exports com.fourchet.ui.ingredients;
     opens com.fourchet.ui.ingredients to javafx.fxml;
 
-    exports com.fourchet.ui.typeOfCuisine;
-    opens com.fourchet.ui.typeOfCuisine to javafx.fxml;
+    exports com.fourchet.ui.dishes.typeOfCuisine;
+    opens com.fourchet.ui.dishes.typeOfCuisine to javafx.fxml;
+
+    exports com.fourchet.ui.recipe;
+    opens com.fourchet.ui.recipe to javafx.fxml;
 
     exports com.fourchet.bl.account;
     opens com.fourchet.bl.account to javafx.fxml;

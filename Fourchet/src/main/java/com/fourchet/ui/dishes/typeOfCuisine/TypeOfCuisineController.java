@@ -1,7 +1,7 @@
-package com.fourchet.ui.typeOfCuisine;
+package com.fourchet.ui.dishes.typeOfCuisine;
 
 import com.fourchet.bl.typeOfCuisine.TypeOfCuisineFacade;
-import com.fourchet.typeCuisine.TypeOfCuisine;
+import com.fourchet.dishes.typeCuisine.TypeOfCuisine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

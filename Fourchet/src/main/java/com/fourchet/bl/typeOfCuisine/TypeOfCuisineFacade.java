@@ -1,11 +1,8 @@
 package com.fourchet.bl.typeOfCuisine;
 
-import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.AbstractFactory;
-import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
 import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDao;
-import com.fourchet.typeCuisine.TypeOfCuisine;
-import com.fourchet.ui.typeOfCuisine.TypeOfCuisineController;
+import com.fourchet.dishes.typeCuisine.TypeOfCuisine;
 
 import java.util.List;
 

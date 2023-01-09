@@ -1,7 +1,7 @@
 package com.fourchet.persist.typeOfCuisine;
 
 import com.fourchet.persist.DaoFactory;
-import com.fourchet.typeCuisine.TypeOfCuisine;
+import com.fourchet.dishes.typeCuisine.TypeOfCuisine;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
