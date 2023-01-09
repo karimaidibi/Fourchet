@@ -62,6 +62,7 @@ public class CartController {
     public void initialize(){
         loadCartFromDatabase();
         this.listOfItems.setItems(itemsBoxes);
+        nameOfUser.setText("Hello " + UserFacade.getInstance().getCurrentUser().getUsername());
     }
 
     /**

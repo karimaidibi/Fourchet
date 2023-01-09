@@ -11,7 +11,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="65.0" prefWidth="613.0">
                <children>
-                  <Label fx:id="nameOfUser" alignment="CENTER" contentDisplay="BOTTOM" maxHeight="-Infinity" maxWidth="-Infinity" text="Hello Provider !" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="nameOfUser" alignment="CENTER" contentDisplay="BOTTOM" maxHeight="-Infinity" maxWidth="-Infinity" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>

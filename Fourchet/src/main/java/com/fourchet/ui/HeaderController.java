@@ -151,6 +151,14 @@ public class HeaderController implements Initializable {
     }
 
     public void showCart(ActionEvent actionEvent) {
-        // TODO : go to cart page
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            GeneralController controller = loader.getController();
+            controller.setCenter("/com/fourchet/ui/orders/CartFrame.fxml");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

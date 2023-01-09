@@ -1,5 +1,6 @@
 package com.fourchet.ui.ingredients;
 
+import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.ingredientCategories.IngredientCategoriesFacade;
 import com.fourchet.bl.ingredients.IngredientsFacade;
 import com.fourchet.ingredients.Ingredient;
@@ -9,13 +10,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import static com.fourchet.ui.Popup.showAlert;
 
-public class IngredientsController {
+public class IngredientsController implements Initializable {
 
     // Declare FXML elements
     @FXML private VBox GeneralPane;
@@ -44,6 +49,10 @@ public class IngredientsController {
 
     public IngredientsController() {
         this.ingredientsFacade = IngredientsFacade.getInstance();
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        nameOfUser.setText("Hello " + UserFacade.getInstance().getCurrentUser().getUsername());
     }
 
     // Declare ObservableList to store ingredients

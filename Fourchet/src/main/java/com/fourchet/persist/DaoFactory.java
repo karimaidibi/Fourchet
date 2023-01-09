@@ -26,6 +26,8 @@ public class DaoFactory extends AbstractFactory {
     private TypeOfCuisineDao typeOfCuisineDao = null;
 
     private ActivitiesDao activitiesDao = null;
+    private RecipeDao recipeDao = null;
+    private PaymentDao paymentDao = null;
 
     // instanciate the database class
     private MongoDB mongoDB = new MongoDB();
@@ -75,6 +77,22 @@ public class DaoFactory extends AbstractFactory {
             this.activitiesDao = new ActivitiesDaoMongoDB(this);
         }
         return activitiesDao;
+    }
+
+    @Override
+    public RecipeDao getRecipeDao() {
+        if (recipeDao==null) {
+            this.recipeDao = new RecipeDaoMongoDB(this);
+        }
+        return recipeDao;
+    }
+
+    @Override
+    public PaymentDao getPaymentDao() {
+        if (paymentDao==null) {
+            this.paymentDao = new PaymentDaoMongoDB(this);
+        }
+        return paymentDao;
     }
 
     //close the database connection
