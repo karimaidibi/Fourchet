@@ -8,8 +8,11 @@ import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
 import com.fourchet.persist.ingredientCategories.IngredientCategoriesDaoMongoDB;
 import com.fourchet.persist.ingredients.IngredientsDao;
 import com.fourchet.persist.ingredients.IngredientsDaoMongoDB;
+import com.fourchet.persist.recipe.RecipeDao;
+import com.fourchet.persist.recipe.RecipeDaoMongoDB;
 import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDao;
 import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDaoMongoDB;
+import com.fourchet.recipe.Recipe;
 import com.mongodb.client.MongoDatabase;
 
 public class DaoFactory extends AbstractFactory {
@@ -22,6 +25,8 @@ public class DaoFactory extends AbstractFactory {
     private TypeOfCuisineDao typeOfCuisineDao = null;
 
     private ActivitiesDao activitiesDao = null;
+
+    private RecipeDao recipeDao = null;
 
     // instanciate the database class
     private MongoDB mongoDB = new MongoDB();
@@ -71,6 +76,14 @@ public class DaoFactory extends AbstractFactory {
             this.activitiesDao = new ActivitiesDaoMongoDB(this);
         }
         return activitiesDao;
+    }
+
+    @Override
+    public RecipeDao getRecipeDao() {
+        if (recipeDao==null) {
+            this.recipeDao = new RecipeDaoMongoDB(this);
+        }
+        return recipeDao;
     }
 
     //close the database connection
