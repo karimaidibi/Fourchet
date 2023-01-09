@@ -1,0 +1,43 @@
+use('fourchet')
+
+db.users.insert([
+    {
+        "username" : "admin",
+        "email" : "admin@gmail.com",
+        "role" : "admin",
+        "password" : "admin"
+    },
+    {
+        "username" : "client",
+        "email" : "client@gmail.com",
+        "role" : "client",
+        "password" : "client"
+    }
+])
+
+
+db.users.updateOne({email : "client@gmail.com"},
+    {
+        $set : {
+            cart : 
+            [
+                {
+                    "product" : {
+                        "providerId" : "FZFRZ",
+                        "price" : 10,
+                        "name" : "sucre"
+                    },
+                    "quantity" : 1
+                },
+                {
+                    "product" : {
+                        "providerId" : "FZFRZfrzef",
+                        "price" : 5,
+                        "name" : "banane"
+                    },
+                    "quantity" : 1
+                }
+            ]
+        }
+    }
+)

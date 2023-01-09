@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.orders.payments.PaymentSuccessController">
+    <center>
+        <VBox fx:id="GeneralPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="65.0" prefWidth="784.0">
+                    <children>
+                        <Label fx:id="nameOfUser" alignment="CENTER" contentDisplay="BOTTOM" maxHeight="-Infinity" maxWidth="-Infinity" text="Hello Client !" textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="8.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Separator prefHeight="0.0" prefWidth="606.0" />
+                    </children>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="58.0" prefWidth="763.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="758.0">
+                            <children>
+                                <Button fx:id="backToCartButton" mnemonicParsing="false" onAction="#backToCart" prefHeight="24.0" prefWidth="206.0" text="&lt; Back to the shopping cart">
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="354.0" text="Payment validation" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="19.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <Separator prefHeight="14.0" prefWidth="300.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="15.0" />
+                    </VBox.margin>
+                </VBox>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);">
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                    <children>
+                        <VBox prefHeight="66.0" prefWidth="597.0" spacing="10.0">
+                            <children>
+                                <Label prefHeight="36.0" prefWidth="651.0" text="Your payment has been successfully validated">
+                                    <font>
+                                        <Font name="DejaVu Sans Bold" size="21.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="5.0" />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets top="10.0" />
+                                    </padding>
+                                </Label>
+                                <HBox alignment="CENTER" prefHeight="34.0" prefWidth="321.0">
+                                    <children>
+                                        <ImageView fx:id="visaCard" fitHeight="58.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets right="5.0" />
+                                            </HBox.margin>
+                                            <image>
+                                                <Image url="@Visa.png" />
+                                            </image>
+                                        </ImageView>
+                                        <ImageView fx:id="MasterCard" fitHeight="58.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                                            <HBox.margin>
+                                                <Insets left="5.0" />
+                                            </HBox.margin>
+                                            <image>
+                                                <Image url="@MasterCard.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="5.0" right="5.0" />
+                                    </VBox.margin>
+                                </HBox>
+                            </children>
+                        </VBox>
+                  <HBox>
+                     <children>
+                                <VBox prefHeight="55.0" prefWidth="303.0">
+                                    <children>
+                                        <Label prefHeight="31.0" prefWidth="303.0" text="Card Number" />
+                                        <TextField fx:id="CardNumberInput" prefHeight="37.0" prefWidth="303.0" />
+                                    </children>
+                                </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                          <HBox prefHeight="89.0" prefWidth="597.0">
+                              <children>
+                                  <VBox prefHeight="120.0" prefWidth="460.0">
+                                      <children>
+                                          <Label prefHeight="21.0" prefWidth="74.0" text="Order Price" />
+                                          <Label prefHeight="19.0" prefWidth="93.0" text="Shipping Price" />
+                                          <Label prefHeight="25.0" prefWidth="138.0" text="Total Price (Tax incl.)" />
+                                      </children>
+                                  </VBox>
+                                  <VBox prefHeight="123.0" prefWidth="276.0">
+                                      <children>
+                                          <Label fx:id="orderPrice" prefHeight="24.0" prefWidth="121.0" text="\$0" />
+                                          <Label fx:id="deliveryPrice" prefHeight="18.0" prefWidth="136.0" text="\$0" />
+                                          <Label fx:id="totalPrice" prefHeight="19.0" prefWidth="131.0" text="\$0" />
+                                      </children>
+                                  </VBox>
+                              </children>
+                     <VBox.margin>
+                        <Insets left="5.0" top="30.0" />
+                     </VBox.margin>
+                          </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

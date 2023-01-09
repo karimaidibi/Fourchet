@@ -21,12 +21,6 @@ public class IngredientsController {
     @FXML private VBox GeneralPane;
     @FXML private Button backToMenuButton;
     @FXML private Label nameOfUser;
-    @FXML private ListView listOfIngredients;
-    @FXML private TextField ingredientNameInput;
-    @FXML private ChoiceBox selectCategory;
-    @FXML private Button validateButton;
-    @FXML private Button cancelButton;
-    @FXML private Label actionTypeOnIngredient; // adding new ingredient or modifying ingredient
 
     private IngredientsFacade ingredientsFacade;
 
@@ -35,6 +29,19 @@ public class IngredientsController {
     private HBox editedIngredientHBox;
 
     private boolean isAdding = true;
+    @FXML
+    private ListView listOfIngredients;
+    @FXML
+    private Label actionTypeOnIngredient;
+    @FXML
+    private TextField ingredientNameInput;
+    @FXML
+    private ChoiceBox selectCategory;
+    @FXML
+    private Button validateButton;
+    @FXML
+    private Button cancelButton;
+
     public IngredientsController() {
         this.ingredientsFacade = IngredientsFacade.getInstance();
     }
@@ -147,7 +154,7 @@ public class IngredientsController {
      * it will add the ingredient to the database
      * Finally, if the ingredient is added to the db, it will clear the text field and the choice box then display a success message
      */
-    @FXML
+    @Deprecated
     private void addIngredient(Ingredient ingredient) {
         // TODO: implement action to add an ingredient
         ingredientsFacade.saveIngredient(ingredient);
@@ -156,7 +163,7 @@ public class IngredientsController {
     /**
      * This method should be called by the validate button when the action type is "modifying ingredient"
      */
-    @FXML
+    @Deprecated
     private void updateIngredient(Ingredient ingredient, HBox ingredientCard) {
         // TODO: implement action to update an ingredient
         this.actionTypeOnIngredient.setText("Modify this ingredient");
@@ -175,7 +182,7 @@ public class IngredientsController {
      * It will clear the text field and the choice box
      * It will display a success message
      */
-    @FXML
+    @Deprecated
     private void deleteIngredient(Ingredient ingredient, HBox ingredientCard) {
         // TODO: implement action to delete an ingredient
         // il faut lier le bouton delete à cette méthode
@@ -191,7 +198,7 @@ public class IngredientsController {
      * It will change the action type label to "modifying ingredient"
      * It will change the validate button text to "modify" instead of "validate"
      */
-    @FXML
+    @Deprecated
     private void selectIngredient(Ingredient ingredient) {
         // TODO: implement action to select an ingredient
         // il faut lier le click sur un élément de la liste à cette méthode (ou bien le bouton modifier a coté de chaque élément)

@@ -71,6 +71,7 @@ public class HeaderController implements Initializable {
     }
 
     public void logout(ActionEvent actionEvent) {
+        System.out.println("click on logout");
         try {
             UserFacade.getInstance().setCurrentUser(null);
             FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));

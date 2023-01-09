@@ -13,6 +13,8 @@ public class User {
     private String password;
     private String role;
 
+    private String address;
+
 
     public User(String username, String email, String password, String role) {
         this.username = username;
@@ -28,6 +30,8 @@ public class User {
         this.role = (String) document.get("role");
         this.picture = (Binary) document.get("picture", Binary.class);
     }
+
+    public User(){}
 
     public String getEmail() {
         return email;

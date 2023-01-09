@@ -1,6 +1,7 @@
 package com.fourchet.ui;
 
 import com.fourchet.bl.account.UserFacade;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

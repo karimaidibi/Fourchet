@@ -51,6 +51,13 @@ module com.fourchet {
 
     exports com.fourchet.ui.rates;
     opens com.fourchet.ui.rates to javafx.fxml;
+
+    exports com.fourchet.ui.orders;
+    opens com.fourchet.ui.orders to javafx.fxml;
+
+    exports com.fourchet.ui.orders.payments;
+    opens com.fourchet.ui.orders.payments to javafx.fxml;
+
     exports com.fourchet.ui;
     opens com.fourchet.ui to javafx.fxml;
 
