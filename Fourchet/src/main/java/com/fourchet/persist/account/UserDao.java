@@ -44,5 +44,7 @@ public abstract class UserDao implements Dao<User> {
 
     public void updateCart(User user, Cart cart) {}
 
+    public void deleteCart(User user) {}
+
     public void updateDeliveryAddress(User user, String address) {}
 }

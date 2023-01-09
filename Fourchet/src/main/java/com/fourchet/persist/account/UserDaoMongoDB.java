@@ -103,7 +103,7 @@ public class UserDaoMongoDB extends UserDao {
     //update the delivery address of the user
     public void updateDeliveryAddress(User user, String address) {
         // update the address of the user
-        usersCollection.updateOne(Filters.eq("email", "client@gmail.com"), Updates.set("address", address));
+        usersCollection.updateOne(Filters.eq("email", user.getEmail()), Updates.set("address", address));
         System.out.println("Delivery address updated successfully");
     }
 
@@ -115,7 +115,7 @@ public class UserDaoMongoDB extends UserDao {
                     .append("quantity", cartItem.getQuantity()));
         }
         // update the cart of the user
-        usersCollection.updateOne(Filters.eq("email", "client@gmail.com"), Updates.set("cart", cartItemsDocument));
+        usersCollection.updateOne(Filters.eq("email", user.getEmail()), Updates.set("cart", cartItemsDocument));
         System.out.println("Cart updated successfully");
     }
 
@@ -130,6 +130,13 @@ public class UserDaoMongoDB extends UserDao {
             return null;
         }
         return new Cart(items, deliveryAddress);
+    }
+
+    // delete the cart of the user
+    public void deleteCart(User user) {
+        // delete the cart of the user
+        usersCollection.updateOne(Filters.eq("email", user.getEmail()), Updates.unset("cart"));
+        System.out.println("Cart deleted successfully");
     }
 
     public User update(User user, String[] params, Object picture) {

@@ -53,4 +53,16 @@ public class CartFacade {
     public void updateDeliveryAddress(String deliveryAddress) {
         this.userDao.updateDeliveryAddress(currentUser, deliveryAddress);
     }
+
+    public User getCurrentUser() {
+        return this.currentUser;
+    }
+
+    public Cart getCart() {
+        return this.cart;
+    }
+
+    public void deleteCart() {
+        this.userDao.deleteCart(currentUser);
+    }
 }

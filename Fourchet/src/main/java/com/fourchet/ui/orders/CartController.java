@@ -1,12 +1,17 @@
 package com.fourchet.ui.orders;
 
+import com.fourchet.bl.account.UserFacade;
 import com.fourchet.ingredients.Ingredient;
 import com.fourchet.orders.Cart;
 import com.fourchet.orders.CartItem;
+import com.fourchet.ui.Application;
+import com.fourchet.ui.GeneralController;
 import com.fourchet.users.User;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.*;
@@ -67,10 +72,10 @@ public class CartController {
      * and enables the GoToPaymentButton and the listOfItems and sets the text of the labels orderPrice, deliveryPrice and totalPrice to the calculated values
      */
     private void loadCartFromDatabase() {
+        User user = this.cartFacade.getCurrentUser();
+
         this.itemsBoxes.clear();
         this.addressInputField.setDisable(true);
-        User user = new User();
-        user.setEmail("client@gmail.com");
         this.cart = this.cartFacade.getCart(user);
         this.addressInputField.setText(this.cart.getDeliveryAddress());
         if (cart.getItems().size() == 0) {
@@ -94,6 +99,15 @@ public class CartController {
     //GoToPaymentButton method
     @FXML
     public void GoToPayment(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            GeneralController controller = loader.getController();
+            controller.setCenter("/com/fourchet/ui/orders/payments/PaymentFrame.fxml");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

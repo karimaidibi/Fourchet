@@ -65,7 +65,7 @@ public class LoginFrame {
                 FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
-                controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
+                controller.setCenter("/com/fourchet/ui/orders/CartFrame.fxml");
 
                 //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFrameName));
                 //Parent fxmlRoot = loader.load();

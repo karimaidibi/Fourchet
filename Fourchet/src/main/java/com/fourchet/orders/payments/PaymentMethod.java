@@ -1,14 +1,16 @@
 package com.fourchet.orders.payments;
 
+import org.bson.Document;
+
 import java.util.HashMap;
 
 public class PaymentMethod {
 
     private HashMap<String, String> paymentInfos;
-    private String paymentType;
+    private String paymentMethod;
 
-    public PaymentMethod(String paymentType, HashMap<String, String> paymentInfos) {
-        this.paymentType = paymentType;
+    public PaymentMethod(String paymentMethod, HashMap<String, String> paymentInfos) {
+        this.paymentMethod = paymentMethod;
         this.paymentInfos = paymentInfos;
     }
 
@@ -20,12 +22,18 @@ public class PaymentMethod {
         this.paymentInfos = paymentInfos;
     }
 
-    public String getPaymentType() {
-        return paymentType;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setPaymentType(String paymentType) {
-        this.paymentType = paymentType;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
+    public Document toDocument() {
+        Document doc = new Document();
+        doc.append("paymentMethod", this.paymentMethod);
+        doc.append("paymentInfos", this.paymentInfos);
+        return doc;
+    }
 }
