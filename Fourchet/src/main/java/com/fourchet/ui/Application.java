@@ -13,7 +13,7 @@ public class Application extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("GeneralFrame.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Login");
+        stage.setTitle("Welcome to Fourchet !");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();

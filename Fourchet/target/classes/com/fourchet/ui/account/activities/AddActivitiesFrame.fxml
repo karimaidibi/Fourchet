@@ -7,17 +7,16 @@
 
 <!-- Create the root node: a VBox layout -->
 
-<?import java.lang.String?>
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.account.activities.AddActivitiesController" fx:id="addActivitiesFrame">
+<BorderPane fx:id="addActivitiesFrame" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.account.activities.AddActivitiesController">
    <center>
-      <VBox alignment="center" spacing="10">
+      <VBox alignment="CENTER" spacing="10">
           <!-- Add a label -->
           <Label text="Create a new activity" />
       
           <!-- Add a form -->
           <GridPane alignment="TOP_CENTER" hgap="10" vgap="10">
               <Label text="Type of activity:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-              <ChoiceBox fx:id="typeOfActivity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+              <ChoiceBox fx:id="typeOfActivity" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
               <Label fx:id="nameOfActivity" text="Name of the Restaurant" GridPane.columnIndex="0" GridPane.rowIndex="1" />
               <TextField fx:id="nameOfActivityField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
               <Label fx:id="location" text="Restaurant location:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
@@ -26,7 +25,7 @@
               <TextField fx:id="phoneNumberField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       
               <!-- Add a submit button -->
-              <Button text="Confirm" onAction="#addActivity" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+              <Button onAction="#addActivity" text="Confirm" GridPane.columnSpan="2" GridPane.rowIndex="4" />
             <columnConstraints>
                <ColumnConstraints />
                <ColumnConstraints />
@@ -35,6 +34,7 @@
                <RowConstraints />
                <RowConstraints />
                 <RowConstraints />
+               <RowConstraints />
                <RowConstraints />
             </rowConstraints>
           </GridPane>

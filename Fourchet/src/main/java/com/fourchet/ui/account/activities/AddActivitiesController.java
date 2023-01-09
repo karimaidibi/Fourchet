@@ -4,11 +4,14 @@ import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.account.activities.ActivitiesFacade;
 import com.fourchet.ui.GeneralController;
 import com.fourchet.ui.Popup;
+import com.fourchet.ui.account.Application;
 import com.fourchet.users.User;
 import com.fourchet.users.actitvities.Activity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -57,6 +60,15 @@ public class AddActivitiesController implements Initializable {
             String phoneNumber = phoneNumberField.getText();
 
             Activity activity = activitiesFacade.addActivity(new Activity(UserFacade.getInstance().getCurrentUser().getEmail(), name, type, locationFieldText, phoneNumber));
+            try {
+                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/account/activities/ActivityFrame.fxml");
+            }
+            catch (Exception e) {
+                e.getStackTrace();
+            }
         }
         else {
             Popup.showAlert(Alert.AlertType.ERROR, addActivitiesFrame.getScene().getWindow(), "Creation Failed", "All fields must be filled");

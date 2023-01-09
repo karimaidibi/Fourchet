@@ -55,6 +55,10 @@ public class ActivitiesFacade {
         return currentActivity;
     }
 
+    public void delete(Activity activity) {
+        activitiesDao.delete(activity);
+    }
+
     public List<Activity> getAllByUser(User user) {
         return activitiesDao.getAllByUser(user);
     }
