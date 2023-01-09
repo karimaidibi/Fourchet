@@ -1,6 +1,6 @@
 package com.fourchet.ui.recipe;
 
-import com.fourchet.persist.DaoFactory;
+import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
 import javafx.collections.FXCollections;
@@ -19,33 +19,13 @@ import javafx.stage.FileChooser;
 import org.bson.Document;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.fourchet.ui.account.Popup.showAlert;
+import static com.fourchet.ui.Popup.showAlert;
 
 public class RecipeCreateController {
-    /*
-    @FXML
-    private ListView<String> ingredientList;
-
-    @FXML
-    private void initialize() {
-        // Ajout des ingrédients à la liste
-
-        ingredientList.getItems().addAll(
-                "Farine",
-                "Oeufs",
-                "Beurre",
-                "Sucre",
-                "Lait",
-                "Levure chimique"
-        );
-
-
-    }*/
 
     @FXML
     private ImageView imageRecipe;
@@ -84,6 +64,8 @@ public class RecipeCreateController {
     @FXML
     private ListView<Label> selectedIngredientList;
 
+    private RecipeFacade recipeFacade;
+
 
     public ImageView getImageRecipe() {
         return imageRecipe;
@@ -110,95 +92,14 @@ public class RecipeCreateController {
         FilterTypeRecipe.setValue(TypeOfRecipe.BREAKFAST.toString());
     }
 
-    public void Publier() throws IOException {
-        //showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Ingredient ",selectedIngredientList.getItems().toString());
-        int badField = 0;
-        if (selectedIngredientList.getItems().isEmpty()) {
-            selectedIngredientList.setStyle("-fx-border-color: red ;");
-            badField += 1;
-        }
-        else {
-            selectedIngredientList.setStyle("-fx-border-color:transparent ;");
-        }
+    public void Publier() throws Exception {
 
-        if (selectedStepList.getItems().isEmpty()) {
-            selectedStepList.setStyle("-fx-border-color: red ;");
-            badField += 1;
-        }
-        else {
-            selectedStepList.setStyle("-fx-border-color:transparent ;");
-        }
-        if (titleRecipe.getText().isEmpty()) {
-            titleRecipe.setStyle("-fx-border-color: red ;");
-            badField += 1;
-        }
-        else {
-            titleRecipe.setStyle("-fx-border-color:transparent ;");
-        }
-        if (descriptionRecipe.getText().isEmpty()) {
-            descriptionRecipe.setStyle("-fx-border-color: red ;");
-            badField += 1;
-        }
-        else {
-            descriptionRecipe.setStyle("-fx-border-color:transparent ;");
-        }
+        if (checkFields() == 0) {
 
-        if (badField == 0) {
-
-
-
-            Image image = this.getImageRecipe().getImage();
-
-// Convertir l'image en tableau de pixels
-            int width = (int) image.getWidth();
-            int height = (int) image.getHeight();
-            int[] pixels = new int[width * height];
-            image.getPixelReader().getPixels(0, 0, width, height, PixelFormat.getIntArgbInstance(), pixels, 0, width);
-
-// Convertir le tableau de pixels en tableau d'octets
-            byte[] data = new byte[pixels.length * 4];
-            ByteBuffer buffer = ByteBuffer.wrap(data);
-            for (int pixel : pixels) {
-                buffer.putInt(pixel);
-            }
-
-
-            Document imageDocument = new Document()
-                    .append("width", width)
-                    .append("height", height)
-                    .append("data", data);
-
-            ObservableList<HBox> selectedSteps = selectedStepList.getItems();
-            List<String> ingredientsList = new ArrayList<>();
-            List<String> StepsList = new ArrayList<>();
-
-            for (HBox step : selectedSteps) {
-                if (step.getChildren().get(1) instanceof Label) {
-                    Label stepLabel = (Label) step.getChildren().get(1);
-                    StepsList.add(stepLabel.getText());
-                }
-            }
-
-            ObservableList<Label> selectedIngredients = selectedIngredientList.getItems();
-            for (Label ingredient : selectedIngredients) {
-                ingredientsList.add(ingredient.getText());
-            }
-
-            Document recipeDocument = new Document()
-                    .append("Title", titleRecipe.getText())
-                    .append("Description", descriptionRecipe.getText())
-                    .append("Image", imageDocument.toJson())
-                    .append("Ingredients", ingredientsList)
-                    .append("Steps", StepsList)
-                    .append("Author", "test@gmail")
-                    .append("Type", FilterTypeRecipe.getValue());
-
-            Recipe addedRecipe = new Recipe(recipeDocument);
-            DaoFactory daoFactory = new DaoFactory();
-            daoFactory.getRecipeDaoMongoDB().save(addedRecipe);
-            System.out.println("Recipe added");
-            System.out.println(daoFactory.getRecipeDaoMongoDB().getAllRecipe().toString());
-            showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Steps ",StepsList.toString());
+            Recipe addedRecipe = setRecipeFromFields();
+            recipeFacade = RecipeFacade.getInstance();
+            recipeFacade.save(addedRecipe);
+            showAlert(Alert.AlertType.INFORMATION, GeneralPane.getScene().getWindow(), "Success", "Recipe added");
 
         }
     }
@@ -244,6 +145,93 @@ public class RecipeCreateController {
 
         // Mise à jour de l'image dans le ImageView
         imageRecipe.setImage(image);
+    }
+
+
+    public Recipe setRecipeFromFields() {
+        Image image = this.getImageRecipe().getImage();
+
+// Convertir l'image en tableau de pixels
+        int width = (int) image.getWidth();
+        int height = (int) image.getHeight();
+        int[] pixels = new int[width * height];
+        image.getPixelReader().getPixels(0, 0, width, height, PixelFormat.getIntArgbInstance(), pixels, 0, width);
+
+// Convertir le tableau de pixels en tableau d'octets
+        byte[] data = new byte[pixels.length * 4];
+        ByteBuffer buffer = ByteBuffer.wrap(data);
+        for (int pixel : pixels) {
+            buffer.putInt(pixel);
+        }
+
+
+        Document imageDocument = new Document()
+                .append("width", width)
+                .append("height", height)
+                .append("data", data);
+
+        ObservableList<HBox> selectedSteps = selectedStepList.getItems();
+        List<String> ingredientsList = new ArrayList<>();
+        List<String> StepsList = new ArrayList<>();
+
+        for (HBox step : selectedSteps) {
+            if (step.getChildren().get(1) instanceof Label) {
+                Label stepLabel = (Label) step.getChildren().get(1);
+                StepsList.add(stepLabel.getText());
+            }
+        }
+
+        ObservableList<Label> selectedIngredients = selectedIngredientList.getItems();
+        for (Label ingredient : selectedIngredients) {
+            ingredientsList.add(ingredient.getText());
+        }
+
+        Document recipeDocument = new Document()
+                .append("Title", titleRecipe.getText())
+                .append("Description", descriptionRecipe.getText())
+                .append("Image", imageDocument.toJson())
+                .append("Ingredients", ingredientsList)
+                .append("Steps", StepsList)
+                .append("Author", "test@gmail")
+                .append("TypeOfRecipe", FilterTypeRecipe.getValue());
+
+
+        Recipe addedRecipe = new Recipe(recipeDocument);
+        return addedRecipe;
+    }
+
+    public int checkFields() {
+        int badField = 0;
+        if (selectedIngredientList.getItems().isEmpty()) {
+            selectedIngredientList.setStyle("-fx-border-color: red ;");
+            badField += 1;
+        }
+        else {
+            selectedIngredientList.setStyle("-fx-border-color:transparent ;");
+        }
+
+        if (selectedStepList.getItems().isEmpty()) {
+            selectedStepList.setStyle("-fx-border-color: red ;");
+            badField += 1;
+        }
+        else {
+            selectedStepList.setStyle("-fx-border-color:transparent ;");
+        }
+        if (titleRecipe.getText().isEmpty()) {
+            titleRecipe.setStyle("-fx-border-color: red ;");
+            badField += 1;
+        }
+        else {
+            titleRecipe.setStyle("-fx-border-color:transparent ;");
+        }
+        if (descriptionRecipe.getText().isEmpty()) {
+            descriptionRecipe.setStyle("-fx-border-color: red ;");
+            badField += 1;
+        }
+        else {
+            descriptionRecipe.setStyle("-fx-border-color:transparent ;");
+        }
+        return badField;
     }
 }
 

@@ -22,7 +22,7 @@ public class Application extends javafx.application.Application {
          */
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(getClass().getResource("/com.fourchet.ui.recipe/RecipeSearchFrame.fxml"));
+        fxmlLoader.setLocation(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 320, 240);
         /*

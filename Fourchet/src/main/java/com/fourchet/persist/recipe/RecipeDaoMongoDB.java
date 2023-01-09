@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RecipeDaoMongoDB {
+public class RecipeDaoMongoDB  extends RecipeDao {
     DaoFactory factory;
 
     // get the collection of recipes
@@ -31,7 +31,8 @@ public class RecipeDaoMongoDB {
     }
 
 
-    public List<Recipe> getAllRecipe() {
+    @Override
+    public List<Recipe> getAll() {
         List recipes = new ArrayList<Recipe>();
         FindIterable<Document> documents = recipesCollection.find();
         System.out.println("Documents found successfully");
@@ -45,6 +46,7 @@ public class RecipeDaoMongoDB {
         return recipes;
     }
 
+    @Override
     public List<Recipe> getRecipeByFilter(String[]  filters) {
         List recipes = new ArrayList<Recipe>();
 
@@ -71,6 +73,7 @@ public class RecipeDaoMongoDB {
     }
 
 
+    @Override
     public void save(Recipe recipe) {
         Document document = new Document("Image", recipe.getImage())
                 .append("Title", recipe.getTitle())
@@ -84,7 +87,8 @@ public class RecipeDaoMongoDB {
     }
 
 
-    public void update(Recipe oldRecipe, Recipe newRecipe) {
+    @Override
+    public void updateRecipe(Recipe oldRecipe, Recipe newRecipe) {
 
         Bson filter = Filters.and(
                 Filters.eq("Title", oldRecipe.getTitle()),
@@ -108,6 +112,7 @@ public class RecipeDaoMongoDB {
         recipesCollection.updateOne(filter, update);
     }
 
+    @Override
     public void delete(Recipe recipe) {
         Document recipeDocument = new Document("Image", recipe.getImage())
                 .append("Title", recipe.getTitle())
@@ -119,6 +124,7 @@ public class RecipeDaoMongoDB {
         recipesCollection.deleteOne(recipeDocument);
     }
 
+    @Override
     public List<Recipe> findAllByAuthor(User user) {
         List recipes = new ArrayList<Recipe>();
         Document query = new Document("Author", user.getEmail());

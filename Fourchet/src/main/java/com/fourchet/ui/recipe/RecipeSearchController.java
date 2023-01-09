@@ -1,7 +1,6 @@
 package com.fourchet.ui.recipe;
 
-import com.fourchet.persist.DaoFactory;
-import com.fourchet.persist.recipe.RecipeDaoMongoDB;
+import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
 import javafx.collections.FXCollections;
@@ -22,6 +21,7 @@ import org.bson.Document;
 import org.bson.types.Binary;
 
 import java.nio.ByteBuffer;
+import java.util.Objects;
 
 public class RecipeSearchController {
     @FXML
@@ -35,6 +35,8 @@ public class RecipeSearchController {
 
     @FXML
     private BorderPane GeneralPane;
+
+    private RecipeFacade recipeFacade = RecipeFacade.getInstance();
 
     public BorderPane getGeneralPane(){
         return GeneralPane;
@@ -58,12 +60,12 @@ public class RecipeSearchController {
 
     @FXML
     private void initialize() {
-        DaoFactory daoFactory = DaoFactory.getInstance();
-        RecipeDaoMongoDB recipeDaoMongoDB = daoFactory.getRecipeDaoMongoDB();
-        recipeDaoMongoDB.getAllRecipe();
-        for (Recipe recipe : recipeDaoMongoDB.getAllRecipe()) {
+
+        recipeList.getItems().clear();
+        for (Recipe recipe :  recipeFacade.getAll()) {
             recipeList.getItems().add(setRecipeItem(recipe));
         }
+
         FilterTypeRecipe.getItems().clear();
         FilterTypeRecipe.getItems().addAll(TypeOfRecipe.getAllType());
         FilterTypeRecipe.getItems().add("ALL");
@@ -71,15 +73,16 @@ public class RecipeSearchController {
 
     @FXML
     private void search() {
+
         recipeList.getItems().clear();
-        DaoFactory daoFactory = DaoFactory.getInstance();
-        RecipeDaoMongoDB recipeDaoMongoDB = daoFactory.getRecipeDaoMongoDB();
-        recipeDaoMongoDB.getAllRecipe();
-        for (Recipe recipe : recipeDaoMongoDB.getAllRecipe()) {
+
+        recipeFacade.getAll();
+
+        for (Recipe recipe : recipeFacade.getAll()) {
             if (recipe.getTitle().contains(searchField.getText())) {
                 if(FilterTypeRecipe.getValue()==null || FilterTypeRecipe.getValue().equals("ALL")) {
                     recipeList.getItems().add(setRecipeItem(recipe));
-                } else if (recipe.getType().equals(TypeOfRecipe.getType(FilterTypeRecipe.getValue()))) {
+                } else if (Objects.equals(recipe.getType(), FilterTypeRecipe.getValue())) {
                     recipeList.getItems().add(setRecipeItem(recipe));
                 }
             }
