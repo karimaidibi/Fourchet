@@ -1,4 +1,4 @@
-package com.fourchet.payments;
+package com.fourchet.orders.payments;
 
 import java.util.HashMap;
 

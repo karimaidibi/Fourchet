@@ -1,8 +1,6 @@
-package com.fourchet.payments;
+package com.fourchet.orders.payments;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Payment {
 
