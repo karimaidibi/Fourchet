@@ -29,9 +29,6 @@ public class UserFacade {
         return instance;
     }
 
-    public User getUser(){
-        return currentUser;
-    }
 
     // delegate the user dao to save the user
     public User register(User user) throws Exception
@@ -77,9 +74,16 @@ public class UserFacade {
         if (!user.getPassword().equals(password)) {
             throw new Exception("Password incorrect");
         }
-        this.currentUser = user;
+        setCurrentUser(user);
         return user;
 
     }
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
 }

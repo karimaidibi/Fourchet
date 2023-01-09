@@ -34,12 +34,24 @@ public class UserDaoMongoDB extends UserDao {
 
     // retourne les users qui sont provider dans la base
     public List<User> getProviders() {
-        return null;
+        List users = new ArrayList<User>();
+        Document query = new Document("role", "provider");
+        FindIterable<Document> docs = usersCollection.find(query);
+        for (Document doc : docs) {
+            users.add(new User(doc));
+        }
+        return users;
     }
 
     // retourne les users qui sont client dans la base
     public List<User> getClients() {
-        return null;
+        List users = new ArrayList<User>();
+        Document query = new Document("role", "client");
+        FindIterable<Document> docs = usersCollection.find(query);
+        for (Document doc : docs) {
+            users.add(new User(doc));
+        }
+        return users;
     }
 
 

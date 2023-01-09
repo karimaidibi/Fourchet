@@ -1,13 +1,20 @@
 package com.fourchet.ui.account;
 
+
 import com.fourchet.ui.Application;
+
+import com.fourchet.ui.GeneralController;
+
 import com.fourchet.users.User;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Window;
@@ -74,7 +81,10 @@ public class RegisterFrame {
                 showAlert(Alert.AlertType.CONFIRMATION, GeneralPane.getScene().getWindow(), "Registration Success", "Welcome " + user.getUsername());
 
                 // load the profile frame
-                Application.goToNextScene(event,"/com/fourchet/ui/account/ProfileFrame.fxml");
+                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
 
                 //FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfileFrame.fxml"));
                 //Parent profilePage;
@@ -103,4 +113,15 @@ public class RegisterFrame {
     }
 
 
+    public void goToLogin(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            GeneralController controller = loader.getController();
+            controller.setCenter("/com/fourchet/ui/account/Login.fxml");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

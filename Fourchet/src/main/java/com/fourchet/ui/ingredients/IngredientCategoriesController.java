@@ -75,7 +75,6 @@ public class IngredientCategoriesController {
     @FXML
     private void validate() {
         // validate new ingredient category
-        System.out.println(ingredientCategoryNameInput.getText().equals(""));
         if (!((ingredientCategoryNameInput.getText().startsWith(" ")) || (ingredientCategoryNameInput.getText().equals("")))) {
             if (isAdding) {
                 IngredientCategory category = new IngredientCategory(ingredientCategoryNameInput.getText());

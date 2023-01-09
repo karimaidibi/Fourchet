@@ -5,22 +5,92 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5284ecc2-36fc-40ef-9c8f-aa7e6b007cdd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/payments/PaymentFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/payments/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/payments/PaymentMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/payments/PaymentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/payments/PaymentDaoMongoDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/payments/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/payments/PaymentFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/orders/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/orders/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders/CartFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/orders/CartFrame.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/activities/ActivitiesFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/typeOfCuisine/TypeOfCuisineFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/activities/ActivitiesDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/activities/ActivitiesDaoMongoDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/typeOfCuisine/TypeOfCuisineDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/typeOfCuisine/TypeOfCuisineDaoMongoDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/typeCuisine/TypeOfCuisine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/BackHeaderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/GeneralController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/HeaderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/activities/ActivitiesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/activities/ActivityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/activities/AddActivitiesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/activities/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/typeOfCuisine/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/typeOfCuisine/TypeOfCuisineController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/actitvities/Activity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/BackHeader.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/GeneralFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/Header.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/activities/ActivitiesFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/activities/ActivityFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/activities/AddActivitiesFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/typeOfCuisine/TypeOfCuisineManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/typeOfCuisine/TypeOfCuisineFacadeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/activities/ActivitiesFacade.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/typeOfCuisine/TypeOfCuisineFacade.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/activities/ActivitiesDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/activities/ActivitiesDaoMongoDB.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/typeOfCuisine/TypeOfCuisineDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/typeOfCuisine/TypeOfCuisineDaoMongoDB.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/typeCuisine/TypeOfCuisine.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/BackHeader.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/BackHeaderController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/GeneralController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/GeneralFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Header.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/HeaderController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/ActivitiesController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/ActivitiesFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/ActivityController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/ActivityFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/AddActivitiesController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/AddActivitiesFrame.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/activities/Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/typeOfCuisine/Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/typeOfCuisine/TypeOfCuisineController$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/typeOfCuisine/TypeOfCuisineController$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/typeOfCuisine/TypeOfCuisineController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/typeOfCuisine/TypeOfCuisineManagement.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/actitvities/Activity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/typeOfCuisine/TypeOfCuisineFacadeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/UserFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/account/UserFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/account/UserDaoMongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Popup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/Popup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/account/RegisterFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientCategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/ingredients/IngredientCategoriesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/ProfileFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/ProfileFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/account/UserFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/account/UserDaoMongoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/orders/CartFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Popup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Popup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame$Shake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/LoginFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/ProfileFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/account/RegisterFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientCategoriesController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientCategoriesController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientCategoriesController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientCategoriesController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientCategoriesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/ingredients/IngredientCategoriesController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,20 +122,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_directory_selection": "/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/java/com/fourchet/ui/orders",
-    "last_opened_file_path": "/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/resources/com/fourchet/ui/payments",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/java/com/fourchet/ui/orders&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ubuntu/Bureau/Documents/FourchetProjet/Fourchet/src/main/resources/com/fourchet/ui/payments&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/payments" />
@@ -136,6 +206,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

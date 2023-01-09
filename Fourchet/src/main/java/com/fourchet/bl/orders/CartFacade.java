@@ -24,7 +24,7 @@ public class CartFacade {
     private CartFacade() {
         this.abstractFactory = AbstractFactory.getInstance();
         this.userDao = abstractFactory.getUserDao();
-        this.currentUser = UserFacade.getInstance().getUser();
+        this.currentUser = UserFacade.getInstance().getCurrentUser();
     }
 
     public static CartFacade getInstance() {
