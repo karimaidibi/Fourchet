@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.GeneralController">
+   <center>
+       <BorderPane fx:id="borderPane" BorderPane.alignment="CENTER">
+           <top>
+               <fx:include fx:id="header" source="Header.fxml" BorderPane.alignment="CENTER" />
+           </top>
+           <center>
+               <fx:include source="account/Login.fxml" BorderPane.alignment="CENTER"/>
+           </center>
+       </BorderPane>
+   </center>
+</BorderPane>

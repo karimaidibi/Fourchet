@@ -5,6 +5,7 @@ import com.fourchet.persist.Dao;
 import com.fourchet.users.User;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public abstract class UserDao implements Dao<User> {
@@ -15,10 +16,6 @@ public abstract class UserDao implements Dao<User> {
         return Optional.empty();
     }
 
-    @Override
-    public List<User> getAll() {
-        return null;
-    }
 
     @Override
     public void save(User user) {
@@ -34,4 +31,8 @@ public abstract class UserDao implements Dao<User> {
     }
 
     public abstract User findByEmail(String email);
+
+    public User update(User user, String[] params, Object picture) {
+        return null;
+    };
 }

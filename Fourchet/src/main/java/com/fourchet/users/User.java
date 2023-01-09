@@ -1,8 +1,11 @@
 package com.fourchet.users;
 
 import org.bson.Document;
+import org.bson.types.Binary;
 
 public class User {
+
+    private Binary picture;
     private String username;
 
     private String email;
@@ -23,6 +26,7 @@ public class User {
         this.email = (String) document.get("email");
         this.password = (String) document.get("password");
         this.role = (String) document.get("role");
+        this.picture = (Binary) document.get("picture", Binary.class);
     }
 
     public String getEmail() {
@@ -55,5 +59,13 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Binary getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Binary picture) {
+        this.picture = picture;
     }
 }

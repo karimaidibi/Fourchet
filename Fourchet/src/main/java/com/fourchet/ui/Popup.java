@@ -1,7 +1,11 @@
 package com.fourchet.ui;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Window;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Popup {
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

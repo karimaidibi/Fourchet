@@ -10,5 +10,8 @@
         <module name="fourchet" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Fourchet" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

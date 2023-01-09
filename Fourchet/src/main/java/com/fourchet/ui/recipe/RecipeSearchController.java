@@ -48,7 +48,7 @@ public class RecipeSearchController {
     public void goToRecipeView(ActionEvent event) {
         System.out.println("click on register");
         try {
-            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
             Parent fxmlRoot = loader.load();
             RecipeViewController controller = loader.getController();
             GeneralPane.setCenter(controller.getGeneralPane().getCenter());

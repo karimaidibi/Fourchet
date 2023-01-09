@@ -234,4 +234,3 @@ public class RecipeCreateController {
         return badField;
     }
 }
-

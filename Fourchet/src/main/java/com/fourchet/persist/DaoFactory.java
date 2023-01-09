@@ -2,16 +2,29 @@ package com.fourchet.persist;
 
 import com.fourchet.persist.account.UserDao;
 import com.fourchet.persist.account.UserDaoMongoDB;
+import com.fourchet.persist.account.activities.ActivitiesDao;
+import com.fourchet.persist.account.activities.ActivitiesDaoMongoDB;
+import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
+import com.fourchet.persist.ingredientCategories.IngredientCategoriesDaoMongoDB;
+import com.fourchet.persist.ingredients.IngredientsDao;
+import com.fourchet.persist.ingredients.IngredientsDaoMongoDB;
 import com.fourchet.persist.recipe.RecipeDao;
 import com.fourchet.persist.recipe.RecipeDaoMongoDB;
-import com.fourchet.persist.review.ReviewDaoMongoDB;
+import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDao;
+import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDaoMongoDB;
+import com.fourchet.recipe.Recipe;
 import com.mongodb.client.MongoDatabase;
 
 public class DaoFactory extends AbstractFactory {
 
     private UserDao userDao = null;
+    private IngredientsDao ingredientsDao = null;
 
-    private ReviewDaoMongoDB reviewDaoMongoDB = null;
+    private IngredientCategoriesDao ingredientCategoriesDao = null;
+
+    private TypeOfCuisineDao typeOfCuisineDao = null;
+
+    private ActivitiesDao activitiesDao = null;
 
     private RecipeDao recipeDao = null;
 
@@ -26,21 +39,46 @@ public class DaoFactory extends AbstractFactory {
         return this.mongoDB.getDBConnection();
     }
 
-
+    @Override
     public UserDao getUserDao() {
         if (userDao==null) {
             this.userDao = new UserDaoMongoDB(this);
         }
         return userDao;
     }
-
-    public ReviewDaoMongoDB getReviewDaoMongoDB() {
-        if (reviewDaoMongoDB==null) {
-            this.reviewDaoMongoDB = new ReviewDaoMongoDB(this);
+    @Override
+    public IngredientsDao getIngredientsDao() {
+        if (ingredientsDao==null) {
+            this.ingredientsDao = new IngredientsDaoMongoDB(this);
         }
-        return reviewDaoMongoDB;
+        return ingredientsDao;
     }
 
+    @Override
+    public IngredientCategoriesDao getIngredientCategoriesDao() {
+        if (ingredientCategoriesDao==null) {
+            this.ingredientCategoriesDao = new IngredientCategoriesDaoMongoDB(this);
+        }
+        return ingredientCategoriesDao;
+    }
+
+    @Override
+    public TypeOfCuisineDao getTypeOfCuisineDao() {
+        if (typeOfCuisineDao==null) {
+            this.typeOfCuisineDao = new TypeOfCuisineDaoMongoDB(this);
+        }
+        return typeOfCuisineDao;
+    }
+
+    @Override
+    public ActivitiesDao getActivitiesDao() {
+        if (activitiesDao==null) {
+            this.activitiesDao = new ActivitiesDaoMongoDB(this);
+        }
+        return activitiesDao;
+    }
+
+    @Override
     public RecipeDao getRecipeDao() {
         if (recipeDao==null) {
             this.recipeDao = new RecipeDaoMongoDB(this);

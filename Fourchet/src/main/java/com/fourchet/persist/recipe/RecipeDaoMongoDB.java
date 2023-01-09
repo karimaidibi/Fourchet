@@ -50,7 +50,7 @@ public class RecipeDaoMongoDB  extends RecipeDao {
     public List<Recipe> getRecipeByFilter(String[]  filters) {
         List recipes = new ArrayList<Recipe>();
 
-    Document DocumentFilter = new Document();
+        Document DocumentFilter = new Document();
         for(int i=0;i<filters.length;i++){
             DocumentFilter.append(filters[i],filters[i+1]);
             i++;
@@ -135,53 +135,5 @@ public class RecipeDaoMongoDB  extends RecipeDao {
             recipes.add(new Recipe(doc));
         }
         return recipes;
-    }
-
-
-    public static void main(String[] args) throws Exception {
-        /*
-
-        DaoFactory factory = new DaoFactory();
-        RecipeDaoMongoDB recipeDaoMongoDB = new RecipeDaoMongoDB(factory);
-        //reviewDaoMongoDB.save(new Review(6, "Super", "zergzergzerg", "izergzerj"));
-        //reviewDaoMongoDB.findOneReview("izergzerj", "hsfafh");
-        //reviewDaoMongoDB.getAll();
-        //
-        Recipe R1 = recipeDaoMongoDB.findAllByAuthor(new User("usernametest", "email@gmail.com", "passwordtest","role")).get(0);
-        //recipeDaoMongoDB.getAll();
-        //System.out.println(R1.getImage());
-        Recipe R2 = new Recipe("TitleNewNew","DescriptionNew","img",R1.getSteps(), R1.getIngredients(), R1.getAuthor());
-        List<String> Ingredient3 = new ArrayList<String>();
-        Ingredient3.add("Ingredient3");
-        Ingredient3.add("Ingredient4");
-        List<String> Steps3 = new ArrayList<String>();
-        Steps3.add("Step1");
-        Steps3.add("Step2");
-
-        Recipe R3 = new Recipe("Ma recette","Ma descr","imgrecette",Steps3, Ingredient3, R1.getAuthor());
-        /*
-        Bson filter = Filters.eq("Title", R1.getTitle());
-        Document D2 = new Document("Image", R2.getImage())
-                .append("Title", R2.getTitle())
-                .append("Description", R2.getDescription())
-                .append("Ingredients", R2.getIngredients())
-                .append("Steps", R2.getSteps());
-        Document update = new Document("$set", D2);
-        /*
-        Document D1 = new Document("Title", R1.getTitle())
-                .append("Description", R1.getDescription())
-                .append("Ingredients", R1.getIngredients())
-                .append("Steps", R1.getSteps())
-                .append("Author",R1.getAuthor());
-         */
-        //recipeDaoMongoDB.update(R1,R2);
-        //recipeDaoMongoDB.update(R1,R2);
-
-        //String[] filters = {"Author","email@gmail.com"};
-        //recipeDaoMongoDB.getRecipeByFilter(filters);
-        //recipeDaoMongoDB.save(R3);
-
-        //recipeDaoMongoDB.getAllRecipe();
-
     }
 }
