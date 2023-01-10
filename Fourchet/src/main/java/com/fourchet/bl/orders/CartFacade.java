@@ -3,6 +3,7 @@ import com.fourchet.bl.account.UserFacade;
 import com.fourchet.orders.Cart;
 import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.account.UserDao;
+import com.fourchet.products.Product;
 import com.fourchet.users.User;
 
 import java.text.ParseException;
@@ -20,7 +21,7 @@ public class CartFacade {
     // The UserDao
     private UserDao userDao;
 
-    private Cart cart;
+    private Cart cart = new Cart();
 
     private CartFacade() {
         this.abstractFactory = AbstractFactory.getInstance();
@@ -33,6 +34,17 @@ public class CartFacade {
             instance = new CartFacade();
         }
         return instance;
+    }
+
+    /**
+     * addItemToCart method called when the user clicks on the "Add to cart" button
+     * or when the user clicks on the + button
+     * if the product is not in the cart, it adds it to the cart with the quantity 1
+     * if the product is in the cart, it increments the quantity of the product in the cart
+     * */
+    public void addProductToCart(Product product) throws ParseException {
+        this.cart.addProduct(product);
+        this.updateCart(this.cart);
     }
 
     // Tell the dao to update the cart
