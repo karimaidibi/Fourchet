@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="activityFrame" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.account.activities.ActivityController">
+<BorderPane fx:id="activityFrame" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.account.activities.ActivityController">
     <top>
         <Text fx:id="nameOfActivity" BorderPane.alignment="TOP_CENTER">
          <font>
@@ -32,16 +32,11 @@
         </GridPane>
     </left>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <content>
-            <VBox fx:id="menuVbox" prefWidth="600.0">
-                <Button onAction="#addProduct" text="Add new Product">
-                  <VBox.margin>
-                     <Insets bottom="10.0" left="10.0" top="10.0" />
-                  </VBox.margin></Button>
-            </VBox>
-        </content>
-      </ScrollPane>
+      <BorderPane prefHeight="1000.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+          <center>
+              <fx:include source="../../products/ProductManagement.fxml" BorderPane.alignment="TOP_LEFT" />
+          </center>
+      </BorderPane>
    </center>
 
 </BorderPane>

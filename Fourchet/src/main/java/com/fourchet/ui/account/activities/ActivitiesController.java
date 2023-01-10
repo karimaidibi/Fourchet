@@ -68,6 +68,7 @@ public class ActivitiesController implements Initializable {
         Button editButton = new Button("Edit");
         editButton.setOnAction(event -> {
             ActivitiesFacade.getInstance().setCurrentActivity(activity);
+            System.out.println(ActivitiesFacade.getInstance().getCurrentActivity().getName());
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();

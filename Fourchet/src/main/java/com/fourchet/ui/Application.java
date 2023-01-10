@@ -1,6 +1,12 @@
 package com.fourchet.ui;
 
 
+import com.fourchet.persist.DaoFactory;
+import com.fourchet.persist.productCategories.ProductCategoriesDao;
+import com.fourchet.persist.productCategories.ProductCategoriesDaoMongoDB;
+import com.fourchet.persist.products.ProductsDaoMongoDB;
+import com.fourchet.products.Product;
+import com.fourchet.products.ProductCategory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,32 +34,6 @@ public class Application extends javafx.application.Application {
 
         this.generalStage = stage;
 
-    }
-
-    public Stage getGeneralStage() {
-        return generalStage;
-    }
-
-    public static void goToNextScene(ActionEvent event, String fxmlFrameName) throws IOException {
-
-        try{
-            FXMLLoader loader = new FXMLLoader(Application.class.getResource(fxmlFrameName));
-            Parent fxmlRoot = loader.load();
-
-            // Create a new scene with the destination scene as the root node
-            Scene scene = new Scene(fxmlRoot);
-
-            // Get the stage from the event source (e.g., a button)
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.hide();
-            // Set the scene for the stage
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
     }
 
 

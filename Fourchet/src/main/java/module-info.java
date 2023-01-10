@@ -18,7 +18,6 @@ module com.fourchet {
     requires java.logging;
     requires java.desktop;
 
-
     exports com.fourchet.persist;
     opens com.fourchet.persist to javafx.fxml;
 
@@ -57,6 +56,9 @@ module com.fourchet {
 
     exports com.fourchet.ui.orders.payments;
     opens com.fourchet.ui.orders.payments to javafx.fxml;
+
+    exports com.fourchet.ui.products;
+    opens com.fourchet.ui.products to javafx.fxml;
 
     exports com.fourchet.ui;
     opens com.fourchet.ui to javafx.fxml;
