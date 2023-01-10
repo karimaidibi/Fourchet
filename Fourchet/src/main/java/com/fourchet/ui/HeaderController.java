@@ -135,7 +135,15 @@ public class HeaderController implements Initializable {
     }
 
     public void showMyRecipes(ActionEvent actionEvent) {
-        // TODO : go to my recipes page
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            GeneralController controller = loader.getController();
+            controller.setCenter("/com/fourchet/ui/recipe/MyRecipesFrame.fxml");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void showListOfRecipes(ActionEvent actionEvent) {

@@ -14,7 +14,7 @@ public class RecipeFacade {
     private AbstractFactory abstractFactory;
     // The UserDao
     private RecipeDao recipeDao;
-    private User currentUser;
+    private Recipe currentRecipe;
 
     private RecipeFacade() {
         this.abstractFactory = AbstractFactory.getInstance();
@@ -60,5 +60,13 @@ public class RecipeFacade {
 
     public List<Recipe> findAllByAuthor(User user) {
         return recipeDao.findAllByAuthor(user);
+    }
+
+    public Recipe getCurrentRecipe() {
+        return currentRecipe;
+    }
+
+    public void setCurrentRecipe(Recipe currentRecipe) {
+        this.currentRecipe = currentRecipe;
     }
 }
