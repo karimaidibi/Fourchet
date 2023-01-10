@@ -4,6 +4,7 @@ import com.fourchet.dishes.Dish;
 import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.dishes.DishesDao;
 
+import java.text.ParseException;
 import java.util.List;
 
 // This class below is a singleton class (we create the facade only once)
@@ -52,7 +53,7 @@ public class DishesFacade {
         dishesDao.update(dish, params);
     }
 
-    public List<Dish> getAllDishes() {
+    public List<Dish> getAllDishes() throws ParseException {
         return dishesDao.getAll();
     }
 

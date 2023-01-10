@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -54,7 +55,11 @@ public class ProductsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.loadProductsFromDatabase();
+        try {
+            this.loadProductsFromDatabase();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
         this.listOfProducts.setItems(productsBoxes);
     }
 
@@ -66,7 +71,7 @@ public class ProductsController implements Initializable {
      * It will update the list of products and the list of categories in the choice box
      */
 
-    public void loadProductsFromDatabase() {
+    public void loadProductsFromDatabase() throws ParseException {
         // load products from database and add them to the ObservableList
         ProductCategoriesFacade facade = ProductCategoriesFacade.getInstance();
         ObservableList<String> existingCategories = FXCollections.observableArrayList();
@@ -89,12 +94,12 @@ public class ProductsController implements Initializable {
      * It will also update the list of products in the list view using the loadProductsFromDatabase() method
      */
     @FXML
-    private void validate() {
+    private void validate() throws Exception {
         // validate new product
         if (!((productNameInput.getText().startsWith(" ")) || (productNameInput.getText().equals("")))) {
             if (isAdding) {
                 ProductCategory category = new ProductCategory((String) selectCategory.getSelectionModel().getSelectedItem());
-                Product product = new Product(currentActivity.getOwnerEmail(), currentActivity.getName(), productNameInput.getText(), category, new Double(productPriceInput.getText()).doubleValue());
+                Product product = new Product(currentActivity.getOwnerEmail(), currentActivity.getName(), productNameInput.getText(), category, Double.parseDouble(productPriceInput.getText()));
                 try {
                     Product newProduct = productsFacade.saveProduct(product);
                     if (newProduct != null) {
@@ -108,7 +113,7 @@ public class ProductsController implements Initializable {
                 }
             } else {
                 try {
-                    String[] params = new String[]{productNameInput.getText(), (String) selectCategory.getSelectionModel().getSelectedItem(), String.valueOf(new Double(productPriceInput.getText()).doubleValue())};
+                    String[] params = new String[]{productNameInput.getText(), (String) selectCategory.getSelectionModel().getSelectedItem(), String.valueOf(Double.parseDouble(productPriceInput.getText()))};
                     this.productsFacade.updateProduct(editedProduct, params);
                     VBox leftVBox = new VBox();
                     Label nameLabel = new Label("Product : " + params[0]);

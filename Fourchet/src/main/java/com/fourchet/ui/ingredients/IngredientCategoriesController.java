@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import static com.fourchet.ui.Popup.showAlert;
@@ -49,14 +50,14 @@ public class IngredientCategoriesController implements Initializable {
      * It will update the list of ingredients and the list of categories in the choice box
      */
     @FXML
-    private void initialize() {
+    private void initialize() throws ParseException {
         // TODO: implement action to initialize the controller
         // Set the items of the ListView to the ObservableList
         this.loadIngredientCategoriesFromDatabase();
         this.listOfIngredientsCategories.setItems(ingredientCategoriesBoxes);
     }
 
-    public void loadIngredientCategoriesFromDatabase() {
+    public void loadIngredientCategoriesFromDatabase() throws ParseException {
         // load ingredient categories from database and add them to the ObservableList
         for (IngredientCategory category : this.ingredientCategoriesFacade.getAllCategories()) {
             HBox hBox = this.createIngredientCategoryCard(category);

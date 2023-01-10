@@ -4,6 +4,7 @@ import com.fourchet.bl.account.UserFacade;
 import com.fourchet.ingredients.Ingredient;
 import com.fourchet.orders.Cart;
 import com.fourchet.orders.CartItem;
+import com.fourchet.products.Product;
 import com.fourchet.ui.Application;
 import com.fourchet.ui.GeneralController;
 import com.fourchet.users.User;
@@ -21,6 +22,7 @@ import com.fourchet.bl.orders.CartFacade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -59,7 +61,7 @@ public class CartController {
      initialize method
      Loads the cart from the database and displays it
      */
-    public void initialize(){
+    public void initialize() throws ParseException {
         loadCartFromDatabase();
         this.listOfItems.setItems(itemsBoxes);
         nameOfUser.setText("Hello " + UserFacade.getInstance().getCurrentUser().getUsername());
@@ -72,7 +74,7 @@ public class CartController {
      * if the cart is not empty, it displays it and sets the text of the label "YouHaveXItems" to "You have X items in your cart"
      * and enables the GoToPaymentButton and the listOfItems and sets the text of the labels orderPrice, deliveryPrice and totalPrice to the calculated values
      */
-    private void loadCartFromDatabase() {
+    private void loadCartFromDatabase() throws ParseException {
         User user = this.cartFacade.getCurrentUser();
 
         this.itemsBoxes.clear();
@@ -117,7 +119,7 @@ public class CartController {
      * if the product is not in the cart, it adds it to the cart with the quantity 1
      * if the product is in the cart, it increments the quantity of the product in the cart
      * */
-    public void addProductToCart(HashMap<Object,Object> product){
+    public void addProductToCart(Product product) throws ParseException {
         this.cart.addProduct(product);
         this.cartFacade.updateCart(this.cart);
         loadCartFromDatabase();
@@ -127,7 +129,7 @@ public class CartController {
      * removeItemFromCart method called when the user clicks on the -
      * if the product is in the cart, it removes it from the cart
      * */
-    public void removeProductFromCart(HashMap<Object,Object> product) {
+    public void removeProductFromCart(Product product) throws ParseException {
         this.cart.removeProduct(product);
         this.cartFacade.updateCart(this.cart);
         loadCartFromDatabase();
@@ -141,19 +143,23 @@ public class CartController {
     public HBox createItemCard(CartItem cartItem) {
         // Create the left VBox to hold the ingredient name and category
         VBox leftVBox = new VBox();
-        Label nameLabel = new Label( "product : " + cartItem.getProduct().get("name"));
+        Label nameLabel = new Label( "product : " + cartItem.getProduct().getName());
         Label QuantityLabel = new Label("Quantity : " + cartItem.getQuantity());
         leftVBox.getChildren().addAll(nameLabel, QuantityLabel);
 
         // Create the right HBox to hold the ingredient price and the buttons
         HBox rightHBox = new HBox();
-        Label priceLabel = new Label("Price : " + (int)cartItem.getProduct().get("price") * cartItem.getQuantity());
+        Label priceLabel = new Label("Price : " + (int)cartItem.getProduct().getPrice() * cartItem.getQuantity());
         // Create the + and - buttons
         Button increaseQuantityButton = new Button("+");
         increaseQuantityButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                addProductToCart(cartItem.getProduct());
+                try {
+                    addProductToCart(cartItem.getProduct());
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println(" increase button clicked!");
             }
         });
@@ -161,7 +167,11 @@ public class CartController {
         decreaseQuantityButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                removeProductFromCart(cartItem.getProduct());
+                try {
+                    removeProductFromCart(cartItem.getProduct());
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println("decrease button clicked!");
             }
         });

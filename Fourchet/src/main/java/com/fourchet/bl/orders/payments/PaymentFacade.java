@@ -7,6 +7,8 @@ import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.payments.PaymentDao;
 import com.fourchet.users.User;
 
+import java.text.ParseException;
+
 //this class is a singleton class (we create the facade only once)
 public class PaymentFacade {
     private static PaymentFacade instance = null;
@@ -36,7 +38,7 @@ public class PaymentFacade {
         this.payment = payment;
     }
 
-    public Cart getCart() {
+    public Cart getCart() throws ParseException {
         return CartFacade.getInstance().getCart(this.getCurrentUser());
     }
 
