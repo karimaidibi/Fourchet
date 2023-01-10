@@ -31,7 +31,7 @@ public abstract class DishesDao implements Dao<Dish> {
 
     }
 
-    public abstract Dish findByActivityAndName(Activity activity, String name);
+    public abstract Dish findByActivityAndName(String activity, String name);
 
     public abstract List<Dish> getAllByActivity(Activity activity);
 }

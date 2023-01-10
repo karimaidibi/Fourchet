@@ -9,6 +9,7 @@ import com.fourchet.persist.payments.PaymentDao;
 import com.fourchet.persist.productCategories.ProductCategoriesDao;
 import com.fourchet.persist.products.ProductsDao;
 import com.fourchet.persist.recipe.RecipeDao;
+import com.fourchet.persist.review.ReviewDao;
 import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDao;
 import com.fourchet.products.ProductCategory;
 
@@ -43,4 +44,5 @@ public abstract class AbstractFactory {
 
     public abstract ProductsDao getProductsDao();
     public abstract ProductCategoriesDao getProductCategoriesDao();
+    public abstract ReviewDao getReviewDao();
 }

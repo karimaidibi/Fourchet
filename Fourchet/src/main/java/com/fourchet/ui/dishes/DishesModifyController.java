@@ -18,6 +18,7 @@ import org.bson.Document;
 import org.bson.types.Binary;
 
 import java.nio.ByteBuffer;
+import java.text.ParseException;
 
 public class DishesModifyController {
     private TypeOfCuisineFacade typeOfCuisineFacade = TypeOfCuisineFacade.getInstance();
@@ -52,7 +53,7 @@ public class DishesModifyController {
 
 
     @FXML
-    private void initialize() {
+    private void initialize() throws ParseException {
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 10);
         spinner.setValueFactory(valueFactory);

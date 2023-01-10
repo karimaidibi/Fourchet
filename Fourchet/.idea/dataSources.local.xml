@@ -2,11 +2,20 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-221.6008.13">
     <data-source name="@cluster0.3mq6o5k.mongodb.net" uuid="66f15518-8e8c-4a7a-91eb-ab72d5fb2a3e">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="@cluster0.3mq6o5k.mongodb.net [2]" uuid="ead3a920-78b0-4325-a6e6-a659651db5e9">
       <database-info product="Mongo DB" version="5.0.14" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.17" dbms="MONGO" exact-version="5.0.14" exact-driver-version="1.17" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>Fourchet</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" negative="1" />
+          <node kind="schema">
+            <name qname="fourchet" />
+            <name qname="test" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>

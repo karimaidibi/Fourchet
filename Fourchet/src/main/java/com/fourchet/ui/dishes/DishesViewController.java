@@ -1,7 +1,9 @@
 package com.fourchet.ui.dishes;
 
+import com.fourchet.bl.dishes.DishesFacade;
 import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.bl.typeOfCuisine.TypeOfCuisineFacade;
+import com.fourchet.dishes.Dish;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
 import javafx.collections.FXCollections;
@@ -19,6 +21,7 @@ import org.bson.Document;
 import org.bson.types.Binary;
 
 import java.nio.ByteBuffer;
+import java.text.ParseException;
 import java.util.List;
 
 public class DishesViewController {
@@ -49,20 +52,33 @@ public class DishesViewController {
     @FXML
     private ChoiceBox<String> typeOfRecipe;
 
-    private RecipeFacade recipeFacade = RecipeFacade.getInstance();
+    private DishesFacade dishesFacade = DishesFacade.getInstance();
+
+    private Dish dish;
 
 
     @FXML
-    private void initialize() {
+    private void initialize() throws ParseException {
+
+        setDish(dishesFacade.getAllDishes().get(0));
+        setTitleRecipe(dish.getTitle());
         titleRecipe.setEditable(false);
+
+
+        setDescriptionRecipe(dish.getDescription());
         descriptionRecipe.setEditable(false);
         spinner.setEditable(false);
 
 
     }
 
+    public void setDish(Dish dish) {
+        this.dish = dish;
+    }
+
     @FXML
     private void search() {
+        /*
 
         recipeList.getItems().clear();
 
@@ -82,7 +98,7 @@ public class DishesViewController {
                     recipeList.getItems().add(setRecipeItem(recipe));
                 }
 
-                /*
+
 
                 for (Object hBox : searchResultsStepListStepList.getItems()) {
 
@@ -113,9 +129,13 @@ public class DishesViewController {
                 if (alreadyInList == 0) {
                     recipeList.getItems().add(setRecipeItem(recipe));
                 }
-*/
+
             }
+
+
         }
+
+         */
     }
 
     private HBox setRecipeItem(Recipe recipe) {
@@ -232,6 +252,16 @@ public class DishesViewController {
             descriptionRecipe.setStyle("-fx-border-color:transparent ;");
         }
         return badField;
+    }
+
+    public void setTitleRecipe(String title) {
+        titleRecipe.setText(title);
+        titleRecipe.setFocusTraversable(false);
+    }
+
+    public void setDescriptionRecipe(String description) {
+        descriptionRecipe.setText(description);
+        descriptionRecipe.setFocusTraversable(false);
     }
 
 }

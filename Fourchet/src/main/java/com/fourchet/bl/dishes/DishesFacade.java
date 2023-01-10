@@ -60,4 +60,15 @@ public class DishesFacade {
     public void save(Dish dish) {
         dishesDao.save(dish);
     }
+
+    public static void main(String[] args) {
+        Dish dish = new Dish("activityOwner", "title", "description", "image", null, "category", null, 0.0, "emailOwner");
+        DishesFacade dishesFacade = DishesFacade.getInstance();
+        dishesFacade.save(dish);
+        try {
+            System.out.println(dishesFacade.getAllDishes());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

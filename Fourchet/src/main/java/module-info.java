@@ -63,6 +63,7 @@ module com.fourchet {
     exports com.fourchet.ui;
     opens com.fourchet.ui to javafx.fxml;
 
-
+    exports com.fourchet.ui.dishes;
+    opens com.fourchet.ui.dishes to javafx.fxml;
 
 }

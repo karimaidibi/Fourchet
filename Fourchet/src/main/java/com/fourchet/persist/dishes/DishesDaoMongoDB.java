@@ -40,7 +40,7 @@ public class DishesDaoMongoDB extends DishesDao {
     }
 
     @Override
-    public Dish findByActivityAndName(Activity activity, String name) {
+    public Dish findByActivityAndName(String activity, String email) {
         return null;
     }
 

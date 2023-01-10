@@ -4,6 +4,7 @@ import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.bl.typeOfCuisine.TypeOfCuisineFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
+import com.fourchet.ui.Popup;
 import com.fourchet.ui.recipe.RecipeViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,7 @@ import org.bson.Document;
 import org.bson.types.Binary;
 
 import java.nio.ByteBuffer;
+import java.text.ParseException;
 import java.util.Objects;
 
 public class DishesCreateController {
@@ -62,7 +64,7 @@ public class DishesCreateController {
 
 
     @FXML
-    private void initialize() {
+    private void initialize() throws ParseException {
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 10);
         spinner.setValueFactory(valueFactory);
@@ -221,7 +223,7 @@ public class DishesCreateController {
     @FXML
     private void Publier() {
         if (checkFields()==0) {
-
+            Popup.showAlert(Alert.AlertType.INFORMATION, typeOfRecipe.getScene().getWindow(), "Sucess","Le Plat a été publiée");
         }
     }
 

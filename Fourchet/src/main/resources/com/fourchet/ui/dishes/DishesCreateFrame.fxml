@@ -146,11 +146,17 @@
                     <children>
                         <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <Label text="Recette sélectionnée" />
+                                <Label text="Recette sélectionnée">
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding></Label>
                                 <VBox alignment="CENTER">
                                     <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="26.0" prefWidth="223.0">
-                                        <TextField fx:id="searchField" />
-                                        <Button fx:id="searchButton" text="Rechercher" onAction="#search"/>
+                                        <TextField fx:id="searchField">
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin></TextField>
+                                        <Button fx:id="searchButton" onAction="#search" text="Rechercher" />
                                     </HBox>
                                 </VBox>
 
@@ -221,7 +227,7 @@
                         <Label text="Prix" />
                      </children>
                   </HBox>
-                  <Spinner fx:id="spinner"/>
+                  <Spinner fx:id="spinner" />
                </children>
                 </HBox>
 
@@ -258,7 +264,7 @@
 
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Button fx:id="publierButton" onAction="#Publier" mnemonicParsing="false" text="Publier" />
+                        <Button fx:id="publierButton" mnemonicParsing="false" onAction="#Publier" text="Publier" />
                     </children>
                 </VBox>
             </children>

@@ -4,36 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5284ecc2-36fc-40ef-9c8f-aa7e6b007cdd" name="Changes" comment="Dishes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/review/ReviewFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesModifyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesSearchController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/dishes/DishesModifyFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/dishes/DishesSearchFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/dishes/DishesViewFrame.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/recipe/RecipeFacadeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/review/ReviewFacadeTest.java" afterDir="false" />
+    <list default="true" id="5284ecc2-36fc-40ef-9c8f-aa7e6b007cdd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/66f15518-8e8c-4a7a-91eb-ab72d5fb2a3e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/66f15518-8e8c-4a7a-91eb-ab72d5fb2a3e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/dishes/DishesFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/dishes/DishesFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/recipe/RecipeFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/bl/recipe/RecipeFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/dishes/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/dishes/Dish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/AbstractFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/recipe/RecipeDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/recipe/RecipeDaoMongoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/review/ReviewDaoMongoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/dishes/DishesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/dishes/DishesDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/dishes/DishesDaoMongoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/persist/dishes/DishesDaoMongoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesCreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/dishes/DishesCreateFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/dishes/DishesCreateFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesModifyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesModifyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/ui/dishes/DishesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/recipe/RecipeCreateFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/fourchet/ui/recipe/RecipeCreateFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/dishes/DishesFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/dishes/DishesFacade.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/bl/recipe/RecipeFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/bl/recipe/RecipeFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/dishes/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/dishes/Dish.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/AbstractFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/DaoFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/recipe/RecipeDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/recipe/RecipeDaoMongoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/review/ReviewDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/review/ReviewDaoMongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/dishes/DishesDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/dishes/DishesDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/persist/dishes/DishesDaoMongoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/persist/dishes/DishesDaoMongoDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesCreateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesCreateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesCreateFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesCreateFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesModifyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesModifyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/dishes/DishesViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/recipe/RecipeCreateFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/recipe/RecipeCreateFrame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/ui/recipe/RecipeSearchController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/ui/recipe/RecipeSearchController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +53,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="nui" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -81,6 +89,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -98,13 +111,13 @@
       <recent name="com.fourchet.ui.dishes" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RecipeFacadeTest.save">
-    <configuration name="RecipeFacade" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fourchet.bl.recipe.RecipeFacade" />
+  <component name="RunManager" selected="Application.com.fourchet.ui.dishes.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.recipe.Application" />
       <module name="Fourchet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fourchet.bl.recipe.*" />
+          <option name="PATTERN" value="com.fourchet.ui.recipe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,12 +125,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReviewFacade" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.fourchet.bl.review.ReviewFacade" />
+    <configuration name="DishesFacade" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fourchet.bl.dishes.DishesFacade" />
       <module name="Fourchet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.fourchet.bl.review.*" />
+          <option name="PATTERN" value="com.fourchet.bl.dishes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecipeFacade" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.fourchet.bl.recipe.RecipeFacade" />
+      <module name="Fourchet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.fourchet.bl.recipe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,22 +160,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RecipeFacadeTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Fourchet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.fourchet.bl.recipe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.fourchet.bl.recipe" />
-      <option name="MAIN_CLASS_NAME" value="com.fourchet.bl.recipe.RecipeFacadeTest" />
-      <option name="METHOD_NAME" value="getAll" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,11 +182,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RecipeFacadeTest.save" />
-        <item itemvalue="Application.RecipeFacade" />
-        <item itemvalue="JUnit.RecipeFacadeTest.getAll" />
         <item itemvalue="Application.com.fourchet.ui.dishes.Application" />
-        <item itemvalue="Application.ReviewFacade" />
+        <item itemvalue="Application.RecipeFacade" />
+        <item itemvalue="Application.DishesFacade" />
+        <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.RecipeFacadeTest.save" />
       </list>
     </recent_temporary>
   </component>
