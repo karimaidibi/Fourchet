@@ -1,8 +1,9 @@
-package com.fourchet.ui.recipe;
+package com.fourchet.ui.dishes;
 
 import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
+import com.fourchet.ui.recipe.RecipeViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,53 +24,42 @@ import org.bson.types.Binary;
 import java.nio.ByteBuffer;
 import java.util.Objects;
 
-public class RecipeSearchController {
+public class DishesCreateController {
+    public Button removeSelectedRecipeButton;
+    public VBox selectedRecipeBox;
+    public ListView searchResultsList;
+
+
+    public Button searchButton;
+    public TextField searchField;
+    public ListView searchResultsStepListStepList;
+    public ListView recipeList;
     @FXML
-    private TextField searchField;
+    private ImageView imageRecipe;
 
     @FXML
-    private ListView<HBox> recipeList;
+    private Button buttonPicture;
 
     @FXML
-    private ChoiceBox<String> FilterTypeRecipe;
+    private TextField descriptionRecipe;
 
     @FXML
-    private BorderPane GeneralPane;
+    private TextField titleRecipe;
+
+    @FXML
+    private ObservableList<HBox> steps = FXCollections.observableArrayList();
+
+    @FXML
+    private ChoiceBox<String> typeOfRecipe;
 
     private RecipeFacade recipeFacade = RecipeFacade.getInstance();
 
-    public BorderPane getGeneralPane(){
-        return GeneralPane;
-    }
-
-    private ObservableList<Label> searchResult = FXCollections.observableArrayList();
-
-    @FXML
-    public void goToRecipeView(ActionEvent event) {
-        System.out.println("click on register");
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
-            Parent fxmlRoot = loader.load();
-            RecipeViewController controller = loader.getController();
-            GeneralPane.setCenter(controller.getGeneralPane().getCenter());
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     @FXML
     private void initialize() {
-
-        recipeList.getItems().clear();
-        for (Recipe recipe :  recipeFacade.getAll()) {
-            recipeList.getItems().add(setRecipeItem(recipe));
-        }
-
-        FilterTypeRecipe.getItems().clear();
-        FilterTypeRecipe.getItems().addAll(TypeOfRecipe.getAllType());
-        FilterTypeRecipe.getItems().add("ALL");
-
+        search();
+        typeOfRecipe.getItems().addAll(TypeOfRecipe.getAllType());
+        typeOfRecipe.setValue(TypeOfRecipe.BREAKFAST.toString());
     }
 
     @FXML
@@ -81,14 +71,9 @@ public class RecipeSearchController {
 
         for (Recipe recipe : recipeFacade.getAll()) {
             if (recipe.getTitle().contains(searchField.getText())) {
-                if(FilterTypeRecipe.getValue()==null || FilterTypeRecipe.getValue().equals("ALL")) {
-                    recipeList.getItems().add(setRecipeItem(recipe));
-                } else if (Objects.equals(recipe.getType(), FilterTypeRecipe.getValue())) {
-                    recipeList.getItems().add(setRecipeItem(recipe));
-                }
+                recipeList.getItems().add(setRecipeItem(recipe));
             }
         }
-
     }
 
     private HBox setRecipeItem(Recipe recipe) {
@@ -121,21 +106,9 @@ public class RecipeSearchController {
         readButton.setOnAction(event -> {
             System.out.println("click on Lire");
             try {
-                System.out.println("try to load RecipeViewFrame");
-                /*
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
-                Parent fxmlRoot = loader.load();
-                RecipeViewController controller = loader.getController();
-                controller.setRecipe(recipe);
-                GeneralPane.setCenter(controller.getGeneralPane().getCenter());*/
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
-                Parent ViewRecipe = loader.load();
-                RecipeViewController ViewController = loader.getController();
-                VBox VBoxView = (VBox)ViewController.getGeneralPane().getCenter();
+                recipeList.getItems().remove(hbox);
+                addRecipeList(recipe.getTitle());
 
-                BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
-                root.setCenter(VBoxView);
-                System.out.println("load RecipeViewFrame");
             }
             catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -165,4 +138,36 @@ public class RecipeSearchController {
         image.getPixelWriter().setPixels(0, 0, width, height, PixelFormat.getIntArgbInstance(), pixels, 0, width);
         return image;
     }
+
+    /*
+    @FXML
+    private Button searchButton;
+
+
+    @FXML
+    private void initialize() {
+        searchButton.setOnAction(event -> {
+            // Code de la fonction de recherche et de mise à jour de la liste des résultats de recherche
+        });
+    }*/
+
+    @FXML
+    private void addRecipeList(String recipe) {
+
+        Button deleteButton = new Button("X");;
+        Label stepLabel = new Label(recipe);
+        stepLabel.setStyle("-fx-padding: 0 0 0 4;");
+        HBox stepHBox = new HBox(deleteButton, stepLabel);
+        stepHBox.setAlignment(Pos.CENTER_LEFT);
+        // Ajout de l'étape à la ObservableList
+        searchResultsStepListStepList.getItems().add(stepHBox);
+
+        deleteButton.setOnAction(event1 -> {
+            // Suppression de l'étape de la ObservableList
+            searchResultsStepListStepList.getItems().remove(stepHBox);
+        });
+
+        // Effacement du champ de texte
+    }
+
 }
