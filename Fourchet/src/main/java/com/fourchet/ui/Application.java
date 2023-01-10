@@ -1,10 +1,24 @@
 package com.fourchet.ui;
 
+
+import com.fourchet.persist.DaoFactory;
+import com.fourchet.persist.productCategories.ProductCategoriesDao;
+import com.fourchet.persist.productCategories.ProductCategoriesDaoMongoDB;
+import com.fourchet.persist.products.ProductsDaoMongoDB;
+import com.fourchet.products.Product;
+import com.fourchet.products.ProductCategory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+
+import javafx.fxml.FXMLLoader;
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
 
 public class Application extends javafx.application.Application {
     public static Stage generalStage;
@@ -22,11 +36,6 @@ public class Application extends javafx.application.Application {
         this.generalStage = stage;
 
     }
-
-    public Stage getGeneralStage() {
-        return generalStage;
-    }
-
 
 
     public static void main(String[] args) {

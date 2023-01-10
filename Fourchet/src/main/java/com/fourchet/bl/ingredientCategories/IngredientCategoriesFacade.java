@@ -4,6 +4,7 @@ import com.fourchet.ingredients.IngredientCategory;
 import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.ingredientCategories.IngredientCategoriesDao;
 
+import java.text.ParseException;
 import java.util.List;
 
 // This class below is a singleton class (we create the facade only once)
@@ -59,7 +60,7 @@ public class IngredientCategoriesFacade {
         return ingredientCategoriesDao.findByName(name);
     }
 
-    public List<IngredientCategory> getAllCategories() {
+    public List<IngredientCategory> getAllCategories() throws ParseException {
         return ingredientCategoriesDao.getAll();
     }
 

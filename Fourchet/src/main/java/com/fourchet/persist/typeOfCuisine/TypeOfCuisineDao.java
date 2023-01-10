@@ -2,7 +2,7 @@ package com.fourchet.persist.typeOfCuisine;
 
 
 import com.fourchet.persist.Dao;
-import com.fourchet.typeCuisine.TypeOfCuisine;
+import com.fourchet.dishes.typeCuisine.TypeOfCuisine;
 
 import java.util.Optional;
 

@@ -10,9 +10,11 @@ import java.util.List;
 public class RecipeFacade {
     private static RecipeFacade instance = null;
 
+    // The UserDaoFactory
     private AbstractFactory abstractFactory;
+    // The UserDao
     private RecipeDao recipeDao;
-    private User currentUser;
+    private Recipe currentRecipe;
 
     private RecipeFacade() {
         this.abstractFactory = AbstractFactory.getInstance();
@@ -60,8 +62,11 @@ public class RecipeFacade {
         return recipeDao.findAllByAuthor(user);
     }
 
-    public static void main(String[] args) {
-        RecipeFacade recipeFacade = RecipeFacade.getInstance();
-        recipeFacade.getAll();
+    public Recipe getCurrentRecipe() {
+        return currentRecipe;
+    }
+
+    public void setCurrentRecipe(Recipe currentRecipe) {
+        this.currentRecipe = currentRecipe;
     }
 }

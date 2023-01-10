@@ -6,6 +6,7 @@ import com.fourchet.persist.account.activities.ActivitiesDao;
 import com.fourchet.users.User;
 import com.fourchet.users.actitvities.Activity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -57,6 +58,16 @@ public class ActivitiesFacade {
 
     public void delete(Activity activity) {
         activitiesDao.delete(activity);
+    }
+
+    public List<Activity> getAll() {
+        try {
+            return activitiesDao.getAll();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public List<Activity> getAllByUser(User user) {

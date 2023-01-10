@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.products.ProductsController">
+    <center>
+        <VBox fx:id="GeneralPane" alignment="CENTER" style="-fx-background-color: white; -fx-alignment: center; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 0);" BorderPane.alignment="CENTER">
+            <children>
+                <HBox>
+                    <children>
+                        <VBox alignment="CENTER">
+                            <children>
+                                <Label prefHeight="16.0" prefWidth="418.0" text="List of all products">
+                                    <VBox.margin>
+                                        <Insets bottom="8.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <ListView fx:id="listOfProducts" prefHeight="456.0" prefWidth="379.0">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </ListView>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </HBox.margin>
+                        </VBox>
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label fx:id="actionTypeOnProduct" alignment="CENTER" prefHeight="21.0" prefWidth="334.0" text="Adding new product" textAlignment="CENTER">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                </Label>
+                                <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Product name" />
+                                <TextField fx:id="productNameInput" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="307.0" />
+                                <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Product category" />
+                                <ChoiceBox fx:id="selectCategory" prefHeight="24.0" prefWidth="338.0" />
+                                <Label maxHeight="-Infinity" maxWidth="-Infinity" text="Price in €" />
+                                <TextField fx:id="productPriceInput" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="307.0" />
+                                <Pane prefHeight="44.0" prefWidth="333.0">
+                                    <children>
+                                        <Button fx:id="validateButton" layoutX="14.0" layoutY="12.0" onAction="#validate" text="Validate" />
+                                        <Button fx:id="cancelButton" contentDisplay="RIGHT" layoutX="198.0" layoutY="12.0" onAction="#cancel" text="Cancel" />
+                                    </children>
+                                </Pane>
+                            </children>
+                            <HBox.margin>
+                                <Insets right="20.0" top="50.0" />
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

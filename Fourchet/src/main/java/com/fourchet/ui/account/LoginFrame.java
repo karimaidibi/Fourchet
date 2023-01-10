@@ -1,11 +1,17 @@
 package com.fourchet.ui.account;
 
+
+import com.fourchet.ui.Application;
+import com.fourchet.users.User;
+import javafx.fxml.FXML;
+
 import com.fourchet.ui.GeneralController;
 import com.fourchet.users.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -16,8 +22,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Window;
 
 import javafx.event.ActionEvent;
-
-import java.io.IOException;
 
 public class LoginFrame {
     @FXML
@@ -58,10 +62,10 @@ public class LoginFrame {
                 User user = loginController.login(email.getText(), password.getText());
 
                 // load the profile frame
-                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
-                controller.setCenter("/com/fourchet/ui/account/ProfileFrame.fxml");
+                controller.setCenter("/com/fourchet/ui/orders/CartFrame.fxml");
 
                 //FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFrameName));
                 //Parent fxmlRoot = loader.load();
@@ -92,7 +96,7 @@ public class LoginFrame {
     public void goToRegister(MouseEvent keyEvent) {
         System.out.println("click on register");
         try {
-            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
             Parent fxmlRoot = loader.load();
             GeneralController controller = loader.getController();
             controller.setCenter("/com/fourchet/ui/account/RegisterFrame.fxml");

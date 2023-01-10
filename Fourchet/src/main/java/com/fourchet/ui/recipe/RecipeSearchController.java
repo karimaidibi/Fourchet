@@ -3,6 +3,7 @@ package com.fourchet.ui.recipe;
 import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
+import com.fourchet.ui.GeneralController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,19 +45,6 @@ public class RecipeSearchController {
 
     private ObservableList<Label> searchResult = FXCollections.observableArrayList();
 
-    @FXML
-    public void goToRecipeView(ActionEvent event) {
-        System.out.println("click on register");
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
-            Parent fxmlRoot = loader.load();
-            RecipeViewController controller = loader.getController();
-            GeneralPane.setCenter(controller.getGeneralPane().getCenter());
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     @FXML
     private void initialize() {
@@ -119,23 +107,12 @@ public class RecipeSearchController {
 
         Button readButton = new Button("Lire");
         readButton.setOnAction(event -> {
-            System.out.println("click on Lire");
             try {
-                System.out.println("try to load RecipeViewFrame");
-                /*
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
-                Parent fxmlRoot = loader.load();
-                RecipeViewController controller = loader.getController();
-                controller.setRecipe(recipe);
-                GeneralPane.setCenter(controller.getGeneralPane().getCenter());*/
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.fourchet.ui.recipe/RecipeViewFrame.fxml"));
-                Parent ViewRecipe = loader.load();
-                RecipeViewController ViewController = loader.getController();
-                VBox VBoxView = (VBox)ViewController.getGeneralPane().getCenter();
 
-                BorderPane root = (BorderPane)GeneralPane.getScene().getRoot();
-                root.setCenter(VBoxView);
-                System.out.println("load RecipeViewFrame");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/recipe/RecipeViewFrame.fxml");
             }
             catch (Exception e) {
                 System.out.println(e.getMessage());

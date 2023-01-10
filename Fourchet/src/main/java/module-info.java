@@ -18,7 +18,6 @@ module com.fourchet {
     requires java.logging;
     requires java.desktop;
 
-
     exports com.fourchet.persist;
     opens com.fourchet.persist to javafx.fxml;
 
@@ -40,8 +39,11 @@ module com.fourchet {
     exports com.fourchet.ui.ingredients;
     opens com.fourchet.ui.ingredients to javafx.fxml;
 
-    exports com.fourchet.ui.typeOfCuisine;
-    opens com.fourchet.ui.typeOfCuisine to javafx.fxml;
+    exports com.fourchet.ui.dishes.typeOfCuisine;
+    opens com.fourchet.ui.dishes.typeOfCuisine to javafx.fxml;
+
+    exports com.fourchet.ui.recipe;
+    opens com.fourchet.ui.recipe to javafx.fxml;
 
     exports com.fourchet.bl.account;
     opens com.fourchet.bl.account to javafx.fxml;
@@ -49,11 +51,18 @@ module com.fourchet {
     exports com.fourchet.ui.rates;
     opens com.fourchet.ui.rates to javafx.fxml;
 
+    exports com.fourchet.ui.orders;
+    opens com.fourchet.ui.orders to javafx.fxml;
+
+    exports com.fourchet.ui.orders.payments;
+    opens com.fourchet.ui.orders.payments to javafx.fxml;
+
+    exports com.fourchet.ui.products;
+    opens com.fourchet.ui.products to javafx.fxml;
+
     exports com.fourchet.ui;
     opens com.fourchet.ui to javafx.fxml;
 
-    exports com.fourchet.ui.dishes;
-    opens com.fourchet.ui.dishes to javafx.fxml;
 
 
 }

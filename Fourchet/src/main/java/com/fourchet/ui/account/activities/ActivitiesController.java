@@ -3,11 +3,7 @@ package com.fourchet.ui.account.activities;
 import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.account.activities.ActivitiesFacade;
 import com.fourchet.ui.GeneralController;
-import com.fourchet.ui.Popup;
-import com.fourchet.ui.account.Application;
 import com.fourchet.users.actitvities.Activity;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +16,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -47,7 +42,7 @@ public class ActivitiesController implements Initializable {
 
     public void goToAddActivity(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
             Parent fxmlRoot = loader.load();
             GeneralController controller = loader.getController();
             controller.setCenter("/com/fourchet/ui/account/activities/AddActivitiesFrame.fxml");
@@ -73,8 +68,9 @@ public class ActivitiesController implements Initializable {
         Button editButton = new Button("Edit");
         editButton.setOnAction(event -> {
             ActivitiesFacade.getInstance().setCurrentActivity(activity);
+            System.out.println(ActivitiesFacade.getInstance().getCurrentActivity().getName());
             try {
-                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
                 controller.setCenter("/com/fourchet/ui/account/activities/ActivityFrame.fxml");

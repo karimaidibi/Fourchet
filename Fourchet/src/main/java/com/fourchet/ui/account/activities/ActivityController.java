@@ -1,12 +1,13 @@
 package com.fourchet.ui.account.activities;
 
 import com.fourchet.bl.account.activities.ActivitiesFacade;
+import com.fourchet.ui.GeneralController;
 import com.fourchet.users.actitvities.Activity;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
+import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -20,40 +21,45 @@ public class ActivityController implements Initializable {
     private Text location;
     @FXML
     private Text phoneNumber;
-
     @FXML
-    private VBox listOfCategories;
+    private VBox menuVbox;
+
+    private Activity activity;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Activity activity = ActivitiesFacade.getInstance().getCurrentActivity();
+        activity = ActivitiesFacade.getInstance().getCurrentActivity();
         nameOfActivity.setText(activity.getName());
         location.setText(activity.getLocation());
         phoneNumber.setText(activity.getPhoneNumber());
-
-        TextField categoryField = new TextField();
-        categoryField.setText("Enter new category name...");
-        Button addButton = new Button("Add");
-        addButton.setOnAction(actionEvent -> {
-            createNewCategoryCard(categoryField.getText());
-        });
-        HBox hbox = new HBox();
-        hbox.getChildren().addAll(categoryField, addButton);
-        listOfCategories.getChildren().add(hbox);
     }
 
     public void loadProducts(Activity activity) {
 
     }
 
-    public HBox createNewCategoryCard(String categoryName) {
-        Text category = new Text(categoryName);
-        Button addProductBtn = new Button("Add new product");
-        addProductBtn.setOnAction(actionEvent -> {
-            // TODO : go to create dish / ingredient page
-        });
-        HBox categoryCard = new HBox();
-        categoryCard.getChildren().addAll(category, addProductBtn);
-        return categoryCard;
+    public void addProduct(ActionEvent actionEvent) {
+        if (activity.getType().equals("Restaurant")) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/dishes/DishCreateFrame.fxml");
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                Parent fxmlRoot = loader.load();
+                GeneralController controller = loader.getController();
+                controller.setCenter("/com/fourchet/ui/dishes/DishCreateFrame.fxml");
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

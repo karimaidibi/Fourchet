@@ -1,6 +1,6 @@
 package com.fourchet.bl.typeOfCuisine;
 
-import com.fourchet.typeCuisine.TypeOfCuisine;
+import com.fourchet.dishes.typeCuisine.TypeOfCuisine;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

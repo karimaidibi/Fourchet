@@ -4,8 +4,6 @@ import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.account.activities.ActivitiesFacade;
 import com.fourchet.ui.GeneralController;
 import com.fourchet.ui.Popup;
-import com.fourchet.ui.account.Application;
-import com.fourchet.users.User;
 import com.fourchet.users.actitvities.Activity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,7 +59,7 @@ public class AddActivitiesController implements Initializable {
 
             Activity activity = activitiesFacade.addActivity(new Activity(UserFacade.getInstance().getCurrentUser().getEmail(), name, type, locationFieldText, phoneNumber));
             try {
-                FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
                 controller.setCenter("/com/fourchet/ui/account/activities/ActivityFrame.fxml");

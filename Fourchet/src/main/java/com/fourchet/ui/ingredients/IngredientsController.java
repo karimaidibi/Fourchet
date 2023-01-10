@@ -1,5 +1,6 @@
 package com.fourchet.ui.ingredients;
 
+import com.fourchet.bl.account.UserFacade;
 import com.fourchet.bl.ingredientCategories.IngredientCategoriesFacade;
 import com.fourchet.bl.ingredients.IngredientsFacade;
 import com.fourchet.ingredients.Ingredient;
@@ -9,24 +10,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.net.URL;
+import java.text.ParseException;
+import java.util.ResourceBundle;
+
 import static com.fourchet.ui.Popup.showAlert;
 
-public class IngredientsController {
+public class IngredientsController implements Initializable {
 
     // Declare FXML elements
     @FXML private VBox GeneralPane;
     @FXML private Button backToMenuButton;
     @FXML private Label nameOfUser;
-    @FXML private ListView listOfIngredients;
-    @FXML private TextField ingredientNameInput;
-    @FXML private ChoiceBox selectCategory;
-    @FXML private Button validateButton;
-    @FXML private Button cancelButton;
-    @FXML private Label actionTypeOnIngredient; // adding new ingredient or modifying ingredient
 
     private IngredientsFacade ingredientsFacade;
 
@@ -35,8 +35,25 @@ public class IngredientsController {
     private HBox editedIngredientHBox;
 
     private boolean isAdding = true;
+    @FXML
+    private ListView listOfIngredients;
+    @FXML
+    private Label actionTypeOnIngredient;
+    @FXML
+    private TextField ingredientNameInput;
+    @FXML
+    private ChoiceBox selectCategory;
+    @FXML
+    private Button validateButton;
+    @FXML
+    private Button cancelButton;
+
     public IngredientsController() {
         this.ingredientsFacade = IngredientsFacade.getInstance();
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        nameOfUser.setText("Hello " + UserFacade.getInstance().getCurrentUser().getUsername());
     }
 
     // Declare ObservableList to store ingredients
@@ -47,14 +64,14 @@ public class IngredientsController {
      * It will update the list of ingredients and the list of categories in the choice box
      */
     @FXML
-    private void initialize() {
+    private void initialize() throws ParseException {
         // TODO: implement action to initialize the controller
         // Set the items of the ListView to the ObservableList
         this.loadIngredientsFromDatabase();
         this.listOfIngredients.setItems(ingredientsBoxes);
     }
 
-    public void loadIngredientsFromDatabase() {
+    public void loadIngredientsFromDatabase() throws ParseException {
         // load ingredients from database and add them to the ObservableList
         IngredientCategoriesFacade facade = IngredientCategoriesFacade.getInstance();
         ObservableList<String> existingCategories = FXCollections.observableArrayList();
@@ -147,7 +164,7 @@ public class IngredientsController {
      * it will add the ingredient to the database
      * Finally, if the ingredient is added to the db, it will clear the text field and the choice box then display a success message
      */
-    @FXML
+    @Deprecated
     private void addIngredient(Ingredient ingredient) {
         // TODO: implement action to add an ingredient
         ingredientsFacade.saveIngredient(ingredient);
@@ -156,7 +173,7 @@ public class IngredientsController {
     /**
      * This method should be called by the validate button when the action type is "modifying ingredient"
      */
-    @FXML
+    @Deprecated
     private void updateIngredient(Ingredient ingredient, HBox ingredientCard) {
         // TODO: implement action to update an ingredient
         this.actionTypeOnIngredient.setText("Modify this ingredient");
@@ -175,7 +192,7 @@ public class IngredientsController {
      * It will clear the text field and the choice box
      * It will display a success message
      */
-    @FXML
+    @Deprecated
     private void deleteIngredient(Ingredient ingredient, HBox ingredientCard) {
         // TODO: implement action to delete an ingredient
         // il faut lier le bouton delete à cette méthode
@@ -191,7 +208,7 @@ public class IngredientsController {
      * It will change the action type label to "modifying ingredient"
      * It will change the validate button text to "modify" instead of "validate"
      */
-    @FXML
+    @Deprecated
     private void selectIngredient(Ingredient ingredient) {
         // TODO: implement action to select an ingredient
         // il faut lier le click sur un élément de la liste à cette méthode (ou bien le bouton modifier a coté de chaque élément)

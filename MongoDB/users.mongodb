@@ -1,0 +1,37 @@
+use('fourchet')
+
+db.users.insert([
+    {
+        "username" : "admin",
+        "email" : "admin@gmail.com",
+        "role" : "admin",
+        "password" : "admin"
+    },
+    {
+        "username" : "client",
+        "email" : "client@gmail.com",
+        "role" : "client",
+        "password" : "client"
+    }
+])
+
+
+db.users.updateOne({email : "client@gmail.com"},
+    {
+        $set : {
+            cart : 
+            [
+                {
+                    "product" : {
+                        "ownerEmail" : "provider@gmail.com",
+                        "ownerActivityName" : "mon resto",
+                        "name" : "Bananes vrac",
+                        "category" : "Légume",
+                        "price" : 3,
+                    },
+                    "quantity" : 1
+                }
+            ]
+        }
+    }
+)

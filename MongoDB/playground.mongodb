@@ -1,4 +1,28 @@
 use('fourchet')
 
 
-db.users.find({})
+db.users.updateOne({email : "client@gmail.com"},
+    {
+        $set : {
+            cart : 
+            [
+                {
+                    "product" : {
+                        "providerId" : "FZFRZ",
+                        "price" : 10,
+                        "name" : "sucre"
+                    },
+                    "quantity" : 4
+                },
+                {
+                    "product" : {
+                        "providerId" : "FZFRZfrzef",
+                        "price" : 5,
+                        "name" : "banane"
+                    },
+                    "quantity" : 1
+                }
+            ]
+        }
+    }
+)
