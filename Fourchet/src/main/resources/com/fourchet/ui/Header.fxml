@@ -23,6 +23,10 @@
             <HBox.margin>
                <Insets left="10.0" />
             </HBox.margin></Button>
+             <Button fx:id="providersButton" mnemonicParsing="false" onAction="#showListOfProviders" text="Search Providers">
+             <HBox.margin>
+                 <Insets left="10.0" />
+             </HBox.margin></Button>
          </HBox>
          <HBox fx:id="buttonsHbox" alignment="CENTER_RIGHT" prefHeight="100.0" spacing="5" style="-fx-background-color: grey;" GridPane.columnIndex="1">
              <Button fx:id="myRecipesButton" mnemonicParsing="false" onAction="#showMyRecipes" text="My Recipes" />

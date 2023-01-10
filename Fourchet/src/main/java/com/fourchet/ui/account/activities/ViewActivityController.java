@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 public class ViewActivityController implements Initializable {
@@ -36,6 +37,7 @@ public class ViewActivityController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         activity = ActivitiesFacade.getInstance().getCurrentActivity();
         nameOfActivity.setText(activity.getName());
+        loadProductsFromDatabase();
     }
 
     /**
@@ -45,14 +47,19 @@ public class ViewActivityController implements Initializable {
 
     public void loadProductsFromDatabase() {
         // load products from database and add them to the ObservableList
-        ProductCategoriesFacade facade = ProductCategoriesFacade.getInstance();
-        ObservableList<String> existingCategories = FXCollections.observableArrayList();
-        for (ProductCategory category : facade.getAllCategories()) {
-            existingCategories.add(category.getName());
+        try {
+            ProductCategoriesFacade facade = ProductCategoriesFacade.getInstance();
+            ObservableList<String> existingCategories = FXCollections.observableArrayList();
+            for (ProductCategory category : facade.getAllCategories()) {
+                existingCategories.add(category.getName());
+            }
+            for (Product product : this.productsFacade.getAllByOwner(activity.getOwnerEmail(), activity.getName())) {
+                HBox hBox = this.createProductCard(product);
+                this.productsBoxes.add(hBox);
+            }
         }
-        for (Product product : this.productsFacade.getAllByOwner(activity.getOwnerEmail(), activity.getName())) {
-            HBox hBox = this.createProductCard(product);
-            this.productsBoxes.add(hBox);
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -73,7 +80,11 @@ public class ViewActivityController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 CartController cartController = new CartController();
-                // cartController.addProductToCart(product);
+                try {
+                    cartController.addProductToCart(product);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
         productCard.getChildren().addAll(leftVBox, addToCartButton);

@@ -158,6 +158,18 @@ public class HeaderController implements Initializable {
         }
     }
 
+    public void showListOfProviders(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
+            Parent fxmlRoot = loader.load();
+            GeneralController controller = loader.getController();
+            controller.setCenter("/com/fourchet/ui/account/activities/ViewActivitiesFrame.fxml");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void showCart(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
