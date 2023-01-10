@@ -163,7 +163,7 @@ public class HeaderController implements Initializable {
             FXMLLoader loader = new FXMLLoader(Application.class.getResource("/com/fourchet/ui/GeneralFrame.fxml"));
             Parent fxmlRoot = loader.load();
             GeneralController controller = loader.getController();
-            controller.setCenter("/com/fourchet/ui/account/activities/ViewActivitiesFrame.fxml");
+            controller.setCenter("/com/fourchet/ui/account/activities/ListOfActivitiesFrame.fxml");
         }
         catch (Exception e) {
             System.out.println(e.getMessage());

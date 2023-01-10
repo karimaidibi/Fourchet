@@ -1,10 +1,10 @@
 package com.fourchet.ui.account.activities;
 
 import com.fourchet.bl.account.activities.ActivitiesFacade;
-import com.fourchet.bl.products.ProductCategoriesFacade;
+import com.fourchet.bl.orders.CartFacade;
 import com.fourchet.bl.products.ProductsFacade;
 import com.fourchet.products.Product;
-import com.fourchet.products.ProductCategory;
+import com.fourchet.ui.GeneralController;
 import com.fourchet.ui.orders.CartController;
 import com.fourchet.users.actitvities.Activity;
 import javafx.collections.FXCollections;
@@ -12,14 +12,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ResourceBundle;
 
 public class ViewActivityController implements Initializable {
@@ -48,14 +49,10 @@ public class ViewActivityController implements Initializable {
     public void loadProductsFromDatabase() {
         // load products from database and add them to the ObservableList
         try {
-            ProductCategoriesFacade facade = ProductCategoriesFacade.getInstance();
-            ObservableList<String> existingCategories = FXCollections.observableArrayList();
-            for (ProductCategory category : facade.getAllCategories()) {
-                existingCategories.add(category.getName());
-            }
             for (Product product : this.productsFacade.getAllByOwner(activity.getOwnerEmail(), activity.getName())) {
                 HBox hBox = this.createProductCard(product);
                 this.productsBoxes.add(hBox);
+                listOfProducts.getItems().add(hBox);
             }
         }
         catch (Exception e) {
@@ -79,11 +76,15 @@ public class ViewActivityController implements Initializable {
         addToCartButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                CartController cartController = new CartController();
                 try {
+                    /*
+                    CartController cartController = new CartController();
                     cartController.addProductToCart(product);
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
+
+                     */
+                    CartFacade.getInstance().addProductToCart(product);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

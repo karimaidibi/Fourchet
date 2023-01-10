@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ViewActivitiesController implements Initializable {
+public class ListOfActivitiesController implements Initializable {
 
     private ActivitiesFacade activitiesFacade = ActivitiesFacade.getInstance();
     @FXML
@@ -46,7 +46,7 @@ public class ViewActivitiesController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/fourchet/ui/GeneralFrame.fxml"));
                 Parent fxmlRoot = loader.load();
                 GeneralController controller = loader.getController();
-                controller.setCenter("/com/fourchet/ui/account/activities/ViewActivityFrame.fxml");
+                controller.setCenter("/com/fourchet/ui/account/activities/MenuActivity.fxml");
             }
             catch (Exception e) {
                 e.getStackTrace();
