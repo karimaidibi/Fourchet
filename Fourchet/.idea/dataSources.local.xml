@@ -4,7 +4,11 @@
     <data-source name="@cluster0.3mq6o5k.mongodb.net" uuid="66f15518-8e8c-4a7a-91eb-ab72d5fb2a3e">
       <database-info product="Mongo DB" version="5.0.14" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.17" dbms="MONGO" exact-version="5.0.14" exact-driver-version="1.17" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <schema-mapping />
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" negative="1" />
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>

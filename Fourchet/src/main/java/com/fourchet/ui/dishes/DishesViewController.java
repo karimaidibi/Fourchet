@@ -4,14 +4,10 @@ import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.bl.typeOfCuisine.TypeOfCuisineFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
-import com.fourchet.ui.recipe.RecipeViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelFormat;
@@ -23,14 +19,9 @@ import org.bson.Document;
 import org.bson.types.Binary;
 
 import java.nio.ByteBuffer;
-import java.util.Objects;
+import java.util.List;
 
-public class DishesCreateController {
-    public Button removeSelectedRecipeButton;
-    public VBox selectedRecipeBox;
-    public ListView searchResultsList;
-
-    private TypeOfCuisineFacade typeOfCuisineFacade = TypeOfCuisineFacade.getInstance();
+public class DishesViewController {
     public Button searchButton;
     public TextField searchField;
     public ListView searchResultsStepListStepList;
@@ -63,19 +54,11 @@ public class DishesCreateController {
 
     @FXML
     private void initialize() {
+        titleRecipe.setEditable(false);
+        descriptionRecipe.setEditable(false);
+        spinner.setEditable(false);
 
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000, 10);
-        spinner.setValueFactory(valueFactory);
 
-        search();
-        typeOfRecipe.getItems().addAll(TypeOfRecipe.getAllType());
-        typeOfRecipe.setValue(TypeOfRecipe.BREAKFAST.toString());
-
-        TypeOfCuisine.getItems().clear();
-        typeOfCuisineFacade.getAllTypeOfCuisine().forEach(typeOfCuisine -> {
-            TypeOfCuisine.getItems().add(typeOfCuisine.getName());
-        });
-        TypeOfCuisine.setValue(typeOfCuisineFacade.getAllTypeOfCuisine().get(0).getName());
     }
 
     @FXML
@@ -132,8 +115,6 @@ public class DishesCreateController {
                 }
 */
             }
-
-
         }
     }
 

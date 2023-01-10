@@ -6,7 +6,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="GeneralPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.dishes.DishesCreateController">
+<BorderPane fx:id="GeneralPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fourchet.ui.dishes.DishesViewController">
     <bottom>
         <AnchorPane prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
     </bottom>
@@ -38,7 +38,7 @@
                 </VBox>
                 <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2">
                             <children>
                                 <HBox maxWidth="100.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: green; -fx-background-radius: 1000;">
                                     <children>
@@ -49,11 +49,6 @@
                                         </ImageView>
                                     </children>
                                 </HBox>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
-                            <children>
-                                <Button fx:id="buttonPicture" mnemonicParsing="false" text="Add Picture" />
                             </children>
                         </HBox>
                     </children>
@@ -147,82 +142,39 @@
                         <HBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                             <children>
                                 <Label text="Recette sélectionnée" />
-                                <VBox alignment="CENTER">
-                                    <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="26.0" prefWidth="223.0">
-                                        <TextField fx:id="searchField" />
-                                        <Button fx:id="searchButton" text="Rechercher" onAction="#search"/>
-                                    </HBox>
-                                </VBox>
 
                             </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
                         </HBox>
                     </children>
                 </VBox>
 
 
-                <HBox>
+                <HBox alignment="CENTER">
                     <children>
 
-
-                        <ListView fx:id="recipeList" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="116.0" prefWidth="358.0">
-                            <items>
-                                <FXCollections fx:factory="observableArrayList">
-                                    <HBox spacing="10.0">
-                                        <children>
-                                            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                <image>
-                                                    <Image url="https://cdn-icons-png.flaticon.com/512/857/857681.png" />
-                                                </image>
-                                            </ImageView>
-                                            <HBox alignment="CENTER_LEFT" spacing="10.0">
-                                                <children>
-                                                    <VBox>
-                                                        <children>
-                                                            <Label prefWidth="213.0" text="Author" />
-                                                            <Label text="Title" />
-                                                            <Label text="Description" />
-                                                        </children>
-                                                    </VBox>
-                                                </children>
-                                            </HBox>
-                                            <HBox alignment="CENTER">
-                                                <children>
-                                                    <Button text="Lire" />
-                                                </children>
-                                            </HBox>
-                                        </children>
-                                    </HBox>
-                                    <!-- Ajoutez autant d'éléments HBox que de recettes à afficher -->
-                                </FXCollections>
-                            </items>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                        </ListView>
-
                         <ListView fx:id="searchResultsStepListStepList" layoutY="50.0" prefHeight="284.0" prefWidth="254.0" />
-                        
+
                     </children>
-               <padding>
-                  <Insets top="20.0" />
-               </padding>
+                    <padding>
+                        <Insets top="20.0" />
+                    </padding>
                 </HBox>
 
 
 
 
                 <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="1000.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="42.0" prefWidth="352.0">
-                     <children>
-                        <Label text="Prix" />
-                     </children>
-                  </HBox>
-                  <Spinner fx:id="spinner"/>
-               </children>
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="352.0">
+                            <children>
+                                <Label text="Prix" />
+                            </children>
+                        </HBox>
+                        <Spinner fx:id="spinner" />
+                    </children>
                 </HBox>
 
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -258,7 +210,7 @@
 
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                     <children>
-                        <Button fx:id="publierButton" onAction="#Publier" mnemonicParsing="false" text="Publier" />
+                        <Button fx:id="publierButton" mnemonicParsing="false" onAction="#Publier" text="Publier" />
                     </children>
                 </VBox>
             </children>

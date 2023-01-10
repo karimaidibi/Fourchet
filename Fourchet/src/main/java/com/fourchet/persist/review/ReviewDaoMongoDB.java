@@ -1,6 +1,7 @@
 package com.fourchet.persist.review;
 
 import com.fourchet.persist.DaoFactory;
+import com.fourchet.persist.recipe.RecipeDao;
 import com.fourchet.review.Review;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -10,7 +11,7 @@ import org.bson.Document;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReviewDaoMongoDB {
+public class ReviewDaoMongoDB extends ReviewDao {
 
     // the review dao knows the factory that created it
     DaoFactory factory;
@@ -28,16 +29,14 @@ public class ReviewDaoMongoDB {
         System.out.println("Collection reviews selected successfully");
     }
 
-    public List<Review> getReviews() {
-        return null;
-    }
+
 
 
     /**
      * return all the reviews in the database as a list of reviews objects
      * it should replace the FindIterable<Document> by List<Review> or add the founded reviews to the list of reviews
      */
-
+    @Override
     public List<Review> getAll() {
         List reviews = new ArrayList<Review>();
         // A request to Find all documents in the collection of reviews
@@ -52,7 +51,8 @@ public class ReviewDaoMongoDB {
     }
 
 
-    public void save(Review review) throws Exception {
+    @Override
+    public void save(Review review) {
         Review R = findOneReview(review.getIDReviewed(),review.getIDReviewer());
         if (R == null) {
             Document reviewDocument = new Document("note", review.getNote())
@@ -64,12 +64,11 @@ public class ReviewDaoMongoDB {
         }
         else {
             System.out.println("Reviewer already make review about this");
-            throw new Exception("Review already exists");
         }
     }
 
-
-    public void update(Review oldReview, Review newReview) {
+    @Override
+    public void updateReview(Review oldReview, Review newReview) {
         Document oldReviewDocument = new Document("comment", oldReview.getComment())
                 .append("note", oldReview.getNote())
                 .append("IDReviewer",oldReview.getIDReviewer())
@@ -81,6 +80,7 @@ public class ReviewDaoMongoDB {
         reviewsCollection.updateOne(oldReviewDocument, newReviewDocument);
     }
 
+    @Override
     public void delete(Review review) {
         Document reviewDocument = new Document("comment", review.getComment())
                 .append("note", review.getNote())
@@ -89,6 +89,7 @@ public class ReviewDaoMongoDB {
         reviewsCollection.deleteOne(reviewDocument);
     }
 
+    @Override
     public List<Review> findAllByReviewed(String IDReviewed) {
         List reviews = new ArrayList<Review>();
         Document query = new Document("IDReviewed", IDReviewed);
@@ -103,6 +104,7 @@ public class ReviewDaoMongoDB {
     }
 
 
+    @Override
     public Review findOneReview(String IDReviewed, String IDReviewer) {
         Document filter = new Document("IDReviewer", IDReviewer)
                 .append("IDReviewed", IDReviewed);
@@ -118,16 +120,6 @@ public class ReviewDaoMongoDB {
             System.out.println(review);
             return new Review(review);
         }
-
-    }
-
-    public static void main(String[] args) {
-        DaoFactory factory = new DaoFactory();
-        ReviewDaoMongoDB reviewDaoMongoDB = new ReviewDaoMongoDB(factory);
-        //reviewDaoMongoDB.save(new Review(6, "Super", "zergzergzerg", "izergzerj"));
-        //reviewDaoMongoDB.findOneReview("izergzerj", "hsfafh");
-        //reviewDaoMongoDB.getAll();
-        reviewDaoMongoDB.findAllByReviewed("izergzerj");
 
     }
 }

@@ -4,32 +4,22 @@ import com.fourchet.bl.recipe.RecipeFacade;
 import com.fourchet.bl.typeOfCuisine.TypeOfCuisineFacade;
 import com.fourchet.recipe.Recipe;
 import com.fourchet.recipe.TypeOfRecipe;
-import com.fourchet.ui.recipe.RecipeViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelFormat;
 import javafx.scene.image.WritableImage;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.bson.Document;
 import org.bson.types.Binary;
 
 import java.nio.ByteBuffer;
-import java.util.Objects;
 
-public class DishesCreateController {
-    public Button removeSelectedRecipeButton;
-    public VBox selectedRecipeBox;
-    public ListView searchResultsList;
-
+public class DishesModifyController {
     private TypeOfCuisineFacade typeOfCuisineFacade = TypeOfCuisineFacade.getInstance();
     public Button searchButton;
     public TextField searchField;

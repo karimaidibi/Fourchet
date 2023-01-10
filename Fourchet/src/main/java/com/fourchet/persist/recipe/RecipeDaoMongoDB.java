@@ -35,14 +35,12 @@ public class RecipeDaoMongoDB  extends RecipeDao {
     public List<Recipe> getAll() {
         List recipes = new ArrayList<Recipe>();
         FindIterable<Document> documents = recipesCollection.find();
-        System.out.println("Documents found successfully");
         int i = 0;
         for (Document doc : documents) {
-            System.out.println(doc);
             recipes.add(new Recipe(doc));
             i++;
+            System.out.println(doc);
         }
-        System.out.println(i);
         return recipes;
     }
 
