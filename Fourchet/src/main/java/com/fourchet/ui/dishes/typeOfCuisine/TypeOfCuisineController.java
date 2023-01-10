@@ -14,6 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
 
 import static com.fourchet.ui.Popup.showAlert;
@@ -53,14 +54,14 @@ public class TypeOfCuisineController implements Initializable {
      * It will update the list of ingredients and the list of categories in the choice box
      */
     @FXML
-    private void initialize() {
+    private void initialize() throws ParseException {
         // TODO: implement action to initialize the controller
         // Set the items of the ListView to the ObservableList
         this.loadTypeOfCuisineFromDatabase();
         this.listOfTypeOfCuisine.setItems(typeOfCuisineBoxes);
     }
 
-    public void loadTypeOfCuisineFromDatabase() {
+    public void loadTypeOfCuisineFromDatabase() throws ParseException {
         // load ingredient categories from database and add them to the ObservableList
         for (TypeOfCuisine typeOfCuisine : this.typeOfCuisineFacade.getAllTypeOfCuisine()) {
             HBox hBox = this.createTypeOfCuisineCard(typeOfCuisine);

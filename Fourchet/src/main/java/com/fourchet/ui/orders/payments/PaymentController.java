@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Window;
 
+import java.text.ParseException;
+
 public class PaymentController {
     @FXML
     private VBox GeneralPane;
@@ -47,7 +49,7 @@ public class PaymentController {
 
     private String selectedPaymentMethod;
 
-    public void initialize() {
+    public void initialize() throws ParseException {
         // get the current cart from the facade
         Cart cart = paymentFacade.getCart();
         this.setDisplayPrices(cart.getOrderPrice(), cart.getDeliveryPrice(), cart.getTotalPrice());

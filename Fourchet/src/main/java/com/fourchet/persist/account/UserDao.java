@@ -6,6 +6,7 @@ import com.fourchet.persist.Dao;
 import com.fourchet.users.User;
 import org.bson.Document;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -38,7 +39,7 @@ public abstract class UserDao implements Dao<User> {
         return null;
     };
 
-    public Cart getCart(User user) {
+    public Cart getCart(User user) throws ParseException {
         return null;
     }
 

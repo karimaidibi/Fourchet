@@ -11,6 +11,7 @@ import org.bson.Document;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
+import java.text.ParseException;
 import java.util.*;
 
 
@@ -111,7 +112,7 @@ public class UserDaoMongoDB extends UserDao {
         List<CartItem> cartItems = cart.getItems();
         List<Document> cartItemsDocument = new ArrayList<Document>();
         for (CartItem cartItem : cartItems) {
-            cartItemsDocument.add(new Document("product", cartItem.getProduct())
+            cartItemsDocument.add(new Document("product", cartItem.getProductDocument())
                     .append("quantity", cartItem.getQuantity()));
         }
         // update the cart of the user
@@ -120,7 +121,7 @@ public class UserDaoMongoDB extends UserDao {
     }
 
     // method to get the cart of the user
-    public Cart getCart(User user) {
+    public Cart getCart(User user) throws ParseException {
         // get the cart of the user
         FindIterable<Document> documents = usersCollection.find(Filters.eq("email", user.getEmail()));
         Document userDocument = documents.first();

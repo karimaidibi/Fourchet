@@ -10,6 +10,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,7 @@ public class ProductsDaoMongoDB extends ProductsDao {
     }
 
     @Override
-    public Product findByOwnerAndName(String ownerEmail, String ownerActivityName, String name) {
+    public Product findByOwnerAndName(String ownerEmail, String ownerActivityName, String name) throws ParseException {
         Document query = new Document("name", name)
                 .append("ownerEmail", ownerEmail)
                 .append("ownerActivityName", ownerActivityName);
@@ -57,7 +58,7 @@ public class ProductsDaoMongoDB extends ProductsDao {
      * it should replace the FindIterable<Document> by List<Product> or add the founded products to the list of products
      */
     @Override
-    public List<Product> getAll() {
+    public List<Product> getAll() throws ParseException {
         List<Product> res = new ArrayList<>();
         FindIterable<Document> docs = productsCollection.find();
         for (Document d : docs) {
@@ -108,7 +109,7 @@ public class ProductsDaoMongoDB extends ProductsDao {
 
 
     @Override
-    public List<Product> getAllByOwner(String ownerEmail, String ownerActivityName) {
+    public List<Product> getAllByOwner(String ownerEmail, String ownerActivityName) throws ParseException {
         List<Product> res = new ArrayList<>();
         Document query = new Document("ownerEmail", ownerEmail)
                 .append("ownerActivityName", ownerActivityName);

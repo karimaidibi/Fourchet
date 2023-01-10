@@ -4,6 +4,7 @@ import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.typeOfCuisine.TypeOfCuisineDao;
 import com.fourchet.dishes.typeCuisine.TypeOfCuisine;
 
+import java.text.ParseException;
 import java.util.List;
 
 // This class below is a singleton class (we create the facade only once)
@@ -59,7 +60,7 @@ public class TypeOfCuisineFacade {
         return typeOfCuisineDao.findByName(name);
     }
 
-    public List<TypeOfCuisine> getAllTypeOfCuisine() {
+    public List<TypeOfCuisine> getAllTypeOfCuisine() throws ParseException {
         return typeOfCuisineDao.getAll();
     }
 

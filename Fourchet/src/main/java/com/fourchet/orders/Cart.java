@@ -1,7 +1,9 @@
 package com.fourchet.orders;
 
+import com.fourchet.products.Product;
 import org.bson.Document;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +24,7 @@ public class Cart {
         this.items = new ArrayList<>();
     }
 
-    public Cart(List<Document> items, String deliveryAddress) {
+    public Cart(List<Document> items, String deliveryAddress) throws ParseException {
         this.items = new ArrayList<>();
         for(Document item : items){
             this.items.add(new CartItem(item));
@@ -44,7 +46,7 @@ public class Cart {
         }else{
             float orderPrice = 0;
             for(CartItem item : this.items){
-                orderPrice += (int)item.getProduct().get("price") * item.getQuantity();
+                orderPrice += (int)item.getProduct().getPrice() * item.getQuantity();
             }
             return orderPrice;
         }
@@ -68,10 +70,10 @@ public class Cart {
      * if the product is not in the cart, it will add it to the cart with the quantity 1
      * @param product the product to add to the cart
      * */
-    public void addProduct(HashMap<Object,Object> product) {
+    public void addProduct(Product product) {
         boolean productFound = false;
         for (CartItem item : this.items) {
-            if (item.getProduct().get("name").equals(product.get("name"))) {
+            if (item.getProduct().getName().equals(product.getName())) {
                 item.setQuantity(item.getQuantity() + 1);
                 productFound = true;
             }
@@ -87,9 +89,9 @@ public class Cart {
      * if the quantity is 0, it will remove the product from the cart
      * @param product the product to remove from the cart
      * */
-    public void removeProduct(HashMap<Object,Object> product) {
+    public void removeProduct(Product product) {
         for(int i = 0; i < this.items.size(); i++){
-            if(this.items.get(i).getProduct().get("name").equals(product.get("name"))){
+            if(this.items.get(i).getProduct().getName().equals(product.getName())){
                 if(this.items.get(i).getQuantity() > 1){
                     this.items.get(i).setQuantity(this.items.get(i).getQuantity() - 1);
                 }else{

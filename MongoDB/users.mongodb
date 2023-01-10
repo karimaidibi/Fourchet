@@ -23,17 +23,11 @@ db.users.updateOne({email : "client@gmail.com"},
             [
                 {
                     "product" : {
-                        "providerId" : "FZFRZ",
-                        "price" : 10,
-                        "name" : "sucre"
-                    },
-                    "quantity" : 1
-                },
-                {
-                    "product" : {
-                        "providerId" : "FZFRZfrzef",
-                        "price" : 5,
-                        "name" : "banane"
+                        "ownerEmail" : "provider@gmail.com",
+                        "ownerActivityName" : "mon resto",
+                        "name" : "Bananes vrac",
+                        "category" : "Légume",
+                        "price" : 3,
                     },
                     "quantity" : 1
                 }

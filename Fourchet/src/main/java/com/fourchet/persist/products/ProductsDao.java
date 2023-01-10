@@ -5,6 +5,7 @@ import com.fourchet.products.Product;
 import com.fourchet.persist.Dao;
 import com.fourchet.users.actitvities.Activity;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +17,7 @@ public abstract class ProductsDao implements Dao<Product> {
         return Optional.empty();
     }
 
-    public abstract Product findByOwnerAndName(String ownerEmail, String ownerActivityName, String name);
+    public abstract Product findByOwnerAndName(String ownerEmail, String ownerActivityName, String name) throws ParseException;
 
     @Override
     public void save(Product product) {
@@ -28,5 +29,5 @@ public abstract class ProductsDao implements Dao<Product> {
 
     }
 
-    public abstract List<Product> getAllByOwner(String ownerEmail, String ownerActivityName);
+    public abstract List<Product> getAllByOwner(String ownerEmail, String ownerActivityName) throws ParseException;
 }

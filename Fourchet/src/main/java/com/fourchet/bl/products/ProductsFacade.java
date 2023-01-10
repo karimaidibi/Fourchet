@@ -5,6 +5,7 @@ import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.products.ProductsDao;
 import com.fourchet.users.actitvities.Activity;
 
+import java.text.ParseException;
 import java.util.List;
 
 // This class below is a singleton class (we create the facade only once)
@@ -65,7 +66,7 @@ public class ProductsFacade {
         productsDao.update(product, params);
     }
 
-    public List<Product> getAllByOwner(String ownerEmail, String ownerActivityName) {
+    public List<Product> getAllByOwner(String ownerEmail, String ownerActivityName) throws ParseException {
         return productsDao.getAllByOwner(ownerEmail, ownerActivityName);
     }
 }

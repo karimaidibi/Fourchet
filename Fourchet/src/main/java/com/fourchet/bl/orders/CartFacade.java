@@ -5,6 +5,7 @@ import com.fourchet.persist.AbstractFactory;
 import com.fourchet.persist.account.UserDao;
 import com.fourchet.users.User;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class CartFacade {
     }
 
     // Tell the dao to get the cart from the user and handle exception if cart is null
-    public Cart getCart(User user) {
+    public Cart getCart(User user) throws ParseException {
         Cart cart = this.userDao.getCart(user);
         if (cart == null) {
             this.cart = new Cart();
