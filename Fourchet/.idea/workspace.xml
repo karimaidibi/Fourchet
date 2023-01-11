@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5284ecc2-36fc-40ef-9c8f-aa7e6b007cdd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/orders/CartFacadeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/orders/payments/PaymentFacadeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/fourchet/bl/products/ProductsFacadeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fourchet/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/fourchet/users/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/typeOfCuisine/TypeOfCuisineFacadeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/fourchet/bl/typeOfCuisine/TypeOfCuisineFacadeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +81,7 @@
       <recent name="com.fourchet.bl.orders" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CartFacadeTest">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.fourchet.ui.Application" />
       <module name="Fourchet" />
@@ -126,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CartFacadeTest" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.CartFacadeTest" />
         <item itemvalue="Application.com.fourchet.ui.rates.Application" />
       </list>
     </recent_temporary>
@@ -157,6 +156,7 @@
       <workItem from="1673381622102" duration="5152000" />
       <workItem from="1673386781892" duration="2467000" />
       <workItem from="1673389258651" duration="208000" />
+      <workItem from="1673398859781" duration="1630000" />
     </task>
     <servers />
   </component>
