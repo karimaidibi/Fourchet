@@ -29,6 +29,7 @@ public class User {
         this.password = (String) document.get("password");
         this.role = (String) document.get("role");
         this.picture = (Binary) document.get("picture", Binary.class);
+        this.address = (String) document.get("address");
     }
 
     public User(){}
@@ -71,5 +72,9 @@ public class User {
 
     public void setPicture(Binary picture) {
         this.picture = picture;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }
