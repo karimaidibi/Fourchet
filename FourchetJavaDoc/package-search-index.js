@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"com.fourchet","l":"com.fourchet"},{"m":"com.fourchet","l":"com.fourchet.account"},{"m":"com.fourchet","l":"com.fourchet.account.bl"},{"m":"com.fourchet","l":"com.fourchet.account.loginUI"},{"m":"com.fourchet","l":"com.fourchet.account.persist"},{"m":"com.fourchet","l":"com.fourchet.account.users"}]

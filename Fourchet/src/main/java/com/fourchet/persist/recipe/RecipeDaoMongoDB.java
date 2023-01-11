@@ -27,7 +27,6 @@ public class RecipeDaoMongoDB  extends RecipeDao {
         this.factory = factory;
         this.mongoDatabase = factory.getMongoDatabase();
         this.recipesCollection = mongoDatabase.getCollection("recipes");
-        System.out.println("Collection recipes selected successfully");
     }
 
 
@@ -35,14 +34,11 @@ public class RecipeDaoMongoDB  extends RecipeDao {
     public List<Recipe> getAll() {
         List recipes = new ArrayList<Recipe>();
         FindIterable<Document> documents = recipesCollection.find();
-        System.out.println("Documents found successfully");
         int i = 0;
         for (Document doc : documents) {
-            System.out.println(doc);
             recipes.add(new Recipe(doc));
             i++;
         }
-        System.out.println(i);
         return recipes;
     }
 
@@ -63,10 +59,8 @@ public class RecipeDaoMongoDB  extends RecipeDao {
         );
 
         FindIterable<Document> documents = recipesCollection.find(filter);
-        System.out.println("Documents found successfully");
 
         for (Document doc : documents) {
-            System.out.println(doc);
             recipes.add(new Recipe(doc));
         }
         return recipes;
@@ -83,7 +77,6 @@ public class RecipeDaoMongoDB  extends RecipeDao {
                 .append("Author",recipe.getAuthor())
                 .append("TypeOfRecipe",recipe.getType());
         this.recipesCollection.insertOne(document);
-        System.out.println("Review succesfully added");
     }
 
 
@@ -108,7 +101,6 @@ public class RecipeDaoMongoDB  extends RecipeDao {
 
         Document update = new Document("$set", newRecipeDocument);
 
-        System.out.println("bon");
         recipesCollection.updateOne(filter, update);
     }
 
@@ -131,7 +123,6 @@ public class RecipeDaoMongoDB  extends RecipeDao {
         FindIterable<Document> documents = recipesCollection.find(query);
 
         for (Document doc : documents) {
-            System.out.println(doc);
             recipes.add(new Recipe(doc));
         }
         return recipes;
