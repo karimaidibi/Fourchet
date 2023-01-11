@@ -7,7 +7,9 @@ import org.bson.Document;
 import java.util.List;
 
 public class Dish {
-    private Activity activityOwner;
+    private String activityOwner;
+
+    private String emailOwner;
 
     private String title;
 
@@ -23,7 +25,7 @@ public class Dish {
 
     private double price;
 
-    public Dish(Activity activityOwner, String title, String description, String image, List<String> ingredients, String category, TypeOfCuisine typeOfCuisine, double price) {
+    public Dish(String activityOwner, String title, String description, String image, List<String> ingredients, String category, TypeOfCuisine typeOfCuisine, double price,String emailOwner) {
         this.activityOwner = activityOwner;
         this.title = title;
         this.description = description;
@@ -32,10 +34,11 @@ public class Dish {
         this.category = category;
         this.typeOfCuisine = typeOfCuisine;
         this.price = price;
+        this.emailOwner = emailOwner;
     }
 
     public Dish(Document document) {
-        this.activityOwner = (Activity) document.get("activityOwner");
+        this.activityOwner = (String) document.get("activityOwner");
         this.title = (String) document.get("title");
         this.description = (String) document.get("description");
         this.image = (String) document.get("image");
@@ -43,13 +46,14 @@ public class Dish {
         this.category = (String) document.get("category");
         this.typeOfCuisine = (TypeOfCuisine) document.get("typeOfCuisine");
         this.price = (double) document.get("price");
+        this.emailOwner = (String) document.get("emailOwner");
     }
 
-    public Activity getActivityOwner() {
+    public String getActivityOwner() {
         return activityOwner;
     }
 
-    public void setActivityOwner(Activity activityOwner) {
+    public void setActivityOwner(String activityOwner) {
         this.activityOwner = activityOwner;
     }
 
@@ -107,5 +111,13 @@ public class Dish {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getEmailOwner() {
+        return emailOwner;
+    }
+
+    public void setEmailOwner(String emailOwner) {
+        this.emailOwner = emailOwner;
     }
 }

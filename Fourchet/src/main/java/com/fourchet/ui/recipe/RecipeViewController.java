@@ -68,7 +68,6 @@ public class RecipeViewController {
         setDescriptionRecipe(recipe.getDescription());
         setImageRecipe(recipe.getImage());
         setIngredientList(recipe.getIngredients());
-        System.out.println(recipe.getSteps());
         setStepList(recipe.getSteps());
         setTypeOfRecipe(recipe.getType());
 
@@ -113,9 +112,7 @@ public class RecipeViewController {
     }
 
     public void setStepList(List<String> step) {
-        System.out.println(step);
         for (String s : step) {
-            System.out.println(s);
             Label stepLabel = new Label(s);
             HBox stepBox = new HBox();
             stepBox.getChildren().add(stepLabel);

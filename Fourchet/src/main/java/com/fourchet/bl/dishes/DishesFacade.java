@@ -29,6 +29,7 @@ public class DishesFacade {
 
     public Dish saveDish(Dish dish)
     {
+        /*
         try {
             Dish existingDish = dishesDao.findByActivityAndName(dish.getActivityOwner(), dish.getTitle());
             if (existingDish == null) {
@@ -43,6 +44,9 @@ public class DishesFacade {
             System.out.println(e.getMessage());
         }
         return dish;
+
+         */
+        return null;
     }
 
     public void deleteDish(Dish dish) {
