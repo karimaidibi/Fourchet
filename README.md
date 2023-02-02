@@ -1,6 +1,9 @@
 # Fourchet
 software engineering project - 4th year software engineering at Polytech Montpellier
 
+# Autors
+Aidibi Karim - Bernat Achille - Teena Nuihau - Toury Marwane
+
 ## How to launch the application
 
 1- Open the project named 'Fourchet' as an Intellij IDEA Project (important for the dependencies)
