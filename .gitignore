@@ -1,0 +1,17 @@
+# IntelliJ files
+.iml
+.ipr
+.iws
+
+# Other files
+.log
+
+# Project files
+.idea
+out
+
+# Ignore files that may contain sensitive information
+.properties
+.xml
+
+.class
